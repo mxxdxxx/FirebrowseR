@@ -1,0 +1,47 @@
+Analyses.CopyNumber.Genes.All
+                        Retrieve all data by genes Gistic2 results.
+Analyses.CopyNumber.Genes.Amplified
+                        Retrieve Gistic2 significantly amplified genes
+                        results.
+Analyses.CopyNumber.Genes.Deleted
+                        Retrieve Gistic2 significantly deleted genes
+                        results.
+Analyses.CopyNumber.Genes.Focal
+                        Retrieve focal data by genes Gistic2 results.
+Analyses.CopyNumber.Genes.Thresholded
+                        Retrieve all thresholded by genes Gistic2
+                        results.
+Analyses.FeatureTable   Retrieve aggregated analysis features table.
+Analyses.Mutation.MAF   Retrieve MutSig final analysis MAF.
+Analyses.Mutation.SMG   Retrieve Significantly Mutated Genes (SMG).
+Analyses.Reports        Retrieve nozzle report links
+Archives.StandardData   Retrieve standard data archives.
+Metadata.Centers        Retrieve map of center name(s) to display
+                        name(s).
+Metadata.ClinicalTier1
+                        Retrieve names of all available clinical data
+                        elements (CDEs).
+Metadata.Cohort         Retrieve cohort description.
+Metadata.Cohorts        Retrieve map of cohort abbreviation(s) to
+                        cohort name(s).
+Metadata.Counts         Retrieve sample counts.
+Metadata.Dates          Retrieve list of Firehose standard data and
+                        analyses dates.
+Metadata.HeartBeat      Simple way to discern whether API server is up
+                        and running
+Metadata.Platforms      Retrieve map of platform code(s) to platform
+                        name(s).
+Metadata.SampleType.Barcode
+                        Return a sample type code to short letter code
+                        mapping.
+Metadata.SampleType.Code
+                        Translate from numeric sample type code to
+                        short letter code.
+Metadata.SampleType.ShortLetterCode
+                        Translate from sample type short letter code to
+                        numeric code.
+Metadata.SampleTypes    Return a sample type code to short letter code
+                        mapping.
+Samples.ClinicalTier1   Retrieve clinical pick tier 1 data.
+Samples.mRNASeq         Retrieve mRNASeq data
+Samples.miRSeq          Retrieve miRSeq data
