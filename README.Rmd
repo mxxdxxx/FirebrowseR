@@ -26,4 +26,4 @@ mRNA.Exp = Samples.mRNASeq(gene = c("PTEN", "RUNX1"),
 mRNA.Exp[, c("tcga_participant_barcode", "expression_log2", "z.score")]
 ```
 __Long:__
-Please see `FirebrowseR.Rmd`
+Please see `vignettes/FirebrowseR.Rmd`
