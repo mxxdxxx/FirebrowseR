@@ -1,6 +1,6 @@
 # Sample .travis.yml for R projects from https://github.com/craigcitro/r-travis
 
-language: c
+language: r
 
 before_install:
   - curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh
@@ -16,9 +16,11 @@ after_failure:
   - ./travis-tool.sh dump_logs
 
 env:
-  - WARNINGS_ARE_ERRORS=1
+  - WARNINGS_ARE_ERRORS=true
 
 notifications:
   email:
     on_success: change
     on_failure: change
+
+sudo: required
