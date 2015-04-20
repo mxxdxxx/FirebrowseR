@@ -1,0 +1,998 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdfetex 2015.2.6)  20 APR 2015 18:03
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**\nonstopmode \catcode126=12 \def\normaltilde{~}\catcode126=13 \let~\normaltil
+de  \input ./FirebrowseR.md
+(./FirebrowseR.md
+! Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.5 output: rmarkdown::html_
+                            vignette
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.11 
+     
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+Overfull \hbox (52.12099pt too wide) in paragraph at lines 12--13
+\tenrm [Broad-in-sti-tute](https://www.broadinstitute.org/), which gen-er-ates 
+the most data sets used by the [TCGA](https://tcga-|
+
+\hbox(7.5+2.5)x469.75499, glue set - 1.0
+.\tenrm [
+.\tenrm B
+.\tenrm r
+.\tenrm o
+.\tenrm a
+.etc.
+
+! You can't use `macro parameter character #' in vertical mode.
+l.14 #
+      # Introduction
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in vertical mode.
+l.14 ##
+        Introduction
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in vertical mode.
+l.17 #
+      ## The API itself
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in vertical mode.
+l.17 ##
+       # The API itself
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in vertical mode.
+l.17 ###
+         The API itself
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in vertical mode.
+l.29 #
+      ## Scope of FirebrowseR
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in vertical mode.
+l.29 ##
+       # Scope of FirebrowseR
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in vertical mode.
+l.29 ###
+         Scope of FirebrowseR
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in vertical mode.
+l.32 #
+      ## Getting around
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in vertical mode.
+l.32 ##
+       # Getting around
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in vertical mode.
+l.32 ###
+         Getting around
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.33 ...s own help page, accessable by `?function_
+                                                  name`, giving explanations...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.34 
+     
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+Overfull \hbox (49.39764pt too wide) in paragraph at lines 32--34
+[]\tenrm Getting around Fire-browseR pro-vides all func-tions dis-played in the
+ [API-Documentation](http://firebrowse.org/api-|
+
+\hbox(7.5+2.5)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm G
+.\tenrm e
+.\tenrm t
+.\tenrm t
+.etc.
+
+
+Overfull \hbox (115.16052pt too wide) in paragraph at lines 32--34
+\tenrm by `?function$[]\teni ame\tenrm `\teni ; givingexplanationsandexamplesne
+ededforthisfunction:Furtherfouradditionaldataframesareprovided\tenrm ; \teni na
+mely$ |
+
+\hbox(6.94444+1.94444)x469.75499, glue set - 1.0
+.\tenrm b
+.\kern-0.27779
+.\tenrm y
+.\glue 3.33333 plus 1.66666 minus 1.11111
+.\tenrm `
+.etc.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.35 * data_
+            types,
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing { inserted.
+<to be read again> 
+                   \par 
+l.44 
+     
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
+
+! Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.44 
+     
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing } inserted.
+<inserted text> 
+                }
+<to be read again> 
+                   $
+<to be read again> 
+                   \par 
+l.44 
+     
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (441.04794pt too wide) in paragraph at lines 35--44
+[]\tenrm * data$[]\teni ypes; \tensy ^^C\teni Neededfor \tenrm : `\teni Metadat
+a:Counts\tenrm `\teni and\tenrm `\teni Archives:StandardData\tenrm ` \tensy ^^C
+ \teni tools; \tensy ^^C\teni Neededfor \tenrm : `\teni Samples:miRSeq\tenrm `\
+teni ; \tenrm `\teni Analyses:Mutation:MAF\tenrm `\teni ; \tenrm `\teni Analyse
+s:Mutation:SMG\tenrm `\teni and\tenrm `\teni Archives:StandardData\tenrm ` \ten
+sy ^^C|
+
+\hbox(7.5+1.94444)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm *
+.\glue 3.33333 plus 1.66666 minus 1.11111
+.\tenrm d
+.\tenrm a
+.etc.
+
+
+Overfull \hbox (203.1742pt too wide) in paragraph at lines 35--44
+\teni protocolsand \tensy ^^C \teni Neededfor \tenrm : `\teni Samples:mRNASeq\t
+enrm `\teni ; \tenrm `\teni Archives:StandardData\tenrm ` \tensy ^^C \teni samp
+le:Types: \tensy ^^C \teni Neededtoextractthedefinitionsof[]ode[]nd[]hort:Lette
+r:Code[]$ |
+
+\hbox(6.94444+1.94444)x469.75499, glue set - 1.0
+.\teni p
+.\teni r
+.\kern0.27779
+.\teni o
+.\teni t
+.etc.
+
+! You can't use `macro parameter character #' in vertical mode.
+l.47 #
+      ## Installation
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in vertical mode.
+l.47 ##
+       # Installation
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in vertical mode.
+l.47 ###
+         Installation
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.48 ...ges('FirebrowseR')` or `devtools::install_
+                                                  github("mariodeng/Firebrow...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.49 
+     
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+Overfull \hbox (2.04912pt too wide) in paragraph at lines 47--49
+[]\tenrm Installation The Fire-browseR pack-age in-stalls like ev-ery other R p
+ack-age `in-stall.packages('FirebrowseR')`|
+
+\hbox(7.5+2.5)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm I
+.\tenrm n
+.\tenrm s
+.\tenrm t
+.etc.
+
+! You can't use `macro parameter character #' in vertical mode.
+l.50 #
+      ## License
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in vertical mode.
+l.50 ##
+       # License
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in vertical mode.
+l.50 ###
+         License
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.51 ...ipedia](https://en.wikipedia.org/wiki/MIT_
+                                                  License).
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.52 
+     
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+Overfull \hbox (122.19005pt too wide) in paragraph at lines 50--52
+[]\tenrm License Fire-browseR is li-censed un-der MIT Li-cense. Please see li-c
+ense file or [wikipedia](https://en.wikipedia.org/wiki/MIT$[]\teni icense\tenrm
+ )\teni :$ |
+
+\hbox(7.5+2.5)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm L
+.\tenrm i
+.\tenrm c
+.\tenrm e
+.etc.
+
+! You can't use `macro parameter character #' in vertical mode.
+l.53 #
+      # How to use
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in vertical mode.
+l.53 ##
+        How to use
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in vertical mode.
+l.56 #
+      ## Example, Breast Cancer mRNA expression
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in vertical mode.
+l.56 ##
+       # Example, Breast Cancer mRNA expression
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in vertical mode.
+l.56 ###
+         Example, Breast Cancer mRNA expression
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in horizontal mode.
+l.62 cohorts = Metadata.Cohorts() #
+                                    Download all available cohorts
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.66 
+     
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! You can't use `macro parameter character #' in horizontal mode.
+l.68 #
+      # [1] "BRCA"
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in horizontal mode.
+l.68 ##
+        [1] "BRCA"
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in horizontal mode.
+l.79 #
+      # [1] 250  24
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in horizontal mode.
+l.79 ##
+        [1] 250  24
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+Overfull \hbox (12.4936pt too wide) in paragraph at lines 85--100
+[]\tenrm ```r all.Received = F page.Counter = 1 brca.Pats = list() while(all.Re
+ceived == F) brca.Pats[[page.Counter]]|
+
+\hbox(7.5+2.5)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm \ (ligature ``)
+.\tenrm `
+.\tenrm r
+.\glue 3.33333 plus 1.66666 minus 1.11111
+.etc.
+
+! You can't use `macro parameter character #' in horizontal mode.
+l.102 #
+       # [1] 1070   24
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in horizontal mode.
+l.102 ##
+         [1] 1070   24
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+[1{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+! Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.112 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+Overfull \hbox (592.76437pt too wide) in paragraph at lines 108--112
+[]\tenrm ```r brca.Pats = brca.Pats[ which(brca.Pats$\teni vital[]tatus \tenrm 
+== 1)\teni ; \tenrm ]\`\teni Herewedefineavectorcontainingsomegeneswhichareknow
+ntobedifferentiallyexpressedinbreastcanceranddownloadthemRNAexpressiondataforth
+esegenesandourpatients:$ |
+
+\hbox(7.5+2.5)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm \ (ligature ``)
+.\tenrm `
+.\tenrm r
+.\glue 3.33333 plus 1.66666 minus 1.11111
+.etc.
+
+! You can't use `macro parameter character #' in horizontal mode.
+l.119 page.Size = 2000 #
+                         using a bigger page size is faster
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.122 ...                                    tcga_
+                                                  participant_barcode =
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.123 ...                          brca.Pats$tcga_
+                                                  participant_barcode,
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Extra }, or forgotten $.
+l.129 }
+       
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.133 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+Overfull \hbox (8.27376pt too wide) in paragraph at lines 113--133
+[]\tenrm ```r diff.Exp.Genes = c("ESR1", "GATA3", "XBP1", "FOXA1", "ERBB2", "GR
+B7", "EGFR", "FOXC1",|
+
+\hbox(7.5+2.5)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm \ (ligature ``)
+.\tenrm `
+.\tenrm r
+.\glue 3.33333 plus 1.66666 minus 1.11111
+.etc.
+
+
+Overfull \hbox (71.0437pt too wide) in paragraph at lines 113--133
+\tenrm tcga$[]\teni articipant[]arcode \tenrm = \teni brca:Pats$\tenrm tcga$[]\
+teni articipant[]arcode; page[]ize \tenrm = \teni page:Size\tenrm )\teni if\ten
+rm (\teni nrow\tenrm (\teni mRNA:Exp\tenrm [[\teni page:Counter\tenrm ]]) \teni
+ <|
+
+\hbox(7.5+2.86108)x469.75499
+.\tenrm t
+.\tenrm c
+.\tenrm g
+.\tenrm a
+.\mathon
+.etc.
+
+
+Overfull \hbox (80.29317pt too wide) in paragraph at lines 113--133
+\teni page:Size\tenrm )\teni all:Found \tenrm = \teni Telsepage:Counter \tenrm 
+= \teni page:Counter \tenrm + 1\teni mRNA:Exp \tenrm = \teni do:call\tenrm (\te
+ni rbind; mRNA:Exp\tenrm )\teni dim\tenrm (\teni mRNA:Exp\tenrm )\`$ |
+
+\hbox(7.5+2.5)x469.75499, glue set - 1.0
+.\teni p
+.\teni a
+.\teni g
+.\kern0.35878
+.\teni e
+.etc.
+
+! You can't use `macro parameter character #' in horizontal mode.
+l.135 #
+       # [1] 1584    8
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in horizontal mode.
+l.135 ##
+         [1] 1584    8
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in horizontal mode.
+l.141 #
+        Patients with normal tissue
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in math mode.
+l.143 #
+        get the patients barcodes
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.144 patient.Barcodes = mRNA.Exp$tcga_
+                                       participant_barcode[normal.Tissue.Pats]
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! You can't use `macro parameter character #' in math mode.
+l.145 #
+        Subset the mRNA.Exp data frame, keeping only the pre-selected barcod...
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in math mode.
+l.146 #
+        having a sample type of NT or TP
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.147 mRNA.Exp = mRNA.Exp[which(mRNA.Exp$tcga_
+                                              participant_barcode %in% patie...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.148                             mRNA.Exp$sample_
+                                                  type %in% c("NT", "TP")), ]
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.150 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+Overfull \hbox (151.65234pt too wide) in paragraph at lines 140--150
+[]\tenrm ```r  Pa-tients with nor-mal tis-sue nor-mal.Tissue.Pats = which(mRNA.
+Exp$\teni sample[]ype \tenrm == "\teni NT\tenrm ")\teni getthepatientsbarcodesp
+atient:Barcodes \tenrm =|
+
+\hbox(7.5+2.5)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm \ (ligature ``)
+.\tenrm `
+.\tenrm r
+.\glue 3.33333 plus 1.66666 minus 1.11111
+.etc.
+
+
+Overfull \hbox (23.14343pt too wide) in paragraph at lines 140--150
+\teni mRNA:Exp$\tenrm tcga$[]\teni articipant[]arcode\tenrm [\teni normal:Tissu
+e:Pats\tenrm ]\teni SubsetthemRNA:Expdataframe; keepingonlythepre \tensy ^^@|
+
+\hbox(7.5+2.86108)x469.75499, glue set - 1.0
+.\teni m
+.\teni R
+.\kern0.07726
+.\teni N
+.\kern1.09026
+.etc.
+
+
+Overfull \hbox (188.82753pt too wide) in paragraph at lines 140--150
+\teni selectedbarcodesANDhavingasampletypeofNTorTPmRNA:Exp \tenrm = \teni mRNA:
+Exp\tenrm [\teni which\tenrm (\teni mRNA:Exp$\tenrm tcga$[]\teni articipant[]ar
+codemRNA:Exp$\tenrm sample$[]\teni ype\tenrm \`$ |
+
+\hbox(7.5+2.86108)x469.75499
+.\teni s
+.\teni e
+.\teni l
+.\kern0.19678
+.\teni e
+.etc.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.157   geom_
+             boxplot(aes(fill = factor(sample_type))) +
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! You can't use `macro parameter character #' in math mode.
+l.158   #
+          we drop some outlier, so plot looks nicer, this also causes the wa...
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Double subscript.
+l.159   scale_y_
+                continuous(limits = c(-1, 5)) +
+I treat `x_1_2' essentially like `x_1{}_2'.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.162 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+Overfull \hbox (32.46358pt too wide) in paragraph at lines 153--162
+\teni factor\tenrm (\teni sample[]ype\tenrm ))) + \teni wedropsomeoutlier; sopl
+otlooksnicer; thisalsocausesthewarningscale[][]ontinuous\tenrm (\teni limits \t
+enrm =|
+
+\hbox(7.5+2.86108)x469.75499, glue set - 1.0
+.\teni f
+.\kern1.0764
+.\teni a
+.\teni c
+.\teni t
+.etc.
+
+! You can't use `macro parameter character #' in horizontal mode.
+l.164 #
+       # Warning in loop_apply(n, do.ply): Removed 59 rows containing non-fi...
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in horizontal mode.
+l.164 ##
+         Warning in loop_apply(n, do.ply): Removed 59 rows containing non-fi...
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.164 ## Warning in loop_
+                         apply(n, do.ply): Removed 59 rows containing non-fi...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! You can't use `macro parameter character #' in math mode.
+l.165 #
+       # values (stat_boxplot).
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in math mode.
+l.165 ##
+         values (stat_boxplot).
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.167 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! You can't use `macro parameter character #' in vertical mode.
+l.170 #
+       #FAQ
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in vertical mode.
+l.170 ##
+        FAQ
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in vertical mode.
+l.172 #
+       ## Preamble
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in vertical mode.
+l.172 ##
+        # Preamble
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in vertical mode.
+l.172 ###
+          Preamble
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in vertical mode.
+l.175 #
+       ## No data is returned
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in vertical mode.
+l.175 ##
+        # No data is returned
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in vertical mode.
+l.175 ###
+          No data is returned
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.183 ... chunking and not only use the page/page_
+                                                  size feature.
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing { inserted.
+<to be read again> 
+                   _
+l.185 ...e are following every post tagged with __
+                                                  FirebrowseR__.
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
+
+! Missing { inserted.
+<to be read again> 
+                   _
+l.185 ...ng every post tagged with __FirebrowseR__
+                                                  .
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
+
+! Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.186 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing } inserted.
+<inserted text> 
+                }
+<to be read again> 
+                   $
+<to be read again> 
+                   \par 
+l.186 
+      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing } inserted.
+<inserted text> 
+                }
+<to be read again> 
+                   $
+<to be read again> 
+                   \par 
+l.186 
+      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (62.56918pt too wide) in paragraph at lines 178--186
+\tenrm page/page$[]\teni izefeature:\tenrm 1\teni :Thereisabugwithinthisfunctio
+n \tensy ^^C \teni Pleasedirectlywriteamailorconsiderpostingto\tenrm [\teni bio
+stars\tenrm ](\teni https \tenrm :|
+
+\hbox(7.5+2.5)x469.75499, glue set - 1.0
+.\tenrm p
+.\tenrm a
+.\tenrm g
+.\tenrm e
+.\tenrm /
+.etc.
+
+
+Overfull \hbox (65.88863pt too wide) in paragraph at lines 178--186
+\teni ==www:biostars:org=\tenrm )\teni or\tenrm [\teni stackoverflow\tenrm ](\t
+eni https \tenrm : \teni ==stackoverflow:com=\tenrm )\teni :Wearefollowingevery
+posttaggedwith[]$ |
+
+\hbox(7.5+3.49997)x469.75499
+.\teni =
+.\teni =
+.\teni w
+.\kern0.26909
+.\teni w
+.etc.
+
+)
+! Emergency stop.
+<*> ... \let~\normaltilde  \input ./FirebrowseR.md
+                                                  
+*** (job aborted, no legal \end found)
+
+!  ==> Fatal error occurred, no output PDF file produced!

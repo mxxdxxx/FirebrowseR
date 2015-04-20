@@ -6,7 +6,7 @@ output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{FirebrowseR - A short introduction}
   %\VignetteEngine{knitr::rmarkdown}
-  \usepackage[utf8]{inputenc}
+  %\usepackage[utf8]{inputenc}
 ---
 
 FirebrowseR is an API client for the [firehose pipeline](http://gdac.broadinstitute.org/), provided by [Broadinstitute](https://www.broadinstitute.org/), which generates the most data sets used by the [TCGA](https://tcga-data.nci.nih.gov/tcga/). To access the data provided by the firehose pipeline the Broadinstitute provides several tools. One of these tools is the [Firebrowser](http://firebrowse.org/) which also serves a [Web-API](http://firebrowse.org/api-docs/). This API is queried by this R package, FirebroweR, giving you easy access to genomic data sets.
