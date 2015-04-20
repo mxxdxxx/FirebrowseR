@@ -1,4 +1,4 @@
-library(FireBrowseR)
+#library(FirebrowseR)
 context("Archives Standard Data")
 
 test_that("Check if download links a returned correctly", {

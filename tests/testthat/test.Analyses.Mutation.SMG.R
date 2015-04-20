@@ -1,4 +1,4 @@
-library(FireBrowseR)
+#library(FirebrowseR)
 context("Working with SMG files")
 
 test_that("Getting SMG files", {

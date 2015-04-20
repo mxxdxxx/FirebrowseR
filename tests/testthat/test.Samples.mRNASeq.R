@@ -1,4 +1,4 @@
-library(FireBrowseR)
+#library(FirebrowseR)
 context("Sample data mRNASeq")
 
 test_that("mRNASeq data is retrieved correctly", {

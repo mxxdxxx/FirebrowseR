@@ -1,4 +1,4 @@
-library(FireBrowseR)
+#library(FirebrowseR)
 context("Basic GISTIC2 Copy Number Data, Deleted")
 
 test_that("Getting the GISTIC2 delted ouput", {

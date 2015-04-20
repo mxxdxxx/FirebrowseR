@@ -1,10 +1,10 @@
 Package: FirebrowseR
 Type: Package
-Title: An API client for Broads Firehose Pipeline.
+Title: An API client for Broads Firehose Pipeline
 Version: 0.1
 Date: 2015-03-11
 Author: Mario Deng
-Maintainer: Mario Deng<mariodeng@googlemail.com>
+Maintainer: Mario Deng <mariodeng@googlemail.com>
 Description: Get direct and fast informations from massive genomic data sets
              provided by Broads Firehose Pipeline / The Cancer Genome Atlas.
 License: MIT + file LICENSE
@@ -13,5 +13,6 @@ Depends: R(>= 2.10.0)
 Suggests:
     testthat,
     jsonlite,
-    knitr
+    knitr,
+    ggplot2
 VignetteBuilder: knitr

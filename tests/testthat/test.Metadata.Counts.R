@@ -1,4 +1,4 @@
-library(FireBrowseR)
+#library(FirebrowseR)
 context("Metadata Metadata Counts")
 
 test_that("Sample counts are returned correctly", {

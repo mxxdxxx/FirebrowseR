@@ -1,4 +1,4 @@
-library(FireBrowseR)
+#library(FirebrowseR)
 context("Sample data ClinicalTier1")
 
 test_that("Samples.ClinicalTier1", {

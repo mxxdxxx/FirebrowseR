@@ -1,4 +1,4 @@
-library(FireBrowseR)
+#library(FirebrowseR)
 context("Metadata Cohorts")
 
 test_that("Cohort abbreviations are returned correctly", {

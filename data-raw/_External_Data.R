@@ -1,5 +1,5 @@
 # This function persits the possible arguments for functions using the
-# \code{data_type} and \code{tool} parameter. This is necersarry, since the API
+# \code{data_tyes} and \code{tool} parameter. This is necersarry, since the API
 # does not provide a way to get all available data types.
 
 
@@ -166,8 +166,8 @@ all_protocols = c("RPKM", #Samples.mRNASeq
                   )
 
 protocols = cbind(replicate(2, rep(F, length(all_protocols))))
-tools[1:2, 1] = T
-tools[3:32, 2] = T
+protocols[1:2, 1] = T
+protocols[3:32, 2] = T
 rownames(protocols) = all_protocols
 colnames(protocols) = c("Samples.mRNASeq",
                         "Archives.StandardData")
@@ -196,7 +196,6 @@ sample.Type = matrix(c("01", "Primary solid Tumor", "TP",
                        "61", "Cell Line Derived Xenograft Tissue", "XCL"),
                      ncol = 3, byrow = T)
 colnames(sample.Type) = c("Code", "Definition", "Short.Letter.Code")
-head(sample.Type)
 
 # persist everything ------------------------------------------------------
 

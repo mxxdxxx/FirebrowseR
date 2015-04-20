@@ -1,4 +1,4 @@
-library(FireBrowseR)
+#library(FirebrowseR)
 context("Retrieving Analyses Report URLs")
 
 test_that("URLs are retrieved correctly", {

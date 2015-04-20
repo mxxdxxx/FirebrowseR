@@ -1,4 +1,4 @@
-library(FireBrowseR)
+#library(FirebrowseR)
 context("Metadata ClinicalTier1")
 
 test_that("CDEs are retrieved correctly", {

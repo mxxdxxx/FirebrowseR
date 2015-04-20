@@ -1,4 +1,4 @@
-library(FireBrowseR)
+#library(FirebrowseR)
 context("Download Manager")
 
 test_that("Can data be retrieved in different formats", {

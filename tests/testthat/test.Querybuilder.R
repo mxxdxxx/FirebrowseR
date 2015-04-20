@@ -1,4 +1,4 @@
-library(FireBrowseR)
+#library(FirebrowseR)
 context("Query generation")
 
 test_that("Query Builder works for regular queries", {

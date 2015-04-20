@@ -1,4 +1,4 @@
-library(FireBrowseR)
+#library(FirebrowseR)
 context("Sample data miRSeq")
 
 test_that("miRSeq data is retrieved correctly", {

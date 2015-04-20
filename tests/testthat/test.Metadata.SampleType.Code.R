@@ -1,4 +1,4 @@
-library(FireBrowseR)
+#library(FirebrowseR)
 context("Metadata SampleType Barcode")
 
 test_that("We get codes back", {

@@ -1,4 +1,4 @@
-library(FireBrowseR)
+#library(FirebrowseR)
 context("Anaylses data for MAF files")
 
 test_that("Getting MAF files", {

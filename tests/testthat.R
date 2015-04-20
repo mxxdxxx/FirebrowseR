@@ -1,4 +1,4 @@
 library(testthat)
-library(FireBrowseR)
+library(FirebrowseR)
 
-test_check("FireBrowseR")
+test_check("FirebrowseR")

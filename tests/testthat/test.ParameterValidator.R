@@ -1,4 +1,4 @@
-library(FireBrowseR)
+#library(FirebrowseR)
 context("Parameter Validator")
 
 test_that("validet.Parameters works correct", {
