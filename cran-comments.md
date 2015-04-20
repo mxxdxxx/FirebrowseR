@@ -24,8 +24,9 @@ and does not accept a html version only.
 
 
 ### R CMD check results, local
-No Errors, no warnings, same notes as in local
+No Errors, no warnings:
 http://win-builder.r-project.org/llUx8ad9GRgL/00check.log
+http://win-builder.r-project.org/0b0XnXxNO9Iw/00check.log
 
 
 ##Overall
