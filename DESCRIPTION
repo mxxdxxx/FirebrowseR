@@ -14,5 +14,6 @@ Suggests:
     testthat,
     jsonlite,
     knitr,
-    ggplot2
+    ggplot2,
+    curl
 VignetteBuilder: knitr
