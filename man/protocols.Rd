@@ -14,7 +14,7 @@ data(protocols)
 \description{
 Just as the \code{data_types} matrix, the protocols matrix indicates which
 arguments are accepted by the two functions (function names corrospond to
-column names). Also this table is hand curated and informations are directly
+column names). Also this table is hand curated and information are directly
 taken from firehose Web-API.
 }
 \keyword{datasets}

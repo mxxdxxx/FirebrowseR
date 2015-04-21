@@ -24,7 +24,7 @@ The Firebrowse API with all it's functions, features and describtions can be vie
 1. Archives
     * Allows one to download big compressed archives, including data sets which are to large, even after pre-processing them.
 1. Metadata
-    * Here one can assess all informations needed to design and build cohorts etc..
+    * Here one can assess all information needed to design and build cohorts etc..
 
 ### Scope of FirebrowseR
 This package is designed to give easy access to Firehose/TCGA data sets for R programmers. Therefor it's implementing all functions provided by the Firebrowse API, which lets one comfortable query and download data sets. This package does not provide any additional functions, methods or tools to (pre-)process, analyse or evaluate the data sets named above.

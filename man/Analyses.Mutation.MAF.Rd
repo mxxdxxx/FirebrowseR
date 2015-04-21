@@ -54,8 +54,8 @@ This can result in a lot of pages.
 format = "json"
 cohort = ""
 tool = "MutSig2CV"
-gene = ""
-tcga_participant_barcode = ""
+gene = c("TP53", "RUNX1")
+tcga_participant_barcode = "TCGA-CH-5761"
 column = ""
 page = 1
 page_size = 250

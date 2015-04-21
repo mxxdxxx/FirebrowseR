@@ -20,7 +20,7 @@ NULL
 #' \code{metadata_counts})a data_type, such as \code{miR} or \code{CopyNumber}
 #' is required, but there is no API function listing all possible options. This
 #' table indicates which function accepts which data type.
-#' This table is hand curated, informations are directly gathered from source
+#' This table is hand curated, information are directly gathered from source
 #' listed below
 #'
 #' @docType data
@@ -35,7 +35,7 @@ NULL
 #'
 #' Just as the \code{data_types} matrix, the tools matrix indicates which
 #' arguments are accepted by the four functions (function names corrospond to
-#' column names). Also this table is hand curated and informations are directly
+#' column names). Also this table is hand curated and information are directly
 #' taken from firehose Web-API.
 #'
 #' @source \url{http://firebrowse.org/api-docs/#!/Archives/StandardData}
@@ -52,7 +52,7 @@ NULL
 #'
 #' Just as the \code{data_types} matrix, the protocols matrix indicates which
 #' arguments are accepted by the two functions (function names corrospond to
-#' column names). Also this table is hand curated and informations are directly
+#' column names). Also this table is hand curated and information are directly
 #' taken from firehose Web-API.
 #'
 #' @docType data

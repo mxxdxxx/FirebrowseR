@@ -16,7 +16,7 @@ For two functions/queries (namely \code{archives_standard_data} and
 \code{metadata_counts})a data_type, such as \code{miR} or \code{CopyNumber}
 is required, but there is no API function listing all possible options. This
 table indicates which function accepts which data type.
-This table is hand curated, informations are directly gathered from source
+This table is hand curated, information are directly gathered from source
 listed below
 }
 \keyword{datasets}
