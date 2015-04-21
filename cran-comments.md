@@ -4,29 +4,15 @@
 * devtools::build_win(), from devtools 1.7.0
 
 
-### devtools::check(), local
-Status: 2 NOTEs
-1) * checking dependencies in R code ... NOTE
-Namespace in Imports field not imported from: ‘curl’
-  All declared Imports should be used.
-2) * checking top-level files ... NOTE
-Non-standard files/directories found at top level:
-  ‘README.html’ ‘data-raw’
-  
-1) curl needs to be imported for the read.table() function, when used to download
-from a web server
-2) This just defines my RAW-Data
+### local
 
 
-### R CMD check results, travis-ci
+### travis-ci
 I added R_BUILD_ARGS="--no-manual" to the env, elsewise travis requires a pdf
 and does not accept a html version only.
 
 
-### R CMD check results, local
-No Errors, no warnings:
-http://win-builder.r-project.org/llUx8ad9GRgL/00check.log
-http://win-builder.r-project.org/0b0XnXxNO9Iw/00check.log
+### build_win
 
 
 ##Overall
