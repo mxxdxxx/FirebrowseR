@@ -22,7 +22,7 @@ Metadata.ClinicalTier1 = function(format = "csv"){
   validet.Parameters(parameters)
   url = build.Query(parameters = parameters, invoker = "Metadata", method = "ClinicalTier1")
 
-  ret = download.Data(url, format)
+  ret = download.Data(url, format, NULL)
 
   return(ret)
 }

@@ -14,9 +14,10 @@ available. In this package \code{tsv} and \code{csv} are identical.}
 \item{platform}{A platforms name.}
 }
 \description{
-To return a map of all available platform codes to platform names, exclude
-the platform parameter. Otherwise, choose only the platforms you wish to be
-included in the result.
+By default this function returns a table of all of the technology platforms
+used to sequence or characterize samples in TCGA--both their short platform
+codes and full names. A subset of this table may be obtained by explicitly
+specifying one or more platform codes.
 }
 \examples{
 format = "csv"

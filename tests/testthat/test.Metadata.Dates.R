@@ -1,5 +1,5 @@
 #library(FirebrowseR)
-context("Metadata Dates")
+context("Metadata.Dates")
 
 test_that("We get dates back", {
 
@@ -7,6 +7,6 @@ test_that("We get dates back", {
   obj = Metadata.Dates(format = format)
 
   expect_equal(ncol(obj), 1)
-  expect_equal(nrow(obj), 8)
+  expect_equal(nrow(obj), 9)
 
 })

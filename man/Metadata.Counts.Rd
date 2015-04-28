@@ -30,7 +30,10 @@ types are provided by the data frame \code{data_types}.}
 samples. Not implemented by API...}
 }
 \description{
-Returns the number of available samples, after applying submitted filter.
+Returns the aliquot counts for each disease cohort, per sample type and data
+type. The sample type designation of "Tumor" may be used to aggregate the
+count of all tumor aliquots into a single number per disease and data type.
+See the SampleTypes function for a complete description of sample types.
 }
 \examples{
 format = "csv"

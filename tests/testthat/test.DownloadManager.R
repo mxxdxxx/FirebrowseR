@@ -1,5 +1,5 @@
 #library(FirebrowseR)
-context("Download Manager")
+context("download.Data")
 
 test_that("Can data be retrieved in different formats", {
 
@@ -27,9 +27,9 @@ test_that("Can data be retrieved in different formats", {
   params[["format"]] = "json"
   json.Url = build.Query(parameters = params, invoker = "Samples", method = "mRNASeq")
 
-  csv.Data = download.Data(csv.Url, format = "csv")
-  tsv.Data = download.Data(tsv.Url, format = "tsv")
-  json.Data = download.Data(json.Url, format = "json")
+  csv.Data = download.Data(csv.Url, format = "csv", NULL)
+  tsv.Data = download.Data(tsv.Url, format = "tsv", NULL)
+  json.Data = download.Data(json.Url, format = "json", NULL)
 
   expect_is(csv.Data, "data.frame")
   expect_is(tsv.Data, "data.frame")
@@ -47,9 +47,9 @@ test_that("Downloader does not break when result is empty", {
   tsv.Url = "http://firebrowse.org/api/v1/Samples/mRNASeq?format=tsv&gene=PTEN%2CRUNX1%2CTP53&cohort=BLCA&sample_type=NB&protocol=RSEM&page=1&page_size=250&sort_by=gene"
   json.Url = "http://firebrowse.org/api/v1/Samples/mRNASeq?format=json&gene=PTEN%2CRUNX1%2CTP53&cohort=BLCA&sample_type=NB&protocol=RSEM&page=1&page_size=250&sort_by=gene"
 
-  csv.Data = download.Data(csv.Url, format = "csv")
-  tsv.Data = download.Data(tsv.Url, format = "tsv")
-  json.Data = download.Data(json.Url, format = "json")
+  csv.Data = download.Data(csv.Url, format = "csv", NULL)
+  tsv.Data = download.Data(tsv.Url, format = "tsv", NULL)
+  json.Data = download.Data(json.Url, format = "json", NULL)
 
   expect_null(csv.Data)
   expect_null(tsv.Data)

@@ -9,7 +9,7 @@
 #' represented by negative table values: -1 represents deletion beyond the
 #' threshold; -2 means deletions greater than the minimum arm-level deletion
 #' observed for the sample. Results maybe filtered by cohort, gene or barcode,
-#' but at least one gene OR barcode must be supplied.
+#' but at least one gene or barcode must be supplied.
 #'
 #' @inheritParams Samples.mRNASeq
 #'
@@ -67,16 +67,11 @@ Analyses.CopyNumber.Genes.Thresholded = function(format = "csv",
                     page_size = page_size,
                     sort_by = sort_by)
 
-  if(is.null(parameters[["gene"]]) &
-     is.null(parameters[["tcga_participant_barcode"]])){
-    stop("One of the parameters 'gene' or 'tcga_participant_barcode', must be
-         provided")
-  }
-
-  validet.Parameters(parameters)
+  to.Validate = c("gene", "tcga_participant_barcode")
+  validet.Parameters(params = parameters, to.Validate = to.Validate)
   url = build.Query(parameters = parameters, invoker = "Analyses", method = "CopyNumber/Genes/Thresholded")
 
-  ret = download.Data(url, format)
+  ret = download.Data(url, format, page)
 
   return(ret)
 }

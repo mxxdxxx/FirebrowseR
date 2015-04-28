@@ -16,10 +16,10 @@ Metadata.SampleTypes = function(format = "csv"){
 
   parameters = list(format = format)
 
-  validet.Parameters(parameters)
+  validet.Parameters(params = parameters)
   url = build.Query(parameters = parameters, invoker = "Metadata", method = "SampleTypes")
 
-  ret = download.Data(url, format)
+  ret = download.Data(url, format, NULL)
 
   return(ret)
 }

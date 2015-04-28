@@ -42,7 +42,7 @@ larger to the arm level amplifications observed for the sample. Deletions are
 represented by negative table values: -1 represents deletion beyond the
 threshold; -2 means deletions greater than the minimum arm-level deletion
 observed for the sample. Results maybe filtered by cohort, gene or barcode,
-but at least one gene OR barcode must be supplied.
+but at least one gene or barcode must be supplied.
 }
 \examples{
 format = "csv"

@@ -19,7 +19,7 @@ Metadata.Dates = function(format = "csv"){
   validet.Parameters(parameters)
   url = build.Query(parameters = parameters, invoker = "Metadata", method = "Dates")
 
-  ret = download.Data(url, format)
+  ret = download.Data(url, format, NULL)
 
   return(ret)
 }

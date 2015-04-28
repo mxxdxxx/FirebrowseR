@@ -1,5 +1,5 @@
 #library(FirebrowseR)
-context("Metadata Centers")
+context("Metadata.Centers")
 
 test_that("We get centers back", {
 

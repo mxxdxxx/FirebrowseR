@@ -16,9 +16,9 @@ empty string queries all cohorts. See \code{\link{Metadata.Cohorts}} for
 available cohorts.}
 }
 \description{
-To return a map of all available cohort abbreviations to cohort names,
-exclude the cohort parameter. Otherwise, choose only the cohort abbreviations
-you wish to be included in the result.
+By default this function returns a table containing all TCGA cohort
+abbreviations and their corresponding disease names. A subset of that table
+may be obtained by explicitly specifying one or more cohort abbreviations.
 }
 \examples{
 format = "csv"

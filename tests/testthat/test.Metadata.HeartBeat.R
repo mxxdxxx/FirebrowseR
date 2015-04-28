@@ -1,5 +1,5 @@
 #library(FirebrowseR)
-context("Metadata HeartBeat")
+context("Metadata.HeartBeat")
 
 test_that("The HeartBeat", {
 

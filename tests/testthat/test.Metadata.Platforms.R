@@ -1,5 +1,5 @@
 #library(FirebrowseR)
-context("Metadata Platforms")
+context("Metadata.Platforms")
 
 test_that("CDEs are retrieved correctly", {
 

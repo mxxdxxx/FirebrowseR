@@ -32,7 +32,7 @@ Metadata.Cohort = function(format = "csv",
                     method = "Cohort",
                     mass = T)
 
-  ret = download.Data(url, format)
+  ret = download.Data(url, format, NULL)
 
   return(ret)
 }

@@ -1,8 +1,9 @@
 #' Retrieve map of platform code(s) to platform name(s).
 #'
-#' To return a map of all available platform codes to platform names, exclude
-#' the platform parameter. Otherwise, choose only the platforms you wish to be
-#' included in the result.
+#' By default this function returns a table of all of the technology platforms
+#' used to sequence or characterize samples in TCGA--both their short platform
+#' codes and full names. A subset of this table may be obtained by explicitly
+#' specifying one or more platform codes.
 #'
 #' @param platform A platforms name.
 #' @inheritParams Archives.StandardData
@@ -28,7 +29,7 @@ Metadata.Platforms = function(format = "csv",
   validet.Parameters(parameters)
   url = build.Query(parameters = parameters, invoker = "Metadata", method = "Platforms")
 
-  ret = download.Data(url, format)
+  ret = download.Data(url, format, NULL)
 
   return(ret)
 }

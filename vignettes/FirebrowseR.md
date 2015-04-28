@@ -1,7 +1,7 @@
 ---
 title: "FirebrowseR - A short introduction"
 author: "Mario Deng"
-date: "2015-04-22"
+date: "2015-04-28"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{FirebrowseR - A short introduction}
@@ -59,14 +59,14 @@ At first, we have to design our cohort. The method `Metadata.Cohorts` returns al
 
 ```r
 require(FirebrowseR)
+cohorts = Metadata.Cohorts() # Download all available cohorts
 ```
 
 ```
-## Loading required package: FirebrowseR
+## Error in if (page == 1) use.Header = T: argument is of length zero
 ```
 
 ```r
-cohorts = Metadata.Cohorts() # Download all available cohorts
 cancer.Type = cohorts[grep("breast", cohorts$description, ignore.case = T), 1]
 print(cancer.Type)
 ```
@@ -86,8 +86,8 @@ dim(brca.Pats)
 ## [1] 250  24
 ```
 
-The code above, looking at the dimensions of the returned data frame, indicates that there are only 250 patients, which does not correspond the number given at the [Firebrowse website](http://firebrowse.org/). This is due to the fact, that the Firebrowse API returns the data by pages, with a default page size of 250 entries (this holds for all functions/queries). The global limit for the page size is 2000.
-We can resolve this issue by iterating over the pages, until we receive a data frame with less than the page size (250) entries.
+The code above, looking at the dimensions of the returned data frame, indicates that there are only 250 patients, which does not correspond the number given at the [Firebrowse website](http://firebrowse.org/). This is due to the fact, that the Firebrowse API returns the data page wise, with a default page size of 250 entries (this holds for all functions/queries). The global limit for the page size is 2000.
+We can resolve this issue by iterating over the pages, until we receive a data frame with less than the page size (250) entries. Also we need to adopt the column names from the first frame, since the does not return column names for page > 1.
 
 ```r
 all.Received = F
@@ -96,17 +96,21 @@ brca.Pats = list()
 while(all.Received == F){
   brca.Pats[[page.Counter]] = Samples.ClinicalTier1(cohort = cancer.Type,
                                                     page = page.Counter)
-  if(nrow(brca.Pats[[page.Counter]]) < 250)
+  if(page.Counter > 1)
+    colnames(brca.Pats[[page.Counter]]) = colnames(brca.Pats[[page.Counter-1]])
+  
+  if(nrow(brca.Pats[[page.Counter]]) < 250){
     all.Received = T
-  else
+  } else{
     page.Counter = page.Counter + 1
+  }
 }
 brca.Pats = do.call(rbind, brca.Pats)
 dim(brca.Pats)
 ```
 
 ```
-## [1] 1070   24
+## [1] 1080   24
 ```
 
 Now we got all patients (1070).
@@ -134,12 +138,19 @@ while(all.Found == F){
   else
     page.Counter = page.Counter + 1
 }
+```
+
+```
+## [1] TRUE
+```
+
+```r
 mRNA.Exp = do.call(rbind, mRNA.Exp)
 dim(mRNA.Exp)
 ```
 
 ```
-## [1] 1584    8
+## [1] 1602    8
 ```
 
 We only keep the samples having a primary tumor and corresponding normal tissue available. Normal tissue is encoded by `NT` and tumor tissue by `TP`. Some Firehose functions require these identifiers or numbers. Since the API does not provide a function to decode the meaning of these identifiers, the data frame `sample.Type` included in this package does.

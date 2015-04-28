@@ -24,7 +24,7 @@ Metadata.SampleType.Code = function(format = "csv",
                     method = "SampleType/Code",
                     mass = T)
 
-  ret = download.Data(url, format)
+  ret = download.Data(url, format, NULL)
 
   return(ret)
 }

@@ -1,5 +1,5 @@
 #library(FirebrowseR)
-context("Metadata SampleType Barcode")
+context("Metadata.SampleType.Code")
 
 test_that("We get codes back", {
 

@@ -43,7 +43,7 @@ are processed see our pipeline documentation \url{https://confluence.broadinstit
 \examples{
 format = "json"
 cohort = ""
-tcga_participant_barcode = ""
+tcga_participant_barcode = "TCGA-GF-A4EO"
 tier1_cde_name = ""
 page = 1
 page_size = 250
@@ -57,7 +57,9 @@ obj = Samples.ClinicalTier1(format = format,
                                 page_size = page_size,
                                 sort_by = sort_by)
 
+cohort = "SKCM"
 format = "csv"
+tcga_participant_barcode = ""
 obj = Samples.ClinicalTier1(format = format,
                                 cohort = cohort,
                                 tcga_participant_barcode = tcga_participant_barcode,
@@ -66,7 +68,6 @@ obj = Samples.ClinicalTier1(format = format,
                                 page_size = page_size,
                                 sort_by = sort_by)
 
-tcga_participant_barcode = "TCGA-GF-A4EO"
 obj = Samples.ClinicalTier1(format = "tsv",
                                 cohort = cohort,
                                 tcga_participant_barcode = tcga_participant_barcode,

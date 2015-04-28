@@ -5,28 +5,13 @@
 
 
 ### local
-No errors, no warnings, no notes
-
 
 ### travis-ci
-No errors, no warnings, no notes
 
 
 ### build_win
-No errors, no warnings, 1 note:
-* checking CRAN incoming feasibility ... NOTE
-Maintainer: 'Mario Deng <mariodeng@googlemail.com>'
-New submission
 
+## Overall
 
-##Overall
-No errors, no warnings, 1 note
+## Personal note
 
-##Personal note
-curl needs to be put into suggestions, elsewise the json dowload, using the
-jsonlite package, does not work. Could there possibly be a wrong declaration of
-suggest/requires for curl within the jsonlite package?
-
-
-## Downstream dependencies
-Non, first version.

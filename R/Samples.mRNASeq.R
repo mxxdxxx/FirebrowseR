@@ -71,9 +71,11 @@ Samples.mRNASeq = function(format = "csv",
          provided")
     }
 
-  validet.Parameters(parameters)
+  to.Validate = c("gene", "tcga_participant_barcode")
+  validet.Parameters(params = parameters, to.Validate = to.Validate)
+
   url = build.Query(parameters = parameters, invoker = "Samples", method = "mRNASeq")
-  ret = download.Data(url, format)
+  ret = download.Data(url, format, page)
 
   return(ret)
   }

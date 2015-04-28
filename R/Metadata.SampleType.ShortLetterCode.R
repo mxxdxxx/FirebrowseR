@@ -25,7 +25,7 @@ Metadata.SampleType.ShortLetterCode = function(format = "csv",
                     method = "SampleType/ShortLetterCode",
                     mass = T)
 
-  ret = download.Data(url, format)
+  ret = download.Data(url, format, NULL)
 
   return(ret)
 }

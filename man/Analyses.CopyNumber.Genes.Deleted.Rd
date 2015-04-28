@@ -32,8 +32,8 @@ please see \url{https://www.broadinstitute.org/cancer/cga/mutsig}}
 A \code{list}, if format is \code{json}, elsewise a \code{data.frame}
 }
 \description{
-This service provides access to the Gistic2 del_genes.conf_99.txt output
-data.
+This service provides access to the Gistic2 del_genes.conf_99.txt output data.
+At least 1 gene or cohort must be supplied.
 }
 \examples{
 format = "csv"

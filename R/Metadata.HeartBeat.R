@@ -17,7 +17,7 @@ Metadata.HeartBeat = function(format = "csv"){
   validet.Parameters(parameters)
   url = build.Query(parameters = parameters, invoker = "Metadata", method = "HeartBeat")
 
-  ret = download.Data(url, format)
+  ret = download.Data(url, format, NULL)
 
   return(ret)
 }

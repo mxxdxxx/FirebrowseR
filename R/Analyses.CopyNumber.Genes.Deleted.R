@@ -1,7 +1,7 @@
 #' Retrieve Gistic2 significantly deleted genes results.
 #'
-#' This service provides access to the Gistic2 del_genes.conf_99.txt output
-#' data.
+#' This service provides access to the Gistic2 del_genes.conf_99.txt output data.
+#' At least 1 gene or cohort must be supplied.
 #'
 #' @inheritParams Analyses.CopyNumber.Genes.Amplified
 #'
@@ -60,14 +60,11 @@ Analyses.CopyNumber.Genes.Deleted = function(format = "csv",
                     page_size = page_size,
                     sort_by = sort_by)
 
-  if(is.null(parameters[["format"]])){
-    stop("At least the format needs to be provided.")
-  }
-
-  validet.Parameters(parameters)
+  to.Validate = c("gene", "cohort")
+  validet.Parameters(params = parameters, to.Validate = to.Validate)
   url = build.Query(parameters = parameters, invoker = "Analyses", method = "CopyNumber/Genes/Deleted")
 
-  ret = download.Data(url, format)
+  ret = download.Data(url, format, page)
 
   return(ret)
 }

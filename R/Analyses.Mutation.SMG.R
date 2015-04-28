@@ -1,7 +1,8 @@
 #' Retrieve Significantly Mutated Genes (SMG).
 #'
-#' This service provides a list of significantly mutated genes. It can be
-#' filtered based on date, cohort, rank, gene, tool and/or Q-value threshold.
+#' This service provides a list of significantly mutated genes, as scored by
+#' MutSig. It may be filtered by cohort, rank, gene, tool and/or Q-value
+#' threshold, but at least one cohort must be supplied.
 #'
 #' @param rank Number of significant genes to return.
 #' @param q Only return results with Q-value <= given threshold. For details
@@ -101,10 +102,11 @@ Analyses.Mutation.SMG = function(format = "tsv",
                     page_size = page_size,
                     sort_by = sort_by)
 
-  validet.Parameters(parameters)
+  to.Validate = c("cohort")
+  validet.Parameters(params = parameters, to.Validate = to.Validate)
   url = build.Query(parameters = parameters, invoker = "Analyses", method = "Mutation/SMG")
 
-  ret = download.Data(url, format)
+  ret = download.Data(url, format, page)
 
   return(ret)
 }

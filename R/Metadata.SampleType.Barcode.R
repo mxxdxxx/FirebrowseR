@@ -1,6 +1,7 @@
 #' Return a sample type code to short letter code mapping.
 #'
 #' Return a sample type code to short letter code mapping.
+#' This method only returns the first barcode, so just use one.
 #'
 #' @inheritParams Samples.mRNASeq
 #'
@@ -24,7 +25,7 @@ Metadata.SampleType.Barcode = function(format = "csv",
                     method = "SampleType/Barcode",
                     mass = T)
 
-  ret = download.Data(url, format)
+  ret = download.Data(url, format, NULL)
 
   return(ret)
 }

@@ -42,7 +42,7 @@ Analyses.Reports = function(format = "tsv",
   validet.Parameters(parameters)
   url = build.Query(parameters = parameters, invoker = "Analyses", method = "Reports")
 
-  ret = download.Data(url, format)
+  ret = download.Data(url, format, page)
 
   return(ret)
 }

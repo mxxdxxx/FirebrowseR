@@ -1,5 +1,5 @@
 #library(FirebrowseR)
-context("Basic GISTIC2 Copy Number Data, Focal")
+context("Analyses.CopyNumber.Genes.Focal")
 
 test_that("Getting the GISTIC2 focal ouput", {
 

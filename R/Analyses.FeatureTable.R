@@ -34,10 +34,11 @@ Analyses.FeatureTable = function(format = "csv",
     stop("Here json is not allowed, yet.")
   }
 
-  validet.Parameters(parameters)
+  to.Validate = c("cohort")
+  validet.Parameters(params = parameters, to.Validate = to.Validate)
   url = build.Query(parameters = parameters, invoker = "Analyses", method = "FeatureTable")
 
-  ret = download.Data(url, format)
+  ret = download.Data(url, format, page)
 
   # A small fix for removing the weird and unknown "_id" field.
   ret = ret[, -which(colnames(ret) == "X_id")]

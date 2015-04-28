@@ -1,5 +1,5 @@
 #library(FirebrowseR)
-context("Retrieving Analyses FeatureTable")
+context("Analyses.FeatureTable")
 
 test_that("URLs are retrieved correctly", {
 

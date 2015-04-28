@@ -91,7 +91,7 @@ Archives.StandardData = function(format = "tsv",
   validet.Parameters(parameters)
   url = build.Query(parameters = parameters, invoker = "Archives", method = "StandardData")
 
-  ret = download.Data(url, format)
+  ret = download.Data(url, format, page)
 
   return(ret)
   }

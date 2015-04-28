@@ -1,5 +1,5 @@
 #library(FirebrowseR)
-context("Parameter Validator")
+context("validet.Parameters")
 
 test_that("validet.Parameters works correct", {
 

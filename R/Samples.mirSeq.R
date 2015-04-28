@@ -78,10 +78,11 @@ Samples.miRSeq = function(format = "csv",
          provided")
   }
 
-  validet.Parameters(parameters)
+  to.Validate = c("mir", "cohort", "tcga_participant_barcode")
+  validet.Parameters(params = parameters, to.Validate = to.Validate)
   url = build.Query(parameters = parameters, invoker = "Samples", method = "miRSeq")
 
-  ret = download.Data(url, format)
+  ret = download.Data(url, format, page)
 
   return(ret)
 }

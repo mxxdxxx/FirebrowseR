@@ -38,8 +38,9 @@ please see \url{https://www.broadinstitute.org/cancer/cga/mutsig}}
 A \code{list}, if format is \code{json}, elsewise a \code{data.frame}
 }
 \description{
-This service provides a list of significantly mutated genes. It can be
-filtered based on date, cohort, rank, gene, tool and/or Q-value threshold.
+This service provides a list of significantly mutated genes, as scored by
+MutSig. It may be filtered by cohort, rank, gene, tool and/or Q-value
+threshold, but at least one cohort must be supplied.
 }
 \examples{
 format = "json"

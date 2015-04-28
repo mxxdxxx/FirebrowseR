@@ -7,8 +7,8 @@
 #' values, and genes with deletions are negative values. The data are converted
 #' from marker level to gene level using the extreme method: a gene is assigned
 #' the greatest amplification or the least deletion value among the markers it
-#' covers. Results may be filtered by cohort, gene, or barcode, but at least one
-#' gene OR barcode must be supplied.
+#' covers. Results may be filtered by cohort, gene, or barcode, but at least
+#' gene or barcode must be supplied.
 #'
 #' @inheritParams Samples.mRNASeq
 #'
@@ -72,10 +72,11 @@ Analyses.CopyNumber.Genes.All = function(format = "csv",
          provided")
   }
 
-  validet.Parameters(parameters)
+  to.Validate = c("gene", "tcga_participant_barcode")
+  validet.Parameters(params = parameters, to.Validate = to.Validate)
   url = build.Query(parameters = parameters, invoker = "Analyses", method = "CopyNumber/Genes/All")
 
-  ret = download.Data(url, format)
+  ret = download.Data(url, format, page)
 
   return(ret)
 }

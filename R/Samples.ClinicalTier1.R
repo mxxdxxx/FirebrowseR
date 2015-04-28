@@ -14,7 +14,7 @@
 #' @examples
 #' format = "json"
 #' cohort = ""
-#' tcga_participant_barcode = ""
+#' tcga_participant_barcode = "TCGA-GF-A4EO"
 #' tier1_cde_name = ""
 #' page = 1
 #' page_size = 250
@@ -28,7 +28,9 @@
 #'                                 page_size = page_size,
 #'                                 sort_by = sort_by)
 #'
+#' cohort = "SKCM"
 #' format = "csv"
+#' tcga_participant_barcode = ""
 #' obj = Samples.ClinicalTier1(format = format,
 #'                                 cohort = cohort,
 #'                                 tcga_participant_barcode = tcga_participant_barcode,
@@ -37,7 +39,6 @@
 #'                                 page_size = page_size,
 #'                                 sort_by = sort_by)
 #'
-#' tcga_participant_barcode = "TCGA-GF-A4EO"
 #' obj = Samples.ClinicalTier1(format = "tsv",
 #'                                 cohort = cohort,
 #'                                 tcga_participant_barcode = tcga_participant_barcode,
@@ -65,9 +66,11 @@ Samples.ClinicalTier1 = function(format = "csv",
                     page_size = page_size,
                     sort_by = sort_by)
 
-  validet.Parameters(parameters)
+  to.Validate = c("cohort", "tcga_participant_barcode")
+  validet.Parameters(params = parameters, to.Validate = to.Validate)
+
   url = build.Query(parameters = parameters, invoker = "Samples", method = "ClinicalTier1")
-  ret = download.Data(url, format)
+  ret = download.Data(url, format, page)
 
   return(ret)
 }

@@ -1,5 +1,5 @@
 #library(FirebrowseR)
-context("Archives Standard Data")
+context("Archives.StandardData")
 
 test_that("Check if download links a returned correctly", {
 

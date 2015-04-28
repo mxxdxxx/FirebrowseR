@@ -40,8 +40,8 @@ amplification or deletion is 0, genes with amplifications have positive
 values, and genes with deletions are negative values. The data are converted
 from marker level to gene level using the extreme method: a gene is assigned
 the greatest amplification or the least deletion value among the markers it
-covers. Results may be filtered by cohort, gene, or barcode, but at least one
-gene OR barcode must be supplied.
+covers. Results may be filtered by cohort, gene, or barcode, but at least
+gene or barcode must be supplied.
 }
 \examples{
 format = "csv"

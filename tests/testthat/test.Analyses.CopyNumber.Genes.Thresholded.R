@@ -1,5 +1,5 @@
 #library(FirebrowseR)
-context("Basic GISTIC2 Copy Number Data, Thresholded")
+context("Analyses.CopyNumber.Genes.Thresholded")
 
 test_that("Getting the GISTIC2 thresholded ouput", {
 

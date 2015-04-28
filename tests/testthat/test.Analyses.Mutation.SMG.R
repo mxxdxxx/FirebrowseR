@@ -1,5 +1,5 @@
 #library(FirebrowseR)
-context("Working with SMG files")
+context("Analyses.Mutation.SMG")
 
 test_that("Getting SMG files", {
 

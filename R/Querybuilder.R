@@ -1,19 +1,40 @@
+#' Return the API version this package was build for
+#'
+#' Returns the API version this package was build for, should match with version
+#' at \url{http://firebrowse.org/api-docs}.
+#'
+#' @examples
+#' API.Version()
+#'
+#' @return A character
+#'
+#' @export
+API.Version = function(){
+  number = "1.1.1"
+  beta = T
+  ret = ifelse(beta, paste("v", number, ":beta", sep=""), paste("v", number, sep=""))
+  return(ret)
+}
+
+
+# Forms the version string for the API
+reduce.API.Verion = function(version.String){
+  version.String = substring(version.String, 1, 2)
+  return(version.String)
+  }
+
 # Return the basic URL
 Base.Url = function(){
   return("http://firebrowse.org/api")
 }
 
-# Returns the current API version
-API.Version = function(){
-  number = 1
-  return(paste("v", number, sep=""))
-}
 
 # Puts together all parameters into string, which is later used to query the API
 build.Query = function(parameters, invoker , method, mass = F){
 
   base.URL = Base.Url()
   api.Version = API.Version()
+  api.Version = reduce.API.Verion(api.Version)
 
   url = paste(base.URL, api.Version, invoker, method, sep="/")
   if(mass == T){

@@ -69,8 +69,8 @@ brca.Pats = Samples.ClinicalTier1(cohort = cancer.Type)
 dim(brca.Pats)
 ```
 
-The code above, looking at the dimensions of the returned data frame, indicates that there are only 250 patients, which does not correspond the number given at the [Firebrowse website](http://firebrowse.org/). This is due to the fact, that the Firebrowse API returns the data by pages, with a default page size of 250 entries (this holds for all functions/queries). The global limit for the page size is 2000.
-We can resolve this issue by iterating over the pages, until we receive a data frame with less than the page size (250) entries.
+The code above, looking at the dimensions of the returned data frame, indicates that there are only 250 patients, which does not correspond the number given at the [Firebrowse website](http://firebrowse.org/). This is due to the fact, that the Firebrowse API returns the data page wise, with a default page size of 250 entries (this holds for all functions/queries). The global limit for the page size is 2000.
+We can resolve this issue by iterating over the pages, until we receive a data frame with less than the page size (250) entries. Also we need to adopt the column names from the first frame, since the does not return column names for page > 1.
 ```{r}
 all.Received = F
 page.Counter = 1
@@ -78,10 +78,14 @@ brca.Pats = list()
 while(all.Received == F){
   brca.Pats[[page.Counter]] = Samples.ClinicalTier1(cohort = cancer.Type,
                                                     page = page.Counter)
-  if(nrow(brca.Pats[[page.Counter]]) < 250)
+  if(page.Counter > 1)
+    colnames(brca.Pats[[page.Counter]]) = colnames(brca.Pats[[page.Counter-1]])
+  
+  if(nrow(brca.Pats[[page.Counter]]) < 250){
     all.Received = T
-  else
+  } else{
     page.Counter = page.Counter + 1
+  }
 }
 brca.Pats = do.call(rbind, brca.Pats)
 dim(brca.Pats)

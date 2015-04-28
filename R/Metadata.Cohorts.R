@@ -1,8 +1,8 @@
 #' Retrieve map of cohort abbreviation(s) to cohort name(s).
 #'
-#' To return a map of all available cohort abbreviations to cohort names,
-#' exclude the cohort parameter. Otherwise, choose only the cohort abbreviations
-#' you wish to be included in the result.
+#' By default this function returns a table containing all TCGA cohort
+#' abbreviations and their corresponding disease names. A subset of that table
+#' may be obtained by explicitly specifying one or more cohort abbreviations.
 #'
 #' @inheritParams Samples.mRNASeq
 #'
@@ -30,7 +30,7 @@ Metadata.Cohorts = function(format = "csv",
   validet.Parameters(parameters)
   url = build.Query(parameters = parameters, invoker = "Metadata", method = "Cohorts")
 
-  ret = download.Data(url, format)
+  ret = download.Data(url, format, NULL)
 
   return(ret)
 }

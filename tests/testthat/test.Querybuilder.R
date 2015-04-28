@@ -1,5 +1,5 @@
 #library(FirebrowseR)
-context("Query generation")
+context("build.Query")
 
 test_that("Query Builder works for regular queries", {
 

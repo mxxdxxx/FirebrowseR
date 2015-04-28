@@ -1,5 +1,5 @@
 #library(FirebrowseR)
-context("Metadata SampleType ShortLetterCode")
+context("Metadata.SampleType.ShortLetterCode")
 
 test_that("We get ShortLetterCodes back", {
 

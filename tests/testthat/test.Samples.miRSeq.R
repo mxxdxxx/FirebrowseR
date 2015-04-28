@@ -1,5 +1,5 @@
 #library(FirebrowseR)
-context("Sample data miRSeq")
+context("Samples.miRSeq")
 
 test_that("miRSeq data is retrieved correctly", {
 
@@ -37,7 +37,7 @@ test_that("miRSeq data is retrieved correctly", {
                           page_size = page_size,
                           sort_by = sort_by)
   expect_is(obj, "data.frame")
-  expect_that(ncol(obj), equals(8))
+  expect_that(ncol(obj), equals(7))
   expect_identical( sort(unique(obj$mir)) , sort(mir))
 
   obj = Samples.miRSeq(mir = c("hsa-mir-1285-3p","hsa-mir-125a-5p"))

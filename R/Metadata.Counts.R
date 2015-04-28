@@ -1,6 +1,9 @@
 #' Retrieve sample counts.
 #'
-#' Returns the number of available samples, after applying submitted filter.
+#' Returns the aliquot counts for each disease cohort, per sample type and data
+#' type. The sample type designation of "Tumor" may be used to aggregate the
+#' count of all tumor aliquots into a single number per disease and data type.
+#' See the SampleTypes function for a complete description of sample types.
 #'
 #' @param totals Provide an extra column/element giving the total sum of
 #' samples. Not implemented by API...
@@ -42,6 +45,9 @@ Metadata.Counts = function(format = "csv",
                                  data_type = "",
                                  totals = T){
 
+  if(nchar(data_type[1]) > 0 )
+  warning("When specifying 'data_type' the API in version v1.1.1 beta returns an error. \n Please don't use this parameter right now.")
+
   if(totals == T)
     totals = "true"
   if(totals == F)
@@ -54,14 +60,12 @@ Metadata.Counts = function(format = "csv",
                     data_type = data_type,
                     totals = totals)
 
-  if(nchar(parameters[["date"]]) == 0) {
-    stop("A date is always required. See MetadataDates()")
-  }
 
-  validet.Parameters(parameters)
+  to.Validate = c("date")
+  validet.Parameters(params = parameters, to.Validate = to.Validate)
   url = build.Query(parameters = parameters, invoker = "Metadata", method = "Counts")
 
-  ret = download.Data(url, format)
+  ret = download.Data(url, format, NULL)
 
   return(ret)
 }

@@ -1,20 +1,34 @@
 # This function actually retrives the data, it might be extended if needed
 # for other objects
-download.Data = function(url, format){
+download.Data = function(url, format, page){
+
+  if(is.null(page)){
+    use.Header = T
+  } else if(page == ""){
+    use.Header = T
+  } else if(page == 1){
+    use.Header = T
+  } else if(page > 1){
+    use.Header = F
+  }
 
   if(format == "csv"){
     result = tryCatch({
-      read.table(url, header = T, sep = ",", stringsAsFactors = F)
+      read.table(url, header = use.Header, sep = ",", stringsAsFactors = F)
     }, warning = function(w) {
-      NULL
+      return(NULL)
+    }, error = function(e){
+      return(NULL)
     })
   }
 
   if(format == "tsv"){
     result = tryCatch({
-      read.table(url, header = T, sep = "\t", stringsAsFactors = F)
+      read.table(url, header = use.Header, sep = "\t", stringsAsFactors = F)
     }, warning = function(w) {
-      NULL
+      return(NULL)
+    }, error = function(e){
+      return(NULL)
     })
   }
 
@@ -24,7 +38,9 @@ download.Data = function(url, format){
                                   simplifyVector = F,
                                   simplifyMatrix = F)
     }, warning = function(w) {
-      NULL
+      return(NULL)
+    }, error = function(e){
+      return(NULL)
     })
     if(length(result[[1]]) == 0 )
       result = NULL

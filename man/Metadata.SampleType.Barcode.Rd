@@ -16,6 +16,7 @@ Empty string returns all patients. Either one gene OR barcode is required.}
 }
 \description{
 Return a sample type code to short letter code mapping.
+This method only returns the first barcode, so just use one.
 }
 \examples{
 format = "csv"

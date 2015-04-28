@@ -1,5 +1,5 @@
 #library(FirebrowseR)
-context("Metadata Cohort")
+context("Metadata.Cohort")
 
 test_that("Cohort describtions are returned correctly", {
 
