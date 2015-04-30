@@ -45,9 +45,6 @@ Metadata.Counts = function(format = "csv",
                                  data_type = "",
                                  totals = T){
 
-  if(nchar(data_type[1]) > 0 )
-  warning("When specifying 'data_type' the API in version v1.1.1 beta returns an error. \n Please don't use this parameter right now.")
-
   if(totals == T)
     totals = "true"
   if(totals == F)

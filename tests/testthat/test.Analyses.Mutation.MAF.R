@@ -2,7 +2,7 @@
 context("Analyses.Mutation.MAF")
 
 test_that("Getting MAF files", {
-  skip("Skipping this test in DEV mode, it takes alot time and already passed.")
+#  skip("Skipping this test in DEV mode, it takes alot time and already passed.")
   format = "json"
   cohort = ""
   tool = "MutSig2CV"

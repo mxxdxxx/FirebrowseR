@@ -5,13 +5,17 @@
 
 
 ### local
+No Errors, no warnings
 
 ### travis-ci
-
+No Errors, no warnings
 
 ### build_win
+No Errors, no warnings
 
 ## Overall
+No Errors, no warnings
 
 ## Personal note
-
+This is an update while the initial version is not released, the API is
+updating to fast
