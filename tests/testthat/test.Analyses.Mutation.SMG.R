@@ -36,7 +36,7 @@ test_that("Getting SMG files", {
   expect_is(obj, "list")
   expect_that(length(obj[[1]]), equals(9))
 
-  format = "tsv"
+  format = "csv"
   obj = Analyses.Mutation.SMG(format = format,
                                   cohort = cohort,
                                   tool = tool,
@@ -75,5 +75,5 @@ test_that("Getting SMG files", {
                                   sort_by = sort_by)
   expect_equal(nrow(obj), 22)
 
-  expect_error(Analyses.Mutation.SMG(format = "csv"))
+  expect_error(Analyses.Mutation.SMG(format = "tsv"))
 })

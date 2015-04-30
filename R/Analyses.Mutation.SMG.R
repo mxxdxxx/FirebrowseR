@@ -88,9 +88,8 @@ Analyses.Mutation.SMG = function(format = "tsv",
                                      page_size = 250,
                                      sort_by = "q"){
 
-  if(format=="csv")
-    stop("Only 'tsv' or 'json' is allowed, see ?Analyses.Mutation.SMG for
-         details")
+  if(format=="tsv")
+    stop("Only 'tsv' sometimes throws errors, due to non escaped characters")
 
   parameters = list(format = format,
                     cohort = cohort,
