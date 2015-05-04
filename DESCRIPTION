@@ -15,5 +15,6 @@ Suggests:
     jsonlite,
     knitr,
     ggplot2,
-    curl
+    curl,
+    rmarkdown
 VignetteBuilder: knitr
