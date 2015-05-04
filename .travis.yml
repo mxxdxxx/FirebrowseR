@@ -20,8 +20,8 @@ env:
   - R_BUILD_ARGS="--no-manual"
 
 notifications:
-  email:
-    on_success: change
-    on_failure: change
+#  email:
+#    on_success: change
+#    on_failure: change
 
 sudo: required
