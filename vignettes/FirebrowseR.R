@@ -41,7 +41,8 @@ while(all.Found == F){
   mRNA.Exp[[page.Counter]] = Samples.mRNASeq(gene = diff.Exp.Genes,
                                              tcga_participant_barcode =
                                                brca.Pats$tcga_participant_barcode,
-                                             page_size = page.Size)
+                                             page_size = page.Size,
+                                             page = page.Counter)
   if(nrow(mRNA.Exp[[page.Counter]]) < page.Size)
     all.Found = T
   else

@@ -27,9 +27,6 @@ Analyses.FeatureTable = function(format = "csv",
                     page = page,
                     page_size = page_size)
 
-  if(is.null(parameters[["format"]])){
-    stop("At least the format needs to be provided.")
-  }
   if(parameters[["format"]] == "json"){
     stop("Here json is not allowed, yet.")
   }
@@ -39,9 +36,6 @@ Analyses.FeatureTable = function(format = "csv",
   url = build.Query(parameters = parameters, invoker = "Analyses", method = "FeatureTable")
 
   ret = download.Data(url, format, page)
-
-  # A small fix for removing the weird and unknown "_id" field.
-  ret = ret[, -which(colnames(ret) == "X_id")]
 
   return(ret)
 }

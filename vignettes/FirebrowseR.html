@@ -10,7 +10,7 @@
 
 <meta name="author" content="Mario Deng" />
 
-<meta name="date" content="2015-04-28" />
+<meta name="date" content="2015-05-04" />
 
 <title>FirebrowseR - A short introduction</title>
 
@@ -54,7 +54,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <div id="header">
 <h1 class="title">FirebrowseR - A short introduction</h1>
 <h4 class="author"><em>Mario Deng</em></h4>
-<h4 class="date"><em>2015-04-28</em></h4>
+<h4 class="date"><em>2015-05-04</em></h4>
 </div>
 
 
@@ -135,7 +135,7 @@ cancer.Type =<span class="st"> </span>cohorts[<span class="kw">grep</span>(<span
 <pre class="sourceCode r"><code class="sourceCode r">brca.Pats =<span class="st"> </span><span class="kw">Samples.ClinicalTier1</span>(<span class="dt">cohort =</span> cancer.Type)
 <span class="kw">dim</span>(brca.Pats)</code></pre>
 <pre><code>## [1] 250  24</code></pre>
-<p>The code above, looking at the dimensions of the returned data frame, indicates that there are only 250 patients, which does not correspond the number given at the <a href="http://firebrowse.org/">Firebrowse website</a>. This is due to the fact, that the Firebrowse API returns the data page wise, with a default page size of 250 entries (this holds for all functions/queries). The global limit for the page size is 2000. We can resolve this issue by iterating over the pages, until we receive a data frame with less than the page size (250) entries. Also we need to adopt the column names from the first frame, since the does not return column names for page &gt; 1.</p>
+<p>The code above, looking at the dimensions of the returned data frame, indicates that there are only 250 patients, which does not correspond the number given at the <a href="http://firebrowse.org/">Firebrowse website</a>. This is due to the fact, that the Firebrowse API returns the data page wise, with a default page size of 250 entries (this holds for all functions/queries). The global limit for the page size is 2000. We can resolve this issue by iterating over the pages, until we receive a data frame with less than the page size (250) entries. Also we need to adopt the column names from the first frame, since the API does not return column names for page &gt; 1.</p>
 <pre class="sourceCode r"><code class="sourceCode r">all.Received =<span class="st"> </span>F
 page.Counter =<span class="st"> </span><span class="dv">1</span>
 brca.Pats =<span class="st"> </span><span class="kw">list</span>()
@@ -167,7 +167,8 @@ while(all.Found ==<span class="st"> </span>F){
   mRNA.Exp[[page.Counter]] =<span class="st"> </span><span class="kw">Samples.mRNASeq</span>(<span class="dt">gene =</span> diff.Exp.Genes,
                                              <span class="dt">tcga_participant_barcode =</span>
                                                brca.Pats$tcga_participant_barcode,
-                                             <span class="dt">page_size =</span> page.Size)
+                                             <span class="dt">page_size =</span> page.Size,
+                                             <span class="dt">page =</span> page.Counter)
   if(<span class="kw">nrow</span>(mRNA.Exp[[page.Counter]]) &lt;<span class="st"> </span>page.Size)
     all.Found =<span class="st"> </span>T
   else
