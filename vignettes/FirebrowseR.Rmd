@@ -133,7 +133,7 @@ mRNA.Exp = mRNA.Exp[which(mRNA.Exp$tcga_participant_barcode %in% patient.Barcode
 
 Now we can use the famous ggplot2 package to plot the expression.
 ```{r, fig.width = 7, fig.height = 7}
-require(ggplot2)
+library(ggplot2)
 p = ggplot(mRNA.Exp, aes(factor(gene), z.score))
 p +
   geom_boxplot(aes(fill = factor(sample_type))) +
