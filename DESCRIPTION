@@ -14,7 +14,7 @@ Suggests:
     testthat,
     jsonlite,
     knitr,
-    markdown,
+    rmarkdown,
     ggplot2,
     curl
 VignetteBuilder: knitr
