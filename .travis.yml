@@ -16,13 +16,12 @@ after_failure:
   - ./travis-tool.sh dump_logs
 
 env:
+#  - WARNINGS_ARE_ERRORS=true
   - R_BUILD_ARGS="--no-manual"
 
 notifications:
   email:
-    recipients:
-      - mariodeng@googlemail.com
-    on_success: never
-    on_failure: always
+    on_success: change
+    on_failure: change
 
 sudo: required
