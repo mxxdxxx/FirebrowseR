@@ -59,6 +59,13 @@ At first, we have to design our cohort. The method `Metadata.Cohorts` returns al
 
 ```r
 require(FirebrowseR)
+```
+
+```
+## Loading required package: FirebrowseR
+```
+
+```r
 cohorts = Metadata.Cohorts() # Download all available cohorts
 cancer.Type = cohorts[grep("breast", cohorts$description, ignore.case = T), 1]
 print(cancer.Type)
@@ -156,28 +163,14 @@ mRNA.Exp = mRNA.Exp[which(mRNA.Exp$tcga_participant_barcode %in% patient.Barcode
 Now we can use the famous ggplot2 package to plot the expression.
 
 ```r
-require(ggplot2)
+# require(ggplot2)
+# p = ggplot(mRNA.Exp, aes(factor(gene), z.score))
+# p +
+#   geom_boxplot(aes(fill = factor(sample_type))) +
+#   # we drop some outlier, so plot looks nicer, this also causes the warning
+#   scale_y_continuous(limits = c(-1, 5)) +
+#   scale_fill_discrete(name = "Tissue")
 ```
-
-```
-## Loading required package: ggplot2
-```
-
-```r
-p = ggplot(mRNA.Exp, aes(factor(gene), z.score))
-p +
-  geom_boxplot(aes(fill = factor(sample_type))) +
-  # we drop some outlier, so plot looks nicer, this also causes the warning
-  scale_y_continuous(limits = c(-1, 5)) +
-  scale_fill_discrete(name = "Tissue")
-```
-
-```
-## Warning in loop_apply(n, do.ply): Removed 59 rows containing non-finite
-## values (stat_boxplot).
-```
-
-![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png) 
 
 ##FAQ
 
