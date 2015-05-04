@@ -1,7 +1,7 @@
 ---
 title: "FirebrowseR - A short introduction"
 author: "Mario Deng"
-date: "2015-04-28"
+date: "2015-05-04"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{FirebrowseR - A short introduction}
@@ -60,13 +60,6 @@ At first, we have to design our cohort. The method `Metadata.Cohorts` returns al
 ```r
 require(FirebrowseR)
 cohorts = Metadata.Cohorts() # Download all available cohorts
-```
-
-```
-## Error in if (page == 1) use.Header = T: argument is of length zero
-```
-
-```r
 cancer.Type = cohorts[grep("breast", cohorts$description, ignore.case = T), 1]
 print(cancer.Type)
 ```
@@ -87,7 +80,7 @@ dim(brca.Pats)
 ```
 
 The code above, looking at the dimensions of the returned data frame, indicates that there are only 250 patients, which does not correspond the number given at the [Firebrowse website](http://firebrowse.org/). This is due to the fact, that the Firebrowse API returns the data page wise, with a default page size of 250 entries (this holds for all functions/queries). The global limit for the page size is 2000.
-We can resolve this issue by iterating over the pages, until we receive a data frame with less than the page size (250) entries. Also we need to adopt the column names from the first frame, since the does not return column names for page > 1.
+We can resolve this issue by iterating over the pages, until we receive a data frame with less than the page size (250) entries. Also we need to adopt the column names from the first frame, since the API does not return column names for page > 1.
 
 ```r
 all.Received = F
@@ -132,19 +125,13 @@ while(all.Found == F){
   mRNA.Exp[[page.Counter]] = Samples.mRNASeq(gene = diff.Exp.Genes,
                                              tcga_participant_barcode =
                                                brca.Pats$tcga_participant_barcode,
-                                             page_size = page.Size)
+                                             page_size = page.Size,
+                                             page = page.Counter)
   if(nrow(mRNA.Exp[[page.Counter]]) < page.Size)
     all.Found = T
   else
     page.Counter = page.Counter + 1
 }
-```
-
-```
-## [1] TRUE
-```
-
-```r
 mRNA.Exp = do.call(rbind, mRNA.Exp)
 dim(mRNA.Exp)
 ```
