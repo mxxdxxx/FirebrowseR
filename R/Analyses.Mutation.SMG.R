@@ -42,7 +42,7 @@
 #'                                 page_size = page_size,
 #'                                 sort_by = sort_by)
 #'
-#' format = "tsv"
+#' format = "csv"
 #' obj = Analyses.Mutation.SMG(format = format,
 #'                                 cohort = cohort,
 #'                                 tool = tool,
@@ -78,7 +78,7 @@
 #' @return A \code{list}, if format is \code{json}, elsewise a \code{data.frame}
 #'
 #' @export
-Analyses.Mutation.SMG = function(format = "tsv",
+Analyses.Mutation.SMG = function(format = "csv",
                                      cohort = "",
                                      tool = "MutSig2CV",
                                      rank = "",
@@ -89,7 +89,7 @@ Analyses.Mutation.SMG = function(format = "tsv",
                                      sort_by = "q"){
 
   if(format=="tsv")
-    stop("Only 'tsv' sometimes throws errors, due to non escaped characters")
+    stop("'tsv' sometimes throws errors, due to non escaped characters, don't use it.")
 
   parameters = list(format = format,
                     cohort = cohort,

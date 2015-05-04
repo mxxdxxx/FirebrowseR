@@ -4,7 +4,7 @@
 \alias{Analyses.Mutation.SMG}
 \title{Retrieve Significantly Mutated Genes (SMG).}
 \usage{
-Analyses.Mutation.SMG(format = "tsv", cohort = "", tool = "MutSig2CV",
+Analyses.Mutation.SMG(format = "csv", cohort = "", tool = "MutSig2CV",
   rank = "", gene = "", q = "", page = 1, page_size = 250,
   sort_by = "q")
 }
@@ -74,7 +74,7 @@ obj = Analyses.Mutation.SMG(format = format,
                                 page_size = page_size,
                                 sort_by = sort_by)
 
-format = "tsv"
+format = "csv"
 obj = Analyses.Mutation.SMG(format = format,
                                 cohort = cohort,
                                 tool = tool,
