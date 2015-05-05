@@ -16,8 +16,8 @@ script:
 after_failure:
   - ./travis-tool.sh dump_logs
 
-#env:
-#  - R_BUILD_ARGS="--no-manual --no-build-vignettes"
+env:
+  - R_BUILD_ARGS="--no-manual --no-build-vignettes"
 
 notifications:
   email:
