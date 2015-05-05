@@ -329,12 +329,12 @@ dim(brca.Pats)
 </code></pre>
 
 <p>Now we got all patients (1070).
-Here we reduce the number of patients to the once who died. We only do this to keep the runtime short, downloading mRNA expression data for a thousand patients would take a lot of time, later on.</p>
+Here we reduce the number of patients to the once who died. We only do this to keep the run time short, downloading mRNA expression data for a thousand patients would take a lot of time, later on.</p>
 
 <pre><code class="r">brca.Pats = brca.Pats[ which(brca.Pats$vital_status == 1), ]
 </code></pre>
 
-<p>Here we define a vector containing genes known to be differentially expressed in breast cancer and download the mRNA expression data for these genes and our patients.</p>
+<p>Here we define a vector containing genes known to be differential expressed in breast cancer and download the mRNA expression data for these genes and our patients.</p>
 
 <pre><code class="r">diff.Exp.Genes = c(&quot;ESR1&quot;, &quot;GATA3&quot;, &quot;XBP1&quot;, &quot;FOXA1&quot;, &quot;ERBB2&quot;, &quot;GRB7&quot;, &quot;EGFR&quot;,
                    &quot;FOXC1&quot;, &quot;MYC&quot;)
@@ -374,13 +374,8 @@ mRNA.Exp = mRNA.Exp[which(mRNA.Exp$tcga_participant_barcode %in% patient.Barcode
 
 <p>Now we can use the famous ggplot2 package to plot the expression.</p>
 
-<pre><code class="r">require(ggplot2)
-</code></pre>
-
-<pre><code>## Loading required package: ggplot2
-</code></pre>
-
-<pre><code class="r">p = ggplot(mRNA.Exp, aes(factor(gene), z.score))
+<pre><code class="r">library(ggplot2)
+p = ggplot(mRNA.Exp, aes(factor(gene), z.score))
 p +
   geom_boxplot(aes(fill = factor(sample_type))) +
   # we drop some outlier, so plot looks nicer, this also causes the warning

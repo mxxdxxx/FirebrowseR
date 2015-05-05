@@ -1,11 +1,11 @@
 ---
 title: "FirebrowseR - A short introduction"
 author: "Mario Deng"
-date: "2015-05-04"
+date: "2015-05-05"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{FirebrowseR - A short introduction}
-  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEngine{knitr::r markdown}
   %\usepackage[utf8]{inputenc}
 ---
 
@@ -107,12 +107,12 @@ dim(brca.Pats)
 ```
 
 Now we got all patients (1070).
-Here we reduce the number of patients to the once who died. We only do this to keep the runtime short, downloading mRNA expression data for a thousand patients would take a lot of time, later on.
+Here we reduce the number of patients to the once who died. We only do this to keep the run time short, downloading mRNA expression data for a thousand patients would take a lot of time, later on.
 
 ```r
 brca.Pats = brca.Pats[ which(brca.Pats$vital_status == 1), ]
 ```
-Here we define a vector containing genes known to be differentially expressed in breast cancer and download the mRNA expression data for these genes and our patients.
+Here we define a vector containing genes known to be differential expressed in breast cancer and download the mRNA expression data for these genes and our patients.
 
 ```r
 diff.Exp.Genes = c("ESR1", "GATA3", "XBP1", "FOXA1", "ERBB2", "GRB7", "EGFR",
@@ -156,14 +156,7 @@ mRNA.Exp = mRNA.Exp[which(mRNA.Exp$tcga_participant_barcode %in% patient.Barcode
 Now we can use the famous ggplot2 package to plot the expression.
 
 ```r
-require(ggplot2)
-```
-
-```
-## Loading required package: ggplot2
-```
-
-```r
+library(ggplot2)
 p = ggplot(mRNA.Exp, aes(factor(gene), z.score))
 p +
   geom_boxplot(aes(fill = factor(sample_type))) +
