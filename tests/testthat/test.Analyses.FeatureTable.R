@@ -9,10 +9,18 @@ test_that("URLs are retrieved correctly", {
   page = 1
   page_size = 250
 
-  obj = Analyses.FeatureTable(format = format,
+  expect_error(Analyses.FeatureTable(format = format,
                                   cohort = cohort,
                                   column = column,
                                   page = page,
-                                  page_size = page_size)
-  expect_equal(ncol(obj), 2)
+                                  page_size = page_size))
+
+  column = ""
+  obj = Analyses.FeatureTable(format = format,
+                              cohort = cohort,
+                              column = column,
+                              page = page,
+                              page_size = page_size)
+
+  expect_equal(nrow(obj), 250)
 })

@@ -1,7 +1,7 @@
 Package: FirebrowseR
 Type: Package
 Title: An 'API' Client for Broads 'Firehose' Pipeline
-Version: 0.2.3
+Version: 0.2.5
 Date: 2015-05-05
 Author: Mario Deng
 Maintainer: Mario Deng <mariodeng@googlemail.com>

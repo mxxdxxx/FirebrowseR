@@ -7,9 +7,9 @@ __Short:__ Directly get TCGA/Firhose data into R
 __Long:__ Whoever used the TCGA downloads should have noticed that the formats are never the same, even for data sets of the same type. Broads Firehose API resolves these issues. You directly receive `JSON`, `CSV` or `TSV` output. At this point _FirebrowseR_ is entering the game, directly connecting your R session to the API and let's you query for all data sets. You receive standardized data frames or json objects (requiring the `jsonlite` package).
 
 ## How do I get it?
-__Short:__ `devtools::install_github("mariodeng/FirebrowseR")` or `install.packages("FireBrowseR")`
+__Short:__ `devtools::install_github("mariodeng/FirebrowseR")` 
 
-__Long:__ Awaiting CRAN release at the moment, so the second command does not work right now. The commands above are executed from your R session. The first one requires the `devtools` package to be installed. If it's not already installed, please do so by executing `install.packages("devtools")`.
+__Long:__ The command above is executed from your R session and requires the `devtools` package to be installed. If it's not already installed, please do so by executing `install.packages("devtools")`. Later, when the API has droped its beta status, there will be a CRAN release.
 
 ## How do I use it
 __Short:__

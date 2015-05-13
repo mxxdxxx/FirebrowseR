@@ -30,6 +30,10 @@ Analyses.FeatureTable = function(format = "csv",
   if(parameters[["format"]] == "json"){
     stop("Here json is not allowed, yet.")
   }
+  parameters <<- parameters
+  if(any(parameters[["column"]] != "")){
+    stop("For version 1.1.5 the column parameter is not working, please don't use it")
+  }
 
   to.Validate = c("cohort")
   validet.Parameters(params = parameters, to.Validate = to.Validate)

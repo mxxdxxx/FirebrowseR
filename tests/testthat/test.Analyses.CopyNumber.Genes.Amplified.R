@@ -28,7 +28,7 @@ test_that("Getting the GISTIC2 amplified ouput", {
                                                   page = page,
                                                   page_size = page_size,
                                                   sort_by = sort_by)
-  expect_equal(nrow(obj), 2)
+  expect_equal(nrow(obj), 3)
   expect_equal(ncol(obj), 10)
 
   format = "json"
@@ -39,6 +39,6 @@ test_that("Getting the GISTIC2 amplified ouput", {
                                                   page = page,
                                                   page_size = page_size,
                                                   sort_by = sort_by)
-  expect_equal(length(obj[[1]]), 2)
+  expect_equal(length(obj[[1]]), 3)
   expect_equal(length(obj[[1]][[1]]), 10)
 })
