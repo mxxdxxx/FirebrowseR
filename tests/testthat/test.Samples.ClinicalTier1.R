@@ -40,7 +40,7 @@ test_that("Samples.ClinicalTier1", {
                                   sort_by = sort_by)
   expect_is(obj, "data.frame")
   expect_that(nrow(obj), equals(250))
-  expect_that(ncol(obj), equals(25))
+  expect_that(ncol(obj), equals(22))
 
   tcga_participant_barcode = "TCGA-GF-A4EO"
   obj = Samples.ClinicalTier1(format = "tsv",

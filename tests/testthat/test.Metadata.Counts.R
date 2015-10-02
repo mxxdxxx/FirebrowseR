@@ -21,7 +21,7 @@ test_that("Sample counts are returned correctly", {
 
   format = "tsv"
   cohort = c("PRAD", "BRCA")
-  sample_type = "Tumor"
+  sample_type = "TP"
   data_type = c("methylation", "maf")
   totals = T
 
