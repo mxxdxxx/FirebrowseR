@@ -34,7 +34,7 @@ test_that("Getting SMG files", {
                                   page_size = page_size,
                                   sort_by = sort_by)
   expect_is(obj, "list")
-  expect_that(length(obj[[1]]), equals(25))
+  expect_that(length(obj[[1]]), equals(9))
 
   format = "csv"
   obj = Analyses.Mutation.SMG(format = format,
@@ -48,7 +48,7 @@ test_that("Getting SMG files", {
                                   sort_by = sort_by)
   expect_is(obj, "data.frame")
   expect_that(ncol(obj), equals(23))
-  expect_that(nrow(obj), equals(25))
+  expect_that(nrow(obj), equals(9))
 
   gene = c("TP53", "SPOP")
   q = 0.05
@@ -73,5 +73,5 @@ test_that("Getting SMG files", {
                                   page = page,
                                   page_size = page_size,
                                   sort_by = sort_by)
-  expect_equal(nrow(obj), 35)
+  expect_equal(nrow(obj), 11)
 })

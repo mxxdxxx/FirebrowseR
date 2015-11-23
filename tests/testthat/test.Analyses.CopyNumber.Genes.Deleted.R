@@ -18,7 +18,7 @@ test_that("Getting the GISTIC2 delted ouput", {
                                                 page = page,
                                                 page_size = page_size,
                                                 sort_by = sort_by)
-  expect_equal(nrow(obj), 21)
+  expect_equal(nrow(obj), 22)
 
   gene = "PFN3"
   obj = Analyses.CopyNumber.Genes.Deleted(format = format,
