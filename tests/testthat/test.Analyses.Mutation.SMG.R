@@ -3,6 +3,11 @@ context("Analyses.Mutation.SMG")
 
 test_that("Getting SMG files", {
 
+  smg <- Analyses.Mutation.SMG(format="csv", cohort="BRCA", page_size=1445)
+  dim(smg)
+  smg <- Analyses.Mutation.SMG(format="tsv", cohort="BRCA", page_size=1446)
+  dim(smg)
+
   format = "json"
   cohort = "PRAD"
   tool = "MutSig2CV"

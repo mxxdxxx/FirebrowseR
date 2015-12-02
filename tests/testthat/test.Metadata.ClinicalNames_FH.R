@@ -1,16 +1,16 @@
 #library(FirebrowseR)
-context("Metadata.ClinicalTier1")
+context("Metadata.ClinicalNames_FH")
 
 test_that("CDEs are retrieved correctly", {
 
   format = "csv"
-  obj = Metadata.ClinicalTier1(format = format)
+  obj = Metadata.ClinicalNames_FH(format = format)
 
   expect_equal(nrow(obj), 64)
   expect_equal(ncol(obj), 1)
 
   format = "tsv"
-  obj = Metadata.ClinicalTier1(format = format)
+  obj = Metadata.ClinicalNames_FH(format = format)
 
   expect_equal(nrow(obj), 64)
   expect_equal(ncol(obj), 1)

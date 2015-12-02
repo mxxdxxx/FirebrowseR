@@ -14,7 +14,7 @@ download.Data = function(url, format, page){
 
   if(format == "csv"){
     result = tryCatch({
-      read.table(url, header = use.Header, sep = ",", stringsAsFactors = F)
+      read.csv(url, header = use.Header, stringsAsFactors = F)
     }, warning = function(w) {
       return(NULL)
     }, error = function(e){
@@ -24,7 +24,7 @@ download.Data = function(url, format, page){
 
   if(format == "tsv"){
     result = tryCatch({
-      read.table(url, header = use.Header, sep = "\t", stringsAsFactors = F)
+      read.table(url, header = use.Header, sep = "\t", quote = "\"", stringsAsFactors = F)
     }, warning = function(w) {
       return(NULL)
     }, error = function(e){
