@@ -18,19 +18,19 @@ A short outline about what's in the scope of this package and some brief ideas o
 The Firebrowse API with all its functions, features and descriptions can be viewed [here](http://firebrowse.org/api-docs/). The API divides into four categories:
 
 1. Samples
-    * Gives access to data types which did not receive a functional analysis.
+    * Gives access to data types where functional analysis was not performed.
 1. Analyses
-    * Data sets included here a pre-processed, since the RAW-data would be too big.
+    * Data sets included here are pre-processed, since the RAW-data would be too big.
 1. Archives
     * Allows one to download big compressed archives, including too large data sets, even after pre-processing them.
 1. Metadata
-    * Here one can assess all information needed to design and build cohorts etc..
+    * Here one can access all information needed to design and build cohorts, etc.
 
 ### Scope of FirebrowseR
-This package is designed to give easy access to Firehose/TCGA data sets for R programmers. Therefor it's implementing all functions provided by the Firebrowse API, which lets one comfortable query and download data sets. This package does not provide any additional functions, methods or tools to (pre-) process, analyze or evaluate the data sets named above.
+This package is designed to give easy access to Firehose/TCGA data sets for R programmers. Therefore it's implementing all functions provided by the Firebrowse API, which lets one comfortably query and download data sets. This package does not provide any additional functions, methods or tools to (pre-) process, analyze or evaluate the data sets named above.
 
 ### Getting around
-FirebrowseR provides all functions displayed in the [API-Documentation](http://firebrowse.org/api-docs/), having exactly the same names and arguments. Also each function has its own help page, accessible by `?function_name`, giving explanations and examples needed for this function. Further four additional data frames are provided; namely
+FirebrowseR provides all functions displayed in the [API-Documentation](http://firebrowse.org/api-docs/), having exactly the same names and arguments. Also each function has its own help page, accessible by `?function_name`, giving explanations and examples needed for the function. Further four additional data frames are provided; namely
 
 * data_types,
     * Needed for: `Metadata.Counts` and `Archives.StandardData`
@@ -42,20 +42,20 @@ FirebrowseR provides all functions displayed in the [API-Documentation](http://f
 * sample.Types.
     * Needed to extract the definitions of _Code_ and _Short.Letter.Code_
 
-supplying additional information, which maybe required for some queries but not provided by the API.
+supplying additional information, which may be required for some queries but not provided by the API.
 
 ### Installation
-The FirebrowseR package installs like every other R package `install.packages('FirebrowseR')` or `devtools::install_github("mariodeng/FirebrowseR")`
+The FirebrowseR package is installed just like every other R package hosted in GitHub: `devtools::install_github("mariodeng/FirebrowseR")`. When the API stops using the beta moniker, this package will be installable from CRAN.
 
 ### License
 FirebrowseR is licensed under MIT License. Please see license file or [wikipedia](https://en.wikipedia.org/wiki/MIT_License).
 
 ## How to use
-Here we talk and run through some examples, giving you an introduction to this package and discuss the cases in which it differs from the API.
+Here we talk and run through some examples, introducing you to this package and discussing the differences with the API.
 
 ### Example, Breast Cancer mRNA expression
 In this first example we are going to analyze mRNA expression data of breast cancer. We take a look at some genes well known to be differentially expressed within this entity of cancer.
-At first, we have to design our cohort. The method `Metadata.Cohorts` returns all cohort identifiers and their corresponding description. Within the description we search for "breast", yielding to identifier for breast cancer.
+At first, we have to design our cohort. The method `Metadata.Cohorts` returns all cohort identifiers and their corresponding description. Within the description we search for "breast", yielding to the identifier for breast cancer.
 ```{r}
 require(FirebrowseR)
 cohorts = Metadata.Cohorts() # Download all available cohorts
@@ -69,7 +69,7 @@ brca.Pats = Samples.ClinicalTier1(cohort = cancer.Type)
 dim(brca.Pats)
 ```
 
-The code above, looking at the dimensions of the returned data frame, indicates that there are only 250 patients, which does not correspond the number given at the [Firebrowse website](http://firebrowse.org/). This is due to the fact, that the Firebrowse API returns the data page wise, with a default page size of 250 entries (this holds for all functions/queries). The global limit for the page size is 2000.
+The code above, looking at the dimensions of the returned data frame, indicates that there are only 250 patients, which does not correspond to the number given at the [Firebrowse website](http://firebrowse.org/). This is due to the fact, that the Firebrowse API returns the data page wise, with a default page size of 250 entries (this holds for all functions/queries). The global limit for the page size is 2000.
 We can resolve this issue by iterating over the pages, until we receive a data frame with less than the page size (250) entries. Also we need to adopt the column names from the first frame, since the API does not return column names for page > 1.
 ```{r}
 all.Received = F
@@ -92,7 +92,7 @@ dim(brca.Pats)
 ```
 
 Now we got all patients (1070).
-Here we reduce the number of patients to the once who died. We only do this to keep the run time short, downloading mRNA expression data for a thousand patients would take a lot of time, later on.
+Here we reduce the number of patients to the ones who died. We only do this to keep the run time short, downloading mRNA expression data for a thousand patients would take a lot of time, later on.
 ```{r}
 brca.Pats = brca.Pats[ which(brca.Pats$vital_status == 1), ]
 ```
