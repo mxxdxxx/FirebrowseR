@@ -1,7 +1,7 @@
 ---
 title: "FirebrowseR - A short introduction"
 author: "Mario Deng"
-date: "2015-05-05"
+date: "2016-01-26"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{FirebrowseR - A short introduction}
@@ -18,19 +18,19 @@ A short outline about what's in the scope of this package and some brief ideas o
 The Firebrowse API with all its functions, features and descriptions can be viewed [here](http://firebrowse.org/api-docs/). The API divides into four categories:
 
 1. Samples
-    * Gives access to data types which did not receive a functional analysis.
+    * Gives access to data types where functional analysis was not performed.
 1. Analyses
-    * Data sets included here a pre-processed, since the RAW-data would be too big.
+    * Data sets included here are pre-processed, since the RAW-data would be too big.
 1. Archives
     * Allows one to download big compressed archives, including too large data sets, even after pre-processing them.
 1. Metadata
-    * Here one can assess all information needed to design and build cohorts etc..
+    * Here one can access all information needed to design and build cohorts, etc.
 
 ### Scope of FirebrowseR
-This package is designed to give easy access to Firehose/TCGA data sets for R programmers. Therefor it's implementing all functions provided by the Firebrowse API, which lets one comfortable query and download data sets. This package does not provide any additional functions, methods or tools to (pre-) process, analyze or evaluate the data sets named above.
+This package is designed to give easy access to Firehose/TCGA data sets for R programmers. Therefore it's implementing all functions provided by the Firebrowse API, which lets one comfortably query and download data sets. This package does not provide any additional functions, methods or tools to (pre-) process, analyze or evaluate the data sets named above.
 
 ### Getting around
-FirebrowseR provides all functions displayed in the [API-Documentation](http://firebrowse.org/api-docs/), having exactly the same names and arguments. Also each function has its own help page, accessible by `?function_name`, giving explanations and examples needed for this function. Further four additional data frames are provided; namely
+FirebrowseR provides all functions displayed in the [API-Documentation](http://firebrowse.org/api-docs/), having exactly the same names and arguments. Also each function has its own help page, accessible by `?function_name`, giving explanations and examples needed for the function. Further four additional data frames are provided; namely
 
 * data_types,
     * Needed for: `Metadata.Counts` and `Archives.StandardData`
@@ -42,20 +42,20 @@ FirebrowseR provides all functions displayed in the [API-Documentation](http://f
 * sample.Types.
     * Needed to extract the definitions of _Code_ and _Short.Letter.Code_
 
-supplying additional information, which maybe required for some queries but not provided by the API.
+supplying additional information, which may be required for some queries but not provided by the API.
 
 ### Installation
-The FirebrowseR package installs like every other R package `install.packages('FirebrowseR')` or `devtools::install_github("mariodeng/FirebrowseR")`
+The FirebrowseR package is installed just like every other R package hosted in GitHub: `devtools::install_github("mariodeng/FirebrowseR")`. When the API stops using the beta moniker, this package will be installable from CRAN.
 
 ### License
 FirebrowseR is licensed under MIT License. Please see license file or [wikipedia](https://en.wikipedia.org/wiki/MIT_License).
 
 ## How to use
-Here we talk and run through some examples, giving you an introduction to this package and discuss the cases in which it differs from the API.
+Here we talk and run through some examples, introducing you to this package and discussing the differences with the API.
 
 ### Example, Breast Cancer mRNA expression
 In this first example we are going to analyze mRNA expression data of breast cancer. We take a look at some genes well known to be differentially expressed within this entity of cancer.
-At first, we have to design our cohort. The method `Metadata.Cohorts` returns all cohort identifiers and their corresponding description. Within the description we search for "breast", yielding to identifier for breast cancer.
+At first, we have to design our cohort. The method `Metadata.Cohorts` returns all cohort identifiers and their corresponding description. Within the description we search for "breast", yielding to the identifier for breast cancer.
 
 ```r
 require(FirebrowseR)
@@ -71,15 +71,15 @@ print(cancer.Type)
 Now that we know that the breast cancer samples are identified be `BRCA`, we can retrieve a list of all patients associated with this identifier.
 
 ```r
-brca.Pats = Samples.ClinicalTier1(cohort = cancer.Type)
+brca.Pats = Samples.Clinical(cohort = cancer.Type)
 dim(brca.Pats)
 ```
 
 ```
-## [1] 250  24
+## [1] 250  21
 ```
 
-The code above, looking at the dimensions of the returned data frame, indicates that there are only 250 patients, which does not correspond the number given at the [Firebrowse website](http://firebrowse.org/). This is due to the fact, that the Firebrowse API returns the data page wise, with a default page size of 250 entries (this holds for all functions/queries). The global limit for the page size is 2000.
+The code above, looking at the dimensions of the returned data frame, indicates that there are only 250 patients, which does not correspond to the number given at the [Firebrowse website](http://firebrowse.org/). This is due to the fact, that the Firebrowse API returns the data page wise, with a default page size of 250 entries (this holds for all functions/queries). The global limit for the page size is 2000.
 We can resolve this issue by iterating over the pages, until we receive a data frame with less than the page size (250) entries. Also we need to adopt the column names from the first frame, since the API does not return column names for page > 1.
 
 ```r
@@ -87,8 +87,8 @@ all.Received = F
 page.Counter = 1
 brca.Pats = list()
 while(all.Received == F){
-  brca.Pats[[page.Counter]] = Samples.ClinicalTier1(cohort = cancer.Type,
-                                                    page = page.Counter)
+  brca.Pats[[page.Counter]] = Samples.Clinical(cohort = cancer.Type,
+                                               page = page.Counter)
   if(page.Counter > 1)
     colnames(brca.Pats[[page.Counter]]) = colnames(brca.Pats[[page.Counter-1]])
   
@@ -103,16 +103,16 @@ dim(brca.Pats)
 ```
 
 ```
-## [1] 1080   24
+## [1] 1098   21
 ```
 
-Now we got all patients (1070).
-Here we reduce the number of patients to the once who died. We only do this to keep the run time short, downloading mRNA expression data for a thousand patients would take a lot of time, later on.
+Now we got all patients (1098).
+Here we reduce the number of patients to the ones who died. We only do this to keep the run time short, downloading mRNA expression data for a thousand patients would take a lot of time, later on.
 
 ```r
 brca.Pats = brca.Pats[ which(brca.Pats$vital_status == 1), ]
 ```
-Here we define a vector containing genes known to be differential expressed in breast cancer and download the mRNA expression data for these genes and our patients.
+Here we define a vector containing genes known to be differential expressed in breast cancer and download the mRNA expression data for these genes and our patients. Since there are a alot of BRCA samples available, we chunk this query into genewise subset
 
 ```r
 diff.Exp.Genes = c("ESR1", "GATA3", "XBP1", "FOXA1", "ERBB2", "GRB7", "EGFR",
@@ -123,6 +123,7 @@ mRNA.Exp = list()
 page.Size = 2000 # using a bigger page size is faster
 while(all.Found == F){
   mRNA.Exp[[page.Counter]] = Samples.mRNASeq(gene = diff.Exp.Genes,
+                                             cohort = "BRCA",
                                              tcga_participant_barcode =
                                                brca.Pats$tcga_participant_barcode,
                                              page_size = page.Size,
@@ -137,7 +138,7 @@ dim(mRNA.Exp)
 ```
 
 ```
-## [1] 1602    8
+## [1] 1791    8
 ```
 
 We only keep the samples having a primary tumor and corresponding normal tissue available. Normal tissue is encoded by `NT` and tumor tissue by `TP`. Some Firehose functions require these identifiers or numbers. Since the API does not provide a function to decode the meaning of these identifiers, the data frame `sample.Type` included in this package does.
@@ -166,8 +167,7 @@ p +
 ```
 
 ```
-## Warning in loop_apply(n, do.ply): Removed 59 rows containing non-finite
-## values (stat_boxplot).
+## Warning: Removed 62 rows containing non-finite values (stat_boxplot).
 ```
 
 ![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png) 

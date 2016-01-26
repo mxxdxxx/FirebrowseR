@@ -44,7 +44,7 @@ be filtered by gene, cohort, barcode, sample type or characterization
 protocol, but at least one gene OR barcode must be supplied.
 }
 \details{
-For furhter information please see
+For further information please see
 \url{https://confluence.broadinstitute.org/display/GDAC/FAQ}
 }
 \examples{

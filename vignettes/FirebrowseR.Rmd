@@ -65,7 +65,7 @@ print(cancer.Type)
 
 Now that we know that the breast cancer samples are identified be `BRCA`, we can retrieve a list of all patients associated with this identifier.
 ```{r}
-brca.Pats = Samples.ClinicalTier1(cohort = cancer.Type)
+brca.Pats = Samples.Clinical(cohort = cancer.Type)
 dim(brca.Pats)
 ```
 
@@ -76,8 +76,8 @@ all.Received = F
 page.Counter = 1
 brca.Pats = list()
 while(all.Received == F){
-  brca.Pats[[page.Counter]] = Samples.ClinicalTier1(cohort = cancer.Type,
-                                                    page = page.Counter)
+  brca.Pats[[page.Counter]] = Samples.Clinical(cohort = cancer.Type,
+                                               page = page.Counter)
   if(page.Counter > 1)
     colnames(brca.Pats[[page.Counter]]) = colnames(brca.Pats[[page.Counter-1]])
   
@@ -91,12 +91,12 @@ brca.Pats = do.call(rbind, brca.Pats)
 dim(brca.Pats)
 ```
 
-Now we got all patients (1070).
+Now we got all patients (1098).
 Here we reduce the number of patients to the ones who died. We only do this to keep the run time short, downloading mRNA expression data for a thousand patients would take a lot of time, later on.
 ```{r}
 brca.Pats = brca.Pats[ which(brca.Pats$vital_status == 1), ]
 ```
-Here we define a vector containing genes known to be differential expressed in breast cancer and download the mRNA expression data for these genes and our patients.
+Here we define a vector containing genes known to be differential expressed in breast cancer and download the mRNA expression data for these genes and our patients. Since there are a alot of BRCA samples available, we chunk this query into genewise subset
 ```{r}
 diff.Exp.Genes = c("ESR1", "GATA3", "XBP1", "FOXA1", "ERBB2", "GRB7", "EGFR",
                    "FOXC1", "MYC")
@@ -106,6 +106,7 @@ mRNA.Exp = list()
 page.Size = 2000 # using a bigger page size is faster
 while(all.Found == F){
   mRNA.Exp[[page.Counter]] = Samples.mRNASeq(gene = diff.Exp.Genes,
+                                             cohort = "BRCA",
                                              tcga_participant_barcode =
                                                brca.Pats$tcga_participant_barcode,
                                              page_size = page.Size,

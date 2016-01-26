@@ -22,7 +22,7 @@
 #' @param page_size Number of records per page, max. is 2000.
 #' @param sort_by character indicating the to column which is used for sorting.
 #'
-#' @details For furhter information please see
+#' @details For further information please see
 #' \url{https://confluence.broadinstitute.org/display/GDAC/FAQ}
 #'
 #' @examples
