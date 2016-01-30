@@ -6,14 +6,17 @@ Date: 2015-11-23
 Author: Mario Deng
 Maintainer: Mario Deng <mariodeng@googlemail.com>
 Description: Get direct and fast information from 'massive genomic' data sets'
-             provided by Broads 'Firehose' Pipeline.
+    provided by Broads 'Firehose' Pipeline.
 License: MIT + file LICENSE
 LazyData: TRUE
-Depends: R(>= 2.10.0)
+Depends:
+    R(>= 2.10.0)
 Suggests:
     testthat,
     jsonlite,
     knitr,
     ggplot2,
-    curl
+    curl,
+    httr
 VignetteBuilder: knitr
+RoxygenNote: 5.0.1
