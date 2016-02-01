@@ -12,39 +12,58 @@ download.Data = function(url, format, page){
     use.Header = F
   }
 
-  if(format == "csv"){
-    result = tryCatch({
-      read.csv(url, header = use.Header, stringsAsFactors = F)
-    }, warning = function(w) {
-      return(NULL)
-    }, error = function(e){
-      return(NULL)
-    })
+  response = httr::GET(url)
+  if (response$status_code == 200) {
+    content = httr::content(response, as="text", encoding="UTF-8")
+    connection = textConnection(content)
+    if (content != "") {
+      # CSV
+      if(format == "csv"){
+        result = tryCatch({
+          read.csv(connection, header = use.Header, stringsAsFactors = F)
+        }, warning = function(w) {
+          warning(w)
+          return(NULL)
+        }, error = function(e){
+          stop(e)
+          return(NULL)
+        })
+      }
+      # TSV
+      if(format == "tsv"){
+        result = tryCatch({
+          read.table(connection, header = use.Header, sep = "\t", quote = "\"", stringsAsFactors = F)
+        }, warning = function(w) {
+          warning(w)
+          return(NULL)
+        }, error = function(e){
+          stop(e)
+          return(NULL)
+        })
+      }
+      # JSON
+      if(format == "json"){
+        result = tryCatch({
+          result = jsonlite::fromJSON(content, simplifyDataFrame = F,
+                                      simplifyVector = F,
+                                      simplifyMatrix = F)
+        }, warning = function(w) {
+          warning(w)
+          return(NULL)
+        }, error = function(e){
+          stop(e)
+          return(NULL)
+        })
+        if(length(result[[1]]) == 0 )
+          result = NULL
+      }
+      close(connection)
+      return(result)
+    } else {
+      warning("The API returned no content")
+    }
+  } else {
+    warning(paste("The API responded with code", response$status_code))
   }
-
-  if(format == "tsv"){
-    result = tryCatch({
-      read.table(url, header = use.Header, sep = "\t", quote = "\"", stringsAsFactors = F)
-    }, warning = function(w) {
-      return(NULL)
-    }, error = function(e){
-      return(NULL)
-    })
-  }
-
-  if(format == "json"){
-    result = tryCatch({
-      result = jsonlite::fromJSON(url, simplifyDataFrame = F,
-                                  simplifyVector = F,
-                                  simplifyMatrix = F)
-    }, warning = function(w) {
-      return(NULL)
-    }, error = function(e){
-      return(NULL)
-    })
-    if(length(result[[1]]) == 0 )
-      result = NULL
-  }
-
-  return(result)
+  return(NULL)
 }
