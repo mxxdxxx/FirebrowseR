@@ -22,7 +22,7 @@ download.Data = function(url, format, page){
         result = tryCatch({
           read.csv(connection, header = use.Header, stringsAsFactors = F)
         }, warning = function(w) {
-          stop(w)
+          warning(w)
           return(NULL)
         }, error = function(e){
           stop(e)
@@ -34,7 +34,7 @@ download.Data = function(url, format, page){
         result = tryCatch({
           read.table(connection, header = use.Header, sep = "\t", quote = "\"", stringsAsFactors = F)
         }, warning = function(w) {
-          stop(w)
+          warning(w)
           return(NULL)
         }, error = function(e){
           stop(e)
@@ -44,11 +44,11 @@ download.Data = function(url, format, page){
       # JSON
       if(format == "json"){
         result = tryCatch({
-          result = jsonlite::fromJSON(connection, simplifyDataFrame = F,
+          result = jsonlite::fromJSON(content, simplifyDataFrame = F,
                                       simplifyVector = F,
                                       simplifyMatrix = F)
         }, warning = function(w) {
-          stop(w)
+          warning(w)
           return(NULL)
         }, error = function(e){
           stop(e)
@@ -65,5 +65,5 @@ download.Data = function(url, format, page){
   } else {
     warning(paste("The API responded with code", response$status_code))
   }
-
+  return(NULL)
 }
