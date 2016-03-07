@@ -10,8 +10,8 @@
 #'
 #' @export
 API.Version = function(){
-  number = "1.1.21"
-  beta = T
+  number = "1.1.24"
+  beta = F
   ret = ifelse(beta, paste("v", number, ":beta", sep=""), paste("v", number, sep=""))
   return(ret)
 }
