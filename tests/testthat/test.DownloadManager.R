@@ -47,11 +47,8 @@ test_that("Downloader does not break when result is empty", {
   tsv.Url = "http://firebrowse.org/api/v1/Samples/mRNASeq?format=tsv&gene=PTEN%2CRUNX1%2CTP53&cohort=BLCA&sample_type=NB&protocol=RSEM&page=1&page_size=250&sort_by=gene"
   json.Url = "http://firebrowse.org/api/v1/Samples/mRNASeq?format=json&gene=PTEN%2CRUNX1%2CTP53&cohort=BLCA&sample_type=NB&protocol=RSEM&page=1&page_size=250&sort_by=gene"
 
-  csv.Data = download.Data(csv.Url, format = "csv", NULL)
-  tsv.Data = download.Data(tsv.Url, format = "tsv", NULL)
-  json.Data = download.Data(json.Url, format = "json", NULL)
+  expect_error(download.Data(csv.Url, format = "csv", NULL))
+  expect_error(download.Data(tsv.Url, format = "tsv", NULL))
+  expect_error(download.Data(json.Url, format = "json", NULL))
 
-  expect_null(csv.Data)
-  expect_null(tsv.Data)
-  expect_null(json.Data)
 })

@@ -1,7 +1,7 @@
 #library(FirebrowseR)
 context("validet.Parameters")
 
-test_that("validet.Parameters works correct", {
+test_that("validate.Parameters works correct", {
 
   to.Validate = list(
     gene = c("PTEN","RUNX1","TP53"),
@@ -13,5 +13,5 @@ test_that("validet.Parameters works correct", {
     page_size = 250,
     sort_by = "gene")
 
-  expect_true({validet.Parameters(to.Validate); TRUE})
+  expect_true({validate.Parameters(to.Validate); TRUE})
 })

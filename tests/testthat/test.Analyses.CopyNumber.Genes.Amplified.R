@@ -11,14 +11,13 @@ test_that("Getting the GISTIC2 amplified ouput", {
   page_size = 250
   sort_by = "cohort"
 
-  obj = Analyses.CopyNumber.Genes.Amplified(format = format,
-                                                  cohort = cohort,
-                                                  gene = gene,
-                                                  q = q,
-                                                  page = page,
-                                                  page_size = page_size,
-                                                  sort_by = sort_by)
-  expect_null(obj)
+  expect_error(Analyses.CopyNumber.Genes.Amplified(format = format,
+                                                   cohort = cohort,
+                                                   gene = gene,
+                                                   q = q,
+                                                   page = page,
+                                                   page_size = page_size,
+                                                   sort_by = sort_by))
 
   gene = "PFN3"
   obj = Analyses.CopyNumber.Genes.Amplified(format = format,

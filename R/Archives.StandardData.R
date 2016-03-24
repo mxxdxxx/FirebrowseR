@@ -1,73 +1,35 @@
 #' Retrieve standard data archives.
+#' 
+#' This service returns the archive URLs for our Firehose standard data runs, providing a RESTful interface similar in spirit to the command line <a href="https://confluence.broadinstitute.org/display/GDAC/Download">firehose_get</a> tool. The archives can be filtered based on date, cohort, data type, platform, center, data level, and protocol.
 #'
-#' This service returns the archive URLs for our Firehose standard data runs,
-#' providing a RESTful interface similar in spirit to the command line
-#' firehose_get tool. The archives can be filtered based on date, cohort, data
-#' type, platform, center, data level, and protocol.
-#'
-#' @param level choose data level from 1-4.
-#' @param data_type Narrow search to one or more TCGA data types. Available data
-#' types are provided by the data frame \code{data_types}.
-#' @param tool Narrow search to include only data/results produced by the selected
-#' Firehose tool.  Available tools are provided in the data frame \code{tools}.
-#' @param protocol Narrow search to one or more sample characterization
-#' protocols, see \code{protocols} data.frame for available protocols.
-#' @inheritParams Metadata.Platforms
-#' @inheritParams Samples.mRNASeq
-#' @inheritParams Analyses.Reports
-#' @inheritParams Metadata.Platforms
-#' @inheritParams Metadata.Centers
-#'
-#' @details
-#' \code{data_type}m \code{tool} and \code{protocol} are hard coded, since the
-#' API provides no methods to query them. Therefor, and to keep always up to
-#' date, you may consider looking at the website
-#' \url{http://firebrowse.org/api-docs/} for all available data types.
-#'
-#' @examples
-#' format = "tsv"
-#' date = "2014_12_06"
-#' cohort = "BRCA"
-#' data_type = "CopyNumber"
-#' level = 3
-#' page = 1
-#' page_size = 250
-#'
-#' obj = Archives.StandardData(format = format,
-#'                                 date = date,
-#'                                 cohort = cohort,
-#'                                 data_type = data_type,
-#'                                 level = level,
-#'                                 page = page,
-#'                                 page_size = page_size)
-#'
-#' cohort = "PRAD"
-#' data_type = "MAF"
-#' level = 3
-#' obj = Archives.StandardData(format = format,
-#'                                 date = date,
-#'                                 cohort = cohort,
-#'                                 data_type = data_type,
-#'                                 level = level,
-#'                                 page = page,
-#'                                 page_size = page_size)
-#'
-#' @return A \code{list}, if format is \code{json}, elsewise a \code{data.frame}
-#'
+#' @param format Format of result. Default value is json. While json,tsv,csv are available. 
+#' @param date Select one or more date stamps. Multiple values are allowed 2016_01_28,2015_11_01,2015_08_21,2015_06_01,2015_04_02,2015_02_04,2014_12_06,2014_10_17,2014_09_02,2014_07_15,2014_05_18,2014_04_16,2014_03_16. Default value is 2016_01_28.  
+#' @param cohort Narrow search to one or more TCGA disease cohorts from the scrollable list. Multiple values are allowed ACC,BLCA,BRCA,CESC,CHOL,COAD,COADREAD,DLBC,ESCA,FPPP,GBM,GBMLGG,HNSC,KICH,KIPAN,KIRC,KIRP,LAML,LGG,LIHC,LUAD,LUSC,MESO,OV,PAAD,PCPG,PRAD,READ,SARC,SKCM,STAD,STES,TGCT,THCA,THYM,UCEC,UCS,UVM.
+#' @param data_type Narrow search to one or more TCGA data types from the scrollable list. Multiple values are allowed Clinical,CopyNumber,LowPass,MAF,Methylation,miR,miRSeq,mRNA,mRNASeq,rawMAF,rawWIG,RPPA,WIG.
+#' @param tool Narrow search to include only data/results produced by the selected Firehose tool. Multiple values are allowed Clinical_Pick_Tier1,Merge_Clinical,Merge_cna__cgh_1x1m_g4447a__mskcc_org__Level_3__segmentation_data_computation__seg,Merge_cna__hg_cgh_244a__hms_harvard_edu__Level_3__segmentation__seg,Merge_cna__hg_cgh_244a__mskcc_org__Level_3__segmentation_data_computation__seg,Merge_cna__hg_cgh_415k_g4124a__hms_harvard_edu__Level_3__segmentation__seg,Merge_cna__illuminahiseq_dnaseqc__hms_harvard_edu__Level_3__segmentation__seg,Merge_exon__huex_1_0_st_v2__lbl_gov__Level_2__quantile_normalization_exon__data,Merge_exon__huex_1_0_st_v2__lbl_gov__Level_3__quantile_normalization_gene__data,Merge_exon__huex_1_0_st_v2__lbl_gov__Level_3__segmented_as_firma__data,Merge_methylation__humanmethylation27__jhu_usc_edu__Level_3__within_bioassay_data_set_function__data,Merge_methylation__humanmethylation450__jhu_usc_edu__Level_3__within_bioassay_data_set_function__data,Merge_mirna__h_mirna_8x15k__unc_edu__Level_3__unc_DWD_Batch_adjusted__data,Merge_mirna__h_mirna_8x15kv2__unc_edu__Level_3__unc_DWD_Batch_adjusted__data,Merge_mirnaseq__illuminaga_mirnaseq__bcgsc_ca__Level_3__miR_gene_expression__data,Merge_mirnaseq__illuminaga_mirnaseq__bcgsc_ca__Level_3__miR_isoform_expression__data,Merge_mirnaseq__illuminahiseq_mirnaseq__bcgsc_ca__Level_3__miR_gene_expression__data,Merge_mirnaseq__illuminahiseq_mirnaseq__bcgsc_ca__Level_3__miR_isoform_expression__data,Merge_protein_exp__mda_rppa_core__mdanderson_org__Level_3__protein_normalization__data,Merge_rnaseq__illuminaga_rnaseq__bcgsc_ca__Level_3__exon_expression__data,Merge_rnaseq__illuminaga_rnaseq__bcgsc_ca__Level_3__gene_expression__data,Merge_rnaseq__illuminaga_rnaseq__bcgsc_ca__Level_3__splice_junction_expression__data,Merge_rnaseq__illuminaga_rnaseq__unc_edu__Level_3__exon_expression__data,Merge_rnaseq__illuminaga_rnaseq__unc_edu__Level_3__gene_expression__data,Merge_rnaseq__illuminaga_rnaseq__unc_edu__Level_3__splice_junction_expression__data,Merge_rnaseq__illuminahiseq_rnaseq__bcgsc_ca__Level_3__exon_expression__data,Merge_rnaseq__illuminahiseq_rnaseq__bcgsc_ca__Level_3__gene_expression__data,Merge_rnaseq__illuminahiseq_rnaseq__bcgsc_ca__Level_3__splice_junction_expression__data,Merge_rnaseq__illuminahiseq_rnaseq__unc_edu__Level_3__exon_expression__data,Merge_rnaseq__illuminahiseq_rnaseq__unc_edu__Level_3__gene_expression__data,Merge_rnaseq__illuminahiseq_rnaseq__unc_edu__Level_3__splice_junction_expression__data,Merge_rnaseqv2__illuminaga_rnaseqv2__unc_edu__Level_3__exon_quantification__data,Merge_rnaseqv2__illuminaga_rnaseqv2__unc_edu__Level_3__junction_quantification__data,Merge_rnaseqv2__illuminaga_rnaseqv2__unc_edu__Level_3__RSEM_genes__data,Merge_rnaseqv2__illuminaga_rnaseqv2__unc_edu__Level_3__RSEM_genes_normalized__data,Merge_rnaseqv2__illuminaga_rnaseqv2__unc_edu__Level_3__RSEM_isoforms__data,Merge_rnaseqv2__illuminaga_rnaseqv2__unc_edu__Level_3__RSEM_isoforms_normalized__data,Merge_rnaseqv2__illuminahiseq_rnaseqv2__unc_edu__Level_3__exon_quantification__data,Merge_rnaseqv2__illuminahiseq_rnaseqv2__unc_edu__Level_3__junction_quantification__data,Merge_rnaseqv2__illuminahiseq_rnaseqv2__unc_edu__Level_3__RSEM_genes__data,Merge_rnaseqv2__illuminahiseq_rnaseqv2__unc_edu__Level_3__RSEM_genes_normalized__data,Merge_rnaseqv2__illuminahiseq_rnaseqv2__unc_edu__Level_3__RSEM_isoforms__data,Merge_rnaseqv2__illuminahiseq_rnaseqv2__unc_edu__Level_3__RSEM_isoforms_normalized__data,Merge_snp__genome_wide_snp_6__broad_mit_edu__Level_2__birdseed_genotype__birdseed,Merge_snp__genome_wide_snp_6__broad_mit_edu__Level_3__segmented_scna_hg18__seg,Merge_snp__genome_wide_snp_6__broad_mit_edu__Level_3__segmented_scna_hg19__seg,Merge_snp__genome_wide_snp_6__broad_mit_edu__Level_3__segmented_scna_minus_germline_cnv_hg18__seg,Merge_snp__genome_wide_snp_6__broad_mit_edu__Level_3__segmented_scna_minus_germline_cnv_hg19__seg,Merge_snp__human1mduo__hudsonalpha_org__Level_3__segmented_cna__seg,Merge_snp__human1mduo__hudsonalpha_org__Level_3__segmented_cnv__seg,Merge_snp__human1mduo__hudsonalpha_org__Level_3__segmented_loh__seg,Merge_snp__humanhap550__hudsonalpha_org__Level_3__segmented_cna__seg,Merge_snp__humanhap550__hudsonalpha_org__Level_3__segmented_cnv__seg,Merge_snp__humanhap550__hudsonalpha_org__Level_3__segmented_loh__seg,Merge_transcriptome__agilentg4502a_07_1__unc_edu__Level_2__unc_lowess_normalization_probe_level__data,Merge_transcriptome__agilentg4502a_07_1__unc_edu__Level_3__unc_lowess_normalization_gene_level__data,Merge_transcriptome__agilentg4502a_07_2__unc_edu__Level_2__unc_lowess_normalization_probe_level__data,Merge_transcriptome__agilentg4502a_07_2__unc_edu__Level_3__unc_lowess_normalization_gene_level__data,Merge_transcriptome__agilentg4502a_07_3__unc_edu__Level_2__unc_lowess_normalization_probe_level__data,Merge_transcriptome__agilentg4502a_07_3__unc_edu__Level_3__unc_lowess_normalization_gene_level__data,Merge_transcriptome__ht_hg_u133a__broad_mit_edu__Level_2__probeset_rma__data,Merge_transcriptome__ht_hg_u133a__broad_mit_edu__Level_3__gene_rma__data,Methylation_Preprocess,miRseq_Mature_Preprocess,miRseq_Preprocess,mRNA_Preprocess_Median,mRNAseq_Preprocess,Mutation_Packager_Calls,Mutation_Packager_Coverage,Mutation_Packager_Oncotated_Calls,Mutation_Packager_Oncotated_Raw_Calls,Mutation_Packager_Raw_Calls,Mutation_Packager_Raw_Coverage,RPPA_AnnotateWithGene.
+#' @param platform Narrow search to one or more TCGA data generation platforms from the scrollable list. Multiple values are allowed 454,ABI,AgilentG4502A_07,AgilentG4502A_07_1,AgilentG4502A_07_2,AgilentG4502A_07_3,bio,biotab,CGH-1x1M_G4447A,diagnostic_images,fh_analyses,fh_reports,fh_stddata,Genome_Wide_SNP_6,GenomeWideSNP_5,H-miRNA_8x15K,H-miRNA_8x15Kv2,H-miRNA_EarlyAccess,H-miRNA_G4470A,HG-CGH-244A,HG-CGH-415K_G4124A,HG-U133_Plus_2,HG-U133A_2,HT_HG-U133A,HuEx-1_0-st-v2,Human1MDuo,HumanHap550,HumanMethylation27,HumanMethylation450,IlluminaDNAMethylation_OMA002_CPI,IlluminaDNAMethylation_OMA003_CPI,IlluminaGA_DNASeq,IlluminaGA_DNASeq_automated,IlluminaGA_DNASeq_Cont,IlluminaGA_DNASeq_Cont_automated,IlluminaGA_DNASeq_Cont_curated,IlluminaGA_DNASeq_curated,IlluminaGA_miRNASeq,IlluminaGA_mRNA_DGE,IlluminaGA_RNASeq,IlluminaGA_RNASeqV2,IlluminaGG,IlluminaHiSeq_DNASeq,IlluminaHiSeq_DNASeq_automated,IlluminaHiSeq_DNASeq_Cont,IlluminaHiSeq_DNASeq_Cont_automated,IlluminaHiSeq_DNASeq_Cont_curated,IlluminaHiSeq_DNASeq_curated,IlluminaHiSeq_DNASeqC,IlluminaHiSeq_miRNASeq,IlluminaHiSeq_mRNA_DGE,IlluminaHiSeq_RNASeq,IlluminaHiSeq_RNASeqV2,IlluminaHiSeq_TotalRNASeqV2,IlluminaHiSeq_WGBS,Mapping250K_Nsp,Mapping250K_Sty,MDA_RPPA_Core,microsat_i,minbio,minbiotab,Mixed_DNASeq,Mixed_DNASeq_automated,Mixed_DNASeq_Cont,Mixed_DNASeq_Cont_automated,Mixed_DNASeq_Cont_curated,Mixed_DNASeq_curated,pathology_reports,SOLiD_DNASeq,SOLiD_DNASeq_automated,SOLiD_DNASeq_Cont,SOLiD_DNASeq_Cont_automated,SOLiD_DNASeq_Cont_curated,SOLiD_DNASeq_curated,tissue_images,WHG-1x44K_G4112A,WHG-4x44K_G4112F,WHG-CGH_4x44B.
+#' @param center Narrow search to one or more TCGA centers from the scrollable list. Multiple values are allowed bcgsc.ca,broad.mit.edu,broadinstitute.org,genome.wustl.edu,hgsc.bcm.edu,hms.harvard.edu,hudsonalpha.org,intgen.org,jhu-usc.edu,jhu.edu,lbl.gov,mdanderson.org,mskcc.org,nationwidechildrens.org,pnl.gov,rubicongenomics.com,sanger.ac.uk,systemsbiology.org,ucsc.edu,unc.edu,vanderbilt.edu.
+#' @param level Narrow search to one or more TCGA data levels. Multiple values are allowed 1,2,3,4.
+#' @param protocol Narrow search to one or more sample characterization protocols from the scrollable list. Multiple values are allowed birdseed_genotype,exon_expression,exon_quantification,gene_expression,gene_rma,junction_quantification,miR_gene_expression,miR_isoform_expression,probeset_rma,protein_normalization,quantile_normalization_exon,quantile_normalization_gene,RSEM_genes,RSEM_genes_normalized,RSEM_isoforms,RSEM_isoforms_normalized,segmentation,segmentation_data_computation,segmented_as_firma,segmented_cna,segmented_cnv,segmented_loh,segmented_scna_hg18,segmented_scna_hg19,segmented_scna_minus_germline_cnv_hg18,segmented_scna_minus_germline_cnv_hg19,splice_junction_expression,unc_DWD_Batch_adjusted,unc_lowess_normalization_gene_level,unc_lowess_normalization_probe_level,within_bioassay_data_set_function.
+#' @param page Which page (slice) of entire results set should be returned.  Multiple values are allowed . Default value is 1.  
+#' @param page_size Number of records per page of results.  Max is 2000. Multiple values are allowed . Default value is 250.  
+#' @param sort_by Which column in the results should be used for sorting paginated results? Default value is cohort. While cohort,protocol,center,data_type,level,tool,platform,date are available. 
+#' 
 #' @export
-Archives.StandardData = function(format = "tsv",
-                                     date = "",
-                                     cohort = "",
-                                     data_type = "",
-                                     tool = "",
-                                     platform = "",
-                                     center = "",
-                                     level = "",
-                                     protocol = "",
-                                     page = 1,
-                                     page_size = 250,
-                                     sort_by = "cohort"){
-
+Archives.StandardData = function(format = "json",
+                             date = "2016_01_28",
+                             cohort = "",
+                             data_type = "",
+                             tool = "",
+                             platform = "",
+                             center = "",
+                             level = "",
+                             protocol = "",
+                             page = "1",
+                             page_size = "250",
+                             sort_by = "cohort"
+                             ){
+                             
   parameters = list(format = format,
                     date = date,
                     cohort = cohort,
@@ -80,18 +42,14 @@ Archives.StandardData = function(format = "tsv",
                     page = page,
                     page_size = page_size,
                     sort_by = sort_by)
+  
+  validate.Parameters(params = parameters)
 
-  if(nchar(parameters[["date"]]) == 0) {
-    stop("A date is always required. See MetadataDates()")
-  }
-  #if(parameters[["format"]] == "csv") {
-  #  stop("csv is currently not supported by that function.")
-  #}
-
-  validet.Parameters(parameters)
-  url = build.Query(parameters = parameters, invoker = "Archives", method = "StandardData")
-
+  url = build.Query(parameters = parameters,
+                    invoker = "Archives",
+                    method = "StandardData")
   ret = download.Data(url, format, page)
 
   return(ret)
-  }
+
+}

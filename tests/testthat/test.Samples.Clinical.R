@@ -40,15 +40,14 @@ test_that("Samples.Clinical", {
                               sort_by = sort_by)
   expect_is(obj, "data.frame")
   expect_that(nrow(obj), equals(250))
-  expect_that(ncol(obj), equals(22))
+  expect_that(ncol(obj), equals(88))
 
   tcga_participant_barcode = "TCGA-GF-A4EO"
-  obj = Samples.Clinical(format = "tsv",
-                              cohort = cohort,
-                              tcga_participant_barcode = tcga_participant_barcode,
-                              cde_name = cde_name,
-                              page = page,
-                              page_size = page_size,
-                              sort_by = sort_by)
-  expect_null(obj)
+  expect_error(Samples.Clinical(format = "tsv",
+                                cohort = cohort,
+                                tcga_participant_barcode = tcga_participant_barcode,
+                                cde_name = cde_name,
+                                page = page,
+                                page_size = page_size,
+                                sort_by = sort_by))
 })

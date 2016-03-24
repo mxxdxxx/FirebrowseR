@@ -4,24 +4,12 @@
 \alias{Metadata.ClinicalNames}
 \title{Retrieve names of all TCGA clinical data elements (CDEs).}
 \usage{
-Metadata.ClinicalNames(format = "csv")
+Metadata.ClinicalNames(format = "json")
 }
 \arguments{
-\item{format}{A string identifying the data type returned. Using json
-requires the jsonlite package. \code{json}, \code{csv} or \code{tsv} are
-available. In this package \code{tsv} and \code{csv} are identical.}
+\item{format}{Format of result. Default value is json. While json,tsv,csv are available.}
 }
 \description{
-Retrieve names of all patient-level clinical data elements (CDES) available
-in TCGA, unioned across all disease cohorts. A CDE will be listed here only
-when it has a value other than NA for at least 1 patient case in any disease
-cohort. For more information on how these CDEs are processed see our pipeline
-documentation.
-\url{https://confluence.broadinstitute.org/display/GDAC/Documentation}
-}
-\examples{
-format = "csv"
-obj = Metadata.ClinicalNames(format = format)
-
+Retrieve names of all patient-level clinical data elements (CDES) available in TCGA, unioned across all disease cohorts. A CDE will be listed here only when it has a value other than NA for at least 1 patient case in any disease cohort. For more information on how these CDEs are processed see our <a href="https://confluence.broadinstitute.org/display/GDAC/Documentation">pipeline documentation</a>.
 }
 

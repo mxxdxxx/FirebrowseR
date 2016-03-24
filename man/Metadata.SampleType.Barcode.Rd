@@ -2,28 +2,16 @@
 % Please edit documentation in R/Metadata.SampleType.Barcode.R
 \name{Metadata.SampleType.Barcode}
 \alias{Metadata.SampleType.Barcode}
-\title{Return a sample type code to short letter code mapping.}
+\title{Given a TCGA barcode, return its short letter sample type code.}
 \usage{
-Metadata.SampleType.Barcode(format = "csv", tcga_participant_barcode = "")
+Metadata.SampleType.Barcode(format = "json", TCGA_Barcode = "")
 }
 \arguments{
-\item{format}{A string identifying the data type returned. Using json
-requires the jsonlite package. \code{json}, \code{csv} or \code{tsv} are
-available. In this package \code{tsv} and \code{csv} are identical.}
+\item{format}{Format of result. Default value is json. While json,tsv,csv are available.}
 
-\item{tcga_participant_barcode}{A character vector containing TCGA Barcodes.
-Empty string returns all patients. Either one gene OR barcode is required.}
+\item{TCGA_Barcode}{Enter a single TCGA barcode, of any form: e.g. TCGA-GF-A4EO-06 or TCGA-EL-A3D5-01A-22D-A202-08}
 }
 \description{
-Return a sample type code to short letter code mapping.
-This method only returns the first barcode, so just use one.
-}
-\examples{
-format = "csv"
-tcga_participant_barcode = c("TCGA-GF-A4EO-06",
-                             "TCGA-EL-A3D5-01A-22D-A202-08")
-obj = Metadata.SampleType.Barcode(format = format,
-                                  tcga_participant_barcode = tcga_participant_barcode)
-
+Given a TCGA barcode, return its short letter sample type code.
 }
 

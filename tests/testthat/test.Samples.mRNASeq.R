@@ -26,6 +26,6 @@ test_that("mRNASeq data is retrieved correctly", {
   expect_identical( sort(unique(obj$gene)) , sort(gene))
 
   obj = Samples.mRNASeq(gene = c("TP53", "RUNX1"))
-  expect_is(obj, "data.frame")
+  expect_is(obj, "list")
 
 })

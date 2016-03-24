@@ -2,36 +2,16 @@
 % Please edit documentation in R/Metadata.Cohorts.R
 \name{Metadata.Cohorts}
 \alias{Metadata.Cohorts}
-\title{Retrieve map of cohort abbreviation(s) to cohort name(s).}
+\title{Translate TCGA cohort abbreviations to full disease names.}
 \usage{
-Metadata.Cohorts(format = "csv", cohort = "")
+Metadata.Cohorts(format = "json", cohort = "")
 }
 \arguments{
-\item{format}{A string identifying the data type returned. Using json
-requires the jsonlite package. \code{json}, \code{csv} or \code{tsv} are
-available. In this package \code{tsv} and \code{csv} are identical.}
+\item{format}{Format of result. Default value is json. While json,tsv,csv are available.}
 
-\item{cohort}{A character vector indicating the cohort to query,
-empty string queries all cohorts. See \code{\link{Metadata.Cohorts}} for
-available cohorts.}
+\item{cohort}{Narrow search to one or more TCGA disease cohorts from the scrollable list. Multiple values are allowed ACC,BLCA,BRCA,CESC,CHOL,COAD,COADREAD,DLBC,ESCA,FPPP,GBM,GBMLGG,HNSC,KICH,KIPAN,KIRC,KIRP,LAML,LGG,LIHC,LUAD,LUSC,MESO,OV,PAAD,PCPG,PRAD,READ,SARC,SKCM,STAD,STES,TGCT,THCA,THYM,UCEC,UCS,UVM.}
 }
 \description{
-By default this function returns a table containing all TCGA cohort
-abbreviations and their corresponding disease names. A subset of that table
-may be obtained by explicitly specifying one or more cohort abbreviations.
-}
-\examples{
-format = "csv"
-cohort = c("PRAD", "BRCA")
-
-obj = Metadata.Cohorts(format = format,
-                       cohort = cohort)
-
-format = "tsv"
-cohort = c("PRAD", "BRCA")
-
-obj = Metadata.Cohorts(format = format,
-                       cohort = cohort)
-
+By default this function returns a table containing all TCGA cohort abbreviations and their corresponding disease names.  A subset of that table may be obtained by explicitly specifying one or more cohort abbreviations.
 }
 

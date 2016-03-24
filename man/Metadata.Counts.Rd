@@ -4,63 +4,23 @@
 \alias{Metadata.Counts}
 \title{Retrieve sample counts.}
 \usage{
-Metadata.Counts(format = "csv", date = "", cohort = "",
-  sample_type = "", data_type = "", totals = T)
+Metadata.Counts(format = "json", date = "2016_01_28", cohort = "",
+  sample_type = "", data_type = "", totals = "TRUE")
 }
 \arguments{
-\item{format}{A string identifying the data type returned. Using json
-requires the jsonlite package. \code{json}, \code{csv} or \code{tsv} are
-available. In this package \code{tsv} and \code{csv} are identical.}
+\item{format}{Format of result. Default value is json. While json,tsv,csv are available.}
 
-\item{date}{Narrow search to one or more Firehose run date stamps. For a list
-of available dates see \code{\link{Metadata.Dates}}}
+\item{date}{Select one or more date stamps. Multiple values are allowed 2016_01_28,2015_11_01,2015_08_21,2015_06_01,2015_04_02,2015_02_04,2014_12_06,2014_10_17,2014_09_02,2014_07_15,2014_05_18,2014_04_16,2014_03_16. Default value is 2016_01_28.}
 
-\item{cohort}{A character vector indicating the cohort to query,
-empty string queries all cohorts. See \code{\link{Metadata.Cohorts}} for
-available cohorts.}
+\item{cohort}{Narrow search to one or more TCGA disease cohorts from the scrollable list. Multiple values are allowed ACC,BLCA,BRCA,CESC,CHOL,COAD,COADREAD,DLBC,ESCA,FPPP,GBM,GBMLGG,HNSC,KICH,KIPAN,KIRC,KIRP,LAML,LGG,LIHC,LUAD,LUSC,MESO,OV,PAAD,PCPG,PRAD,READ,SARC,SKCM,STAD,STES,TGCT,THCA,THYM,UCEC,UCS,UVM.}
 
-\item{sample_type}{A character vector indicating the sample types to query.
-Empty string returns all types. See \code{\link{Metadata.SampleTypes}},
-for available sample types.}
+\item{sample_type}{Narrow search to one or more TCGA sample types from the scrollable list. Multiple values are allowed FFPE,NB,NBC,NBM,NT,TAM,TAP,TB,TM,TP,TR,Tumor.}
 
-\item{data_type}{Narrow search to one or more TCGA data types. Available data
-types are provided by the data frame \code{data_types}.}
+\item{data_type}{Narrow search to one or more TCGA data types from the scrollable list. Multiple values are allowed bcr,clinical,cn,lowp,methylation,mrna,mrnaseq,mir,mirseq,rppa,maf,rawmaf.}
 
-\item{totals}{Provide an extra column/element giving the total sum of
-samples. Not implemented by API...}
+\item{totals}{Output an entry providing the totals for each data type. Default value is TRUE. While  are available.}
 }
 \description{
-Returns the aliquot counts for each disease cohort, per sample type and data
-type. The sample type designation of "Tumor" may be used to aggregate the
-count of all tumor aliquots into a single number per disease and data type.
-See the SampleTypes function for a complete description of sample types.
-}
-\examples{
-format = "csv"
-date = "2015_02_04"
-cohort = c("PRAD", "BRCA")
-sample_type = ""
-data_type = ""
-totals = TRUE
-obj = Metadata.Counts(format = format,
-                               date = date,
-                               cohort = cohort,
-                               sample_type = sample_type,
-                               data_type = data_type,
-                               totals = totals)
-
-format = "tsv"
-cohort = c("PRAD", "BRCA")
-sample_type = "Tumor"
-data_type = c("methylation", "maf")
-totals = TRUE
-
-obj = Metadata.Counts(format = format,
-                               date = date,
-                               cohort = cohort,
-                               sample_type = sample_type,
-                               data_type = data_type,
-                               totals = totals)
-
+Returns the aliquot counts for each disease cohort, per sample type and data type.  The sample type designation of "Tumor" may be used to aggregate the count of all tumor aliquots into a single number per disease and data type. See the SampleTypes function for a complete description of sample types.
 }
 

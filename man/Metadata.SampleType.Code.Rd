@@ -2,25 +2,16 @@
 % Please edit documentation in R/Metadata.SampleType.Code.R
 \name{Metadata.SampleType.Code}
 \alias{Metadata.SampleType.Code}
-\title{Translate from numeric sample type code to short letter code.}
+\title{Translate from numeric to symbolic TCGA sample codes.}
 \usage{
-Metadata.SampleType.Code(format = "csv", code = "")
+Metadata.SampleType.Code(format = "json", code = "")
 }
 \arguments{
-\item{format}{A string identifying the data type returned. Using json
-requires the jsonlite package. \code{json}, \code{csv} or \code{tsv} are
-available. In this package \code{tsv} and \code{csv} are identical.}
+\item{format}{Format of result. Default value is json. While json,tsv,csv are available.}
 
-\item{code}{Sample type codes.}
+\item{code}{Narrow search to one or more TCGA sample type codes. Multiple values are allowed 01,03,07,09,12,20,40,02,04,05,06,08,10,11,13,14,50,60,61.}
 }
 \description{
-Translate a numeric sample type code (e.g. 01, 02, etc.) into its short
-letter code (e.g. TP, TR, etc.).
-}
-\examples{
-format = "csv"
-code = c(50, 60)
-obj = Metadata.SampleType.Code(format = format, code = code)
-
+Convert a TCGA numeric sample type code (e.g. 01, 02) to its corresponding symbolic (short letter) code (e.g. TP, TR).
 }
 

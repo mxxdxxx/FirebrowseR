@@ -2,24 +2,14 @@
 % Please edit documentation in R/Metadata.Dates.R
 \name{Metadata.Dates}
 \alias{Metadata.Dates}
-\title{Retrieve list of Firehose standard data and analyses dates.}
+\title{Retrieve datestamps of all GDAC Firehose standard data and analyses runs that have been ingested into FireBrowse.}
 \usage{
-Metadata.Dates(format = "csv")
+Metadata.Dates(format = "json")
 }
 \arguments{
-\item{format}{A string identifying the data type returned. Using json
-requires the jsonlite package. \code{json}, \code{csv} or \code{tsv} are
-available. In this package \code{tsv} and \code{csv} are identical.}
+\item{format}{Format of result. Default value is json. While json,tsv,csv are available.}
 }
 \description{
-Retrieve list of Firehose standard data and analyses dates.
-}
-\examples{
-format = "csv"
-obj = Metadata.Dates(format = format)
-
-format = "tsv"
-obj = Metadata.Dates(format = format)
-
+Retrieve datestamps of all GDAC Firehose standard data and analyses runs that have been ingested into FireBrowse.
 }
 

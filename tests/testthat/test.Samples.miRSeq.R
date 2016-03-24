@@ -41,6 +41,6 @@ test_that("miRSeq data is retrieved correctly", {
   expect_identical( sort(unique(obj$mir)) , sort(mir))
 
   obj = Samples.miRSeq(mir = c("hsa-mir-1285-3p","hsa-mir-125a-5p"))
-  expect_is(obj, "data.frame")
+  expect_is(obj, "list")
 
 })

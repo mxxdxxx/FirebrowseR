@@ -1,67 +1,29 @@
-#' Retrieve miRSeq data
+#' Retrieve miRSeq data.
+#' 
+#' This service returns sample-level log2 miRSeq expression values. Results may be filtered by miR, cohort, barcode, sample type or Firehose preprocessing tool, but at least one miR OR barcode must be supplied.
 #'
-#' This service returns sample-level log2 miRSeq expression values. Results may
-#' be filtered by miR, cohort, barcode, sample type or Firehose preprocessing
-#' tool, but at least one miR OR barcode must be supplied.
-#'
-#' @param mir A character vector of miR names. At least one miR or barcode is
-#' required.
-#' @param tool The tool used to run the anylses, either
-#' \code{miRseq_Mature_Preprocess}  or \code{miRseq_Preprocess}
-#' @inheritParams Samples.mRNASeq
-#'
-#' @examples
-#' format = "json"
-#' mir = c("hsa-mir-1285-3p","hsa-mir-125a-5p","hsa-mir-221-3p",
-#'         "hsa-mir-10b-5p","hsa-mir-608","hsa-mir-324-5p")
-#' cohort = "BRCA"
-#' tcga_participant_barcode = ""
-#' tool = "miRseq_Mature_Preprocess"
-#' sample_type = "NT"
-#' page = 1
-#' page_size = 250
-#' sort_by = "mir"
-#'
-#' # Get results in json format/list
-#' obj = Samples.miRSeq(format = format,
-#'                         mir = mir,
-#'                         cohort = cohort,
-#'                         tcga_participant_barcode = tcga_participant_barcode,
-#'                         tool = tool,
-#'                         sample_type = sample_type,
-#'                         page = page,
-#'                         page_size = page_size,
-#'                         sort_by = sort_by)
-#'
-#' # Nor as CSV
-#' format = "csv"
-#' mir = c("hsa-mir-1285-3p", "hsa-mir-125a-5p")
-#' obj = Samples.miRSeq(format = format,
-#'                         mir = mir,
-#'                         cohort = cohort,
-#'                         tcga_participant_barcode = tcga_participant_barcode,
-#'                         tool = tool,
-#'                         sample_type = sample_type,
-#'                         page = page,
-#'                         page_size = page_size,
-#'                         sort_by = sort_by)
-#'
-#' # And just by miR IDs, without any other restrictions
-#' obj = Samples.miRSeq(mir = c("hsa-mir-1285-3p","hsa-mir-125a-5p"))
-#'
-#' @return A \code{list}, if format is \code{json}, elsewise a \code{data.frame}
-#'
+#' @param format Format of result. Default value is json. While json,tsv,csv are available. 
+#' @param mir Comma separated list of miR names (e.g. hsa-let-7b-5p,hsa-let-7a-1). Multiple values are allowed .
+#' @param cohort Narrow search to one or more TCGA disease cohorts from the scrollable list. Multiple values are allowed ACC,BLCA,BRCA,CESC,CHOL,COAD,COADREAD,DLBC,ESCA,FPPP,GBM,GBMLGG,HNSC,KICH,KIPAN,KIRC,KIRP,LAML,LGG,LIHC,LUAD,LUSC,MESO,OV,PAAD,PCPG,PRAD,READ,SARC,SKCM,STAD,STES,TGCT,THCA,THYM,UCEC,UCS,UVM.
+#' @param tcga_participant_barcode Comma separated list of TCGA participant barcodes (e.g. TCGA-GF-A4EO). Multiple values are allowed .
+#' @param tool Narrow search to include only data/results produced by the selected Firehose tool. Multiple values are allowed miRseq_Mature_Preprocess,miRseq_Preprocess. Default value is miRseq_Mature_Preprocess.  
+#' @param sample_type Narrow search to one or more TCGA sample types from the scrollable list. Multiple values are allowed NB,NBC,NBM,NT,TAM,TAP,TB,TM,TP,TR.
+#' @param page Which page (slice) of entire results set should be returned.  Multiple values are allowed . Default value is 1.  
+#' @param page_size Number of records per page of results.  Max is 2000. Multiple values are allowed . Default value is 250.  
+#' @param sort_by Which column in the results should be used for sorting paginated results? Default value is cohort. While tcga_participant_barcode,cohort,tool,mir,sample_type are available. 
+#' 
 #' @export
-Samples.miRSeq = function(format = "csv",
-                               mir = "",
-                               cohort = "",
-                               tcga_participant_barcode = "",
-                               tool = "miRseq_Mature_Preprocess",
-                               sample_type = "",
-                               page = 1,
-                               page_size = 250,
-                               sort_by = "mir"){
-
+Samples.miRSeq = function(format = "json",
+                             mir = "",
+                             cohort = "",
+                             tcga_participant_barcode = "",
+                             tool = "miRseq_Mature_Preprocess",
+                             sample_type = "",
+                             page = "1",
+                             page_size = "250",
+                             sort_by = "cohort"
+                             ){
+                             
   parameters = list(format = format,
                     mir = mir,
                     cohort = cohort,
@@ -71,18 +33,14 @@ Samples.miRSeq = function(format = "csv",
                     page = page,
                     page_size = page_size,
                     sort_by = sort_by)
+  to.Validate = c("mir","tcga_participant_barcode")
+  validate.Parameters(params = parameters, to.Validate = to.Validate)
 
-  if(is.null(parameters[["mir"]]) &
-     is.null(parameters[["tcga_participant_barcode"]]) ){
-    stop("One of the parameters 'mir' OR 'tcga_participant_barcode', must be
-         provided")
-  }
-
-  to.Validate = c("mir", "cohort", "tcga_participant_barcode")
-  validet.Parameters(params = parameters, to.Validate = to.Validate)
-  url = build.Query(parameters = parameters, invoker = "Samples", method = "miRSeq")
-
+  url = build.Query(parameters = parameters,
+                    invoker = "Samples",
+                    method = "miRSeq")
   ret = download.Data(url, format, page)
 
   return(ret)
+
 }

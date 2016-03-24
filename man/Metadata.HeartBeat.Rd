@@ -4,20 +4,12 @@
 \alias{Metadata.HeartBeat}
 \title{Simple way to discern whether API server is up and running}
 \usage{
-Metadata.HeartBeat(format = "csv")
+Metadata.HeartBeat(format = "json")
 }
 \arguments{
-\item{format}{A string identifying the data type returned. Using json
-requires the jsonlite package. \code{json}, \code{csv} or \code{tsv} are
-available. In this package \code{tsv} and \code{csv} are identical.}
+\item{format}{Format of result. Default value is json. While json,tsv,csv are available.}
 }
 \description{
-Returns a message to indicate that API (server) is up and running, or times
-out if not.
-}
-\examples{
-format = "csv"
-obj = Metadata.HeartBeat(format = format)
-
+Returns a message to indicate that API (server) is up and running, or times out if not.
 }
 

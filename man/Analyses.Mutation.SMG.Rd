@@ -4,108 +4,30 @@
 \alias{Analyses.Mutation.SMG}
 \title{Retrieve Significantly Mutated Genes (SMG).}
 \usage{
-Analyses.Mutation.SMG(format = "csv", cohort = "", tool = "MutSig2CV",
-  rank = "", gene = "", q = "", page = 1, page_size = 250,
-  sort_by = "q")
+Analyses.Mutation.SMG(format = "json", cohort = "", tool = "MutSig2CV",
+  rank = "", gene = "", q = "", page = "1", page_size = "250",
+  sort_by = "rank")
 }
 \arguments{
-\item{format}{A string identifying the data type returned. Using json
-requires the jsonlite package. \code{json}, \code{csv} or \code{tsv} are
-available. In this package \code{tsv} and \code{csv} are identical.}
+\item{format}{Format of result. Default value is json. While json,tsv,csv are available.}
 
-\item{cohort}{A character vector indicating the cohort to query,
-empty string queries all cohorts. See \code{\link{Metadata.Cohorts}} for
-available cohorts.}
+\item{cohort}{Narrow search to one or more TCGA disease cohorts from the scrollable list. Multiple values are allowed ACC,BLCA,BRCA,CESC,CHOL,COAD,COADREAD,DLBC,ESCA,FPPP,GBM,GBMLGG,HNSC,KICH,KIPAN,KIRC,KIRP,LAML,LGG,LIHC,LUAD,LUSC,MESO,OV,PAAD,PCPG,PRAD,READ,SARC,SKCM,STAD,STES,TGCT,THCA,THYM,UCEC,UCS,UVM.}
 
-\item{tool}{Narrow search to include only data/results produced by the selected
-Firehose tool.  Available tools are provided in the data frame \code{tools}.}
+\item{tool}{Narrow search to include only data/results produced by the selected Firehose tool. Multiple values are allowed MutSig2.0,MutSig2CV,MutSigCV. Default value is MutSig2CV.}
 
 \item{rank}{Number of significant genes to return.}
 
-\item{gene}{A character vector of gene symbols. At least one gene OR Barcode
-is required.}
+\item{gene}{Comma separated list of gene name(s). Multiple values are allowed .}
 
-\item{q}{Only return results with Q-value <= given threshold. For details
-please see \url{https://www.broadinstitute.org/cancer/cga/mutsig}}
+\item{q}{Only return results with Q-value &lt;= given threshold.}
 
-\item{page}{Subset to be returned.}
+\item{page}{Which page (slice) of entire results set should be returned.  Multiple values are allowed . Default value is 1.}
 
-\item{page_size}{Number of records per page, max. is 2000.}
+\item{page_size}{Number of records per page of results.  Max is 2000. Multiple values are allowed . Default value is 250.}
 
-\item{sort_by}{character indicating the to column which is used for sorting.}
-}
-\value{
-A \code{list}, if format is \code{json}, elsewise a \code{data.frame}
+\item{sort_by}{Which column in the results should be used for sorting paginated results? Default value is rank. While q,cohort,tool,gene,rank are available.}
 }
 \description{
-This service provides a list of significantly mutated genes, as scored by
-MutSig. It may be filtered by cohort, rank, gene, tool and/or Q-value
-threshold, but at least one cohort must be supplied.
-}
-\examples{
-format = "json"
-cohort = "PRAD"
-tool = "MutSig2CV"
-rank = ""
-gene = ""
-q = "0.01"
-page = 1
-page_size = 250
-sort_by = "q"
-
-
-parameters = list(format = format,
-                  cohort = cohort,
-                  tool = tool,
-                  rank = rank,
-                  gene = gene,
-                  q = q,
-                  page = page,
-                  page_size = page_size,
-                  sort_by = sort_by)
-
-obj = Analyses.Mutation.SMG(format = format,
-                                cohort = cohort,
-                                tool = tool,
-                                rank = rank,
-                                gene = gene,
-                                q = q,
-                                page = page,
-                                page_size = page_size,
-                                sort_by = sort_by)
-
-format = "csv"
-obj = Analyses.Mutation.SMG(format = format,
-                                cohort = cohort,
-                                tool = tool,
-                                rank = rank,
-                                gene = gene,
-                                q = q,
-                                page = page,
-                                page_size = page_size,
-                                sort_by = sort_by)
-
-gene = c("TP53", "SPOP")
-q = 0.05
-obj = Analyses.Mutation.SMG(format = format,
-                                cohort = cohort,
-                                tool = tool,
-                                rank = rank,
-                                gene = gene,
-                                q = q,
-                                page = page,
-                                page_size = page_size,
-                                sort_by = sort_by)
-gene = ""
-obj = Analyses.Mutation.SMG(format = format,
-                                cohort = cohort,
-                                tool = tool,
-                                rank = rank,
-                                gene = gene,
-                                q = q,
-                                page = page,
-                                page_size = page_size,
-                                sort_by = sort_by)
-
+This service provides a list of significantly mutated genes, as scored by MutSig.  It may be filtered by cohort, rank, gene, tool and/or Q-value threshold, but at least one cohort must be supplied.
 }
 

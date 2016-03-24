@@ -4,61 +4,26 @@
 \alias{Samples.Clinical_FH}
 \title{Retrieve CDEs normalized by Firehose and selected for analyses.}
 \usage{
-Samples.Clinical_FH(format = "csv", cohort = "",
-  tcga_participant_barcode = "", fh_cde_name = "", page = 1,
-  page_size = 250, sort_by = "cohort")
+Samples.Clinical_FH(format = "json", cohort = "",
+  tcga_participant_barcode = "", fh_cde_name = "", page = "1",
+  page_size = "250", sort_by = "cohort")
 }
 \arguments{
-\item{format}{A string identifying the data type returned. Using json
-requires the jsonlite package. \code{json}, \code{csv} or \code{tsv} are
-available. In this package \code{tsv} and \code{csv} are identical.}
+\item{format}{Format of result. Default value is json. While json,tsv,csv are available.}
 
-\item{cohort}{A character vector indicating the cohort to query,
-empty string queries all cohorts. See \code{\link{Metadata.Cohorts}} for
-available cohorts.}
+\item{cohort}{Narrow search to one or more TCGA disease cohorts from the scrollable list. Multiple values are allowed ACC,BLCA,BRCA,CESC,CHOL,COAD,COADREAD,DLBC,ESCA,FPPP,GBM,GBMLGG,HNSC,KICH,KIPAN,KIRC,KIRP,LAML,LGG,LIHC,LUAD,LUSC,MESO,OV,PAAD,PCPG,PRAD,READ,SARC,SKCM,STAD,STES,TGCT,THCA,THYM,UCEC,UCS,UVM.}
 
-\item{tcga_participant_barcode}{A character vector containing TCGA Barcodes.
-Empty string returns all patients. Either one gene OR barcode is required.}
+\item{tcga_participant_barcode}{Comma separated list of TCGA participant barcodes (e.g. TCGA-GF-A4EO). Multiple values are allowed .}
 
-\item{page}{Subset to be returned.}
+\item{fh_cde_name}{Retrieve results only for the CDEs specified from the scrollable list. Multiple values are allowed age_at_diagnosis,age_began_smoking_in_years,Breslow_thickness,cause_of_death,cervical_carcinoma_pelvic_extension_text,cervix_suv_results,chemo_concurrent_type,clinical_stage,corpus_involvement,date_of_initial_pathologic_diagnosis,days_to_death,days_to_last_followup,days_to_last_known_alive,days_to_psa,days_to_submitted_specimen_dx,ethnicity,extrathyroidal_extension,gender,gleason_score,height_cm_at_diagnosis,histological_type,history_hormonal_contraceptives_use,hysterectomy_type,initial_pathologic_dx_year,karnofsky_performance_score,keratinization_squamous_cell,lymph_node_location,lymph_nodes_examined,lymph_nodes_examined_he_count,lymphovascular_involvement,melanoma_primary_known,melanoma_ulceration,menopause_status,multifocality,neoplasm_histologic_grade,number_of_lymph_nodes,number_pack_years_smoked,pathologic_stage,pathology_M_stage,pathology_N_stage,pathology_T_stage,pos_lymph_node_location,pregnancies_count_ectopic,pregnancies_count_live_birth,pregnancies_count_stillbirth,pregnancies_count_total,pregnancy_spontaneous_abortion_count,pregnancy_therapeutic_abortion_count,psa_value,race,radiation_exposure,radiation_therapy,radiation_therapy_status,residual_tumor,tobacco_smoking_history,tobacco_smoking_pack_years_smoked,tobacco_smoking_year_stopped,tumor_size,tumor_stage,tumor_status,tumor_tissue_site,vital_status,weight_kg_at_diagnosis,year_of_tobacco_smoking_onset,years_to_birth.}
 
-\item{page_size}{Number of records per page, max. is 2000.}
+\item{page}{Which page (slice) of entire results set should be returned.  Multiple values are allowed . Default value is 1.}
 
-\item{sort_by}{character indicating the to column which is used for sorting.}
+\item{page_size}{Number of records per page of results.  Max is 2000. Multiple values are allowed . Default value is 250.}
 
-\item{fh_fh_cde_name}{Retrieve results only for the CDEs specified from the
-scrollable list.}
-}
-\value{
-A \code{list}, if format is \code{json}, elsewise a \code{data.frame}
+\item{sort_by}{Which column in the results should be used for sorting paginated results? Default value is cohort. While tcga_participant_barcode,cohort,fh_cde_name are available.}
 }
 \description{
-This service returns patient-level clinical data elements (CDEs) that have
-been normalized by Firehose for use in analyses. Results may be selected by
-disease cohort, patient barcode or CDE name, but at least one cohort, barcode
-or CDE must be provided. When filtering by CDE note that only when a patient
-record contains one or more of the selected CDEs will it be returned. Visit
-this table of CDEs to see what's available for every disase cohort (\url{http://gdac.broadinstitute.org/runs/info/clinical});
-for more information on how these CDEs are processed see our pipeline
-documentation \url{https://confluence.broadinstitute.org/display/GDAC/Documentation#Documentation-ClinicalPipeline}
-}
-\examples{
-
-format = "json"
-cohort = "COAD"
-tcga_participant_barcode = ""
-fh_cde_name = ""
-page = 1
-page_size = 250
-sort_by = "cohort"
-
-obj = Samples.Clinical_FH(format = format,
-                          cohort = cohort,
-                          tcga_participant_barcode = tcga_participant_barcode,
-                          fh_cde_name = fh_cde_name,
-                          page = page,
-                          page_size = page_size,
-                          sort_by = sort_by)
-
+This service returns patient-level clinical data elements (CDEs) that have been normalized by Firehose for use in analyses. Results may be selected by disease cohort, patient barcode or CDE name, but at least one cohort, barcode or CDE must be provided. When filtering by CDE note that only when a  patient record contains one or more of the selected CDEs will it be returned. Visit <a href="http://gdac.broadinstitute.org/runs/info/clinical">this table of CDEs</a> to see what's available for every disase cohort; for more information on how these CDEs are processed see our <a href="https://confluence.broadinstitute.org/display/GDAC/Documentation#Documentation-ClinicalPipeline">pipeline documentation</a>.
 }
 

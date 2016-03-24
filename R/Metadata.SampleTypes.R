@@ -1,25 +1,22 @@
-#' Return a sample type code to short letter code mapping.
+#' Return all TCGA sample type codes, both numeric and symbolic.
+#' 
+#' 
 #'
-#' Return a sample type code to short letter code mapping.
-#'
-#' @inheritParams Archives.StandardData
-#'
-#' @examples
-#' format = "csv"
-#' obj = Metadata.SampleTypes(format = format)
-#'
-#' format = "tsv"
-#' obj = Metadata.SampleTypes(format = format)
-#'
+#' @param format Format of result. Default value is json. While json,tsv,csv are available. 
+#' 
 #' @export
-Metadata.SampleTypes = function(format = "csv"){
-
+Metadata.SampleTypes = function(format = "json"
+                             ){
+                             
   parameters = list(format = format)
+  
+  validate.Parameters(params = parameters)
 
-  validet.Parameters(params = parameters)
-  url = build.Query(parameters = parameters, invoker = "Metadata", method = "SampleTypes")
-
-  ret = download.Data(url, format, NULL)
+  url = build.Query(parameters = parameters,
+                    invoker = "Metadata",
+                    method = "SampleTypes")
+  ret = download.Data(url, format)
 
   return(ret)
+
 }

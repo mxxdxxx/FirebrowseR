@@ -4,37 +4,21 @@
 \alias{Metadata.Patients}
 \title{Retrieve list of all TCGA patients.}
 \usage{
-Metadata.Patients(format = "csv", cohort = "", page = 1,
-  page_size = 250, sort_by = "cohort")
+Metadata.Patients(format = "json", cohort = "", page = "1",
+  page_size = "250", sort_by = "cohort")
 }
 \arguments{
-\item{format}{A string identifying the data type returned. Using json
-requires the jsonlite package. \code{json}, \code{csv} or \code{tsv} are
-available. In this package \code{tsv} and \code{csv} are identical.}
+\item{format}{Format of result. Default value is json. While json,tsv,csv are available.}
 
-\item{cohort}{A character vector indicating the cohort to query,
-empty string queries all cohorts. See \code{\link{Metadata.Cohorts}} for
-available cohorts.}
+\item{cohort}{Narrow search to one or more TCGA disease cohorts from the scrollable list. Multiple values are allowed ACC,BLCA,BRCA,CESC,CHOL,COAD,COADREAD,DLBC,ESCA,FPPP,GBM,GBMLGG,HNSC,KICH,KIPAN,KIRC,KIRP,LAML,LGG,LIHC,LUAD,LUSC,MESO,OV,PAAD,PCPG,PRAD,READ,SARC,SKCM,STAD,STES,TGCT,THCA,THYM,UCEC,UCS,UVM.}
 
-\item{page}{Subset to be returned.}
+\item{page}{Which page (slice) of entire results set should be returned.  Multiple values are allowed . Default value is 1.}
 
-\item{page_size}{Number of records per page, max. is 2000.}
+\item{page_size}{Number of records per page of results.  Max is 2000. Multiple values are allowed . Default value is 250.}
 
-\item{sort_by}{character indicating the to column which is used for sorting.}
+\item{sort_by}{Which column in the results should be used for sorting paginated results? Default value is cohort. While cohort are available.}
 }
 \description{
-This service returns a list of all TCGA patient barcodes in FireBrowse,
-optionally filtered by disease cohort. The barcodes are obtained directy from
-the clinical data.
-}
-\examples{
-format = "csv"
-cohort  = ""
-page = 1
-page_size = 250
-sort_by = "cohort"
-
-obj = Metadata.Patients(format = format)
-
+This service returns a list of all TCGA patient barcodes in FireBrowse, optionally filtered by disease cohort.  The barcodes are obtained directy from the clinical data.
 }
 

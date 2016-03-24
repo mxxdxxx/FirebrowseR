@@ -1,17 +1,21 @@
 # This function actually retrives the data, it might be extended if needed
 # for other objects
-download.Data = function(url, format, page){
+download.Data = function(url, format, page = NULL){
 
-  if(is.null(page)){
+  if(exists("page")){
+    if(is.null(page)){
+      use.Header = T
+    } else if(page == ""){
+      use.Header = T
+    } else if(page == 1){
+      use.Header = T
+    } else if(page > 1){
+      use.Header = F
+    }
+  } else {
     use.Header = T
-  } else if(page == ""){
-    use.Header = T
-  } else if(page == 1){
-    use.Header = T
-  } else if(page > 1){
-    use.Header = F
   }
-
+  
   response = httr::GET(url)
   if (response$status_code == 200) {
     content = httr::content(response, as="text", encoding="UTF-8")
@@ -60,10 +64,11 @@ download.Data = function(url, format, page){
       close(connection)
       return(result)
     } else {
-      warning("The API returned no content")
+      stop("No samples matching your query")
     }
   } else {
-    warning(paste("The API responded with code", response$status_code))
+    warning(paste("The API responded with code ", response$status_code),
+            ". Your query might be to big", sep="")
   }
   return(NULL)
 }

@@ -2,24 +2,14 @@
 % Please edit documentation in R/Metadata.SampleTypes.R
 \name{Metadata.SampleTypes}
 \alias{Metadata.SampleTypes}
-\title{Return a sample type code to short letter code mapping.}
+\title{Return all TCGA sample type codes, both numeric and symbolic.}
 \usage{
-Metadata.SampleTypes(format = "csv")
+Metadata.SampleTypes(format = "json")
 }
 \arguments{
-\item{format}{A string identifying the data type returned. Using json
-requires the jsonlite package. \code{json}, \code{csv} or \code{tsv} are
-available. In this package \code{tsv} and \code{csv} are identical.}
+\item{format}{Format of result. Default value is json. While json,tsv,csv are available.}
 }
 \description{
-Return a sample type code to short letter code mapping.
-}
-\examples{
-format = "csv"
-obj = Metadata.SampleTypes(format = format)
-
-format = "tsv"
-obj = Metadata.SampleTypes(format = format)
-
+Return all TCGA sample type codes, both numeric and symbolic.
 }
 

@@ -1,93 +1,29 @@
 #' Retrieve Significantly Mutated Genes (SMG).
+#' 
+#' This service provides a list of significantly mutated genes, as scored by MutSig.  It may be filtered by cohort, rank, gene, tool and/or Q-value threshold, but at least one cohort must be supplied.
 #'
-#' This service provides a list of significantly mutated genes, as scored by
-#' MutSig. It may be filtered by cohort, rank, gene, tool and/or Q-value
-#' threshold, but at least one cohort must be supplied.
-#'
+#' @param format Format of result. Default value is json. While json,tsv,csv are available. 
+#' @param cohort Narrow search to one or more TCGA disease cohorts from the scrollable list. Multiple values are allowed ACC,BLCA,BRCA,CESC,CHOL,COAD,COADREAD,DLBC,ESCA,FPPP,GBM,GBMLGG,HNSC,KICH,KIPAN,KIRC,KIRP,LAML,LGG,LIHC,LUAD,LUSC,MESO,OV,PAAD,PCPG,PRAD,READ,SARC,SKCM,STAD,STES,TGCT,THCA,THYM,UCEC,UCS,UVM.
+#' @param tool Narrow search to include only data/results produced by the selected Firehose tool. Multiple values are allowed MutSig2.0,MutSig2CV,MutSigCV. Default value is MutSig2CV.  
 #' @param rank Number of significant genes to return.
-#' @param q Only return results with Q-value <= given threshold. For details
-#' please see \url{https://www.broadinstitute.org/cancer/cga/mutsig}
-#' @inheritParams Analyses.Mutation.MAF
-#' @inheritParams Archives.StandardData
-#'
-#' @examples
-#' format = "json"
-#' cohort = "PRAD"
-#' tool = "MutSig2CV"
-#' rank = ""
-#' gene = ""
-#' q = "0.01"
-#' page = 1
-#' page_size = 250
-#' sort_by = "q"
-#'
-#'
-#' parameters = list(format = format,
-#'                   cohort = cohort,
-#'                   tool = tool,
-#'                   rank = rank,
-#'                   gene = gene,
-#'                   q = q,
-#'                   page = page,
-#'                   page_size = page_size,
-#'                   sort_by = sort_by)
-#'
-#' obj = Analyses.Mutation.SMG(format = format,
-#'                                 cohort = cohort,
-#'                                 tool = tool,
-#'                                 rank = rank,
-#'                                 gene = gene,
-#'                                 q = q,
-#'                                 page = page,
-#'                                 page_size = page_size,
-#'                                 sort_by = sort_by)
-#'
-#' format = "csv"
-#' obj = Analyses.Mutation.SMG(format = format,
-#'                                 cohort = cohort,
-#'                                 tool = tool,
-#'                                 rank = rank,
-#'                                 gene = gene,
-#'                                 q = q,
-#'                                 page = page,
-#'                                 page_size = page_size,
-#'                                 sort_by = sort_by)
-#'
-#' gene = c("TP53", "SPOP")
-#' q = 0.05
-#' obj = Analyses.Mutation.SMG(format = format,
-#'                                 cohort = cohort,
-#'                                 tool = tool,
-#'                                 rank = rank,
-#'                                 gene = gene,
-#'                                 q = q,
-#'                                 page = page,
-#'                                 page_size = page_size,
-#'                                 sort_by = sort_by)
-#' gene = ""
-#' obj = Analyses.Mutation.SMG(format = format,
-#'                                 cohort = cohort,
-#'                                 tool = tool,
-#'                                 rank = rank,
-#'                                 gene = gene,
-#'                                 q = q,
-#'                                 page = page,
-#'                                 page_size = page_size,
-#'                                 sort_by = sort_by)
-#'
-#' @return A \code{list}, if format is \code{json}, elsewise a \code{data.frame}
-#'
+#' @param gene Comma separated list of gene name(s). Multiple values are allowed .
+#' @param q Only return results with Q-value &lt;= given threshold.
+#' @param page Which page (slice) of entire results set should be returned.  Multiple values are allowed . Default value is 1.  
+#' @param page_size Number of records per page of results.  Max is 2000. Multiple values are allowed . Default value is 250.  
+#' @param sort_by Which column in the results should be used for sorting paginated results? Default value is rank. While q,cohort,tool,gene,rank are available. 
+#' 
 #' @export
-Analyses.Mutation.SMG = function(format = "csv",
-                                     cohort = "",
-                                     tool = "MutSig2CV",
-                                     rank = "",
-                                     gene = "",
-                                     q = "",
-                                     page = 1,
-                                     page_size = 250,
-                                     sort_by = "q"){
-
+Analyses.Mutation.SMG = function(format = "json",
+                             cohort = "",
+                             tool = "MutSig2CV",
+                             rank = "",
+                             gene = "",
+                             q = "",
+                             page = "1",
+                             page_size = "250",
+                             sort_by = "rank"
+                             ){
+                             
   parameters = list(format = format,
                     cohort = cohort,
                     tool = tool,
@@ -97,12 +33,14 @@ Analyses.Mutation.SMG = function(format = "csv",
                     page = page,
                     page_size = page_size,
                     sort_by = sort_by)
-
   to.Validate = c("cohort")
-  validet.Parameters(params = parameters, to.Validate = to.Validate)
-  url = build.Query(parameters = parameters, invoker = "Analyses", method = "Mutation/SMG")
+  validate.Parameters(params = parameters, to.Validate = to.Validate)
 
+  url = build.Query(parameters = parameters,
+                    invoker = "Analyses",
+                    method = "Mutation/SMG")
   ret = download.Data(url, format, page)
 
   return(ret)
+
 }

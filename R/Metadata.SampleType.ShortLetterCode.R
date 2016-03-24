@@ -1,31 +1,26 @@
-#' Translate from sample type short letter code to numeric code.
+#' Translate from symbolic to numeric TCGA sample codes.
+#' 
+#' Convert a TCGA sample type code in symbolic form (or 'short letter code' like TP, TR) to its corresponding numeric form (e.g. 01, 02).
 #'
-#' Translate a sample type short letter code (e.g. TP, TR, etc.) into its
-#' numeric sample type code (e.g. 01, 02, etc.).
-#'
-#' @param short_letter_code Short Letter Code e.g. TP, TM, NB, ...
-#' @inheritParams Samples.mRNASeq
-#'
-#' @examples
-#' format = "csv"
-#' short_letter_code = c("TR", "TR")
-#' obj = Metadata.SampleType.ShortLetterCode(format = format,
-#' short_letter_code = short_letter_code)
-#'
+#' @param format Format of result. Default value is json. While json,tsv,csv are available. 
+#' @param short_letter_code TCGA sample type short letter code(s) (e.g. TP, NB, etc.).  Multiple values are allowed TP,TB,TAM,TBM,NBC,CELLC,TRB,TR,TRBM,TAP,TM,THOC,NB,NT,NEBV,NBM,CELL,XP,XCL.
+#' 
 #' @export
-Metadata.SampleType.ShortLetterCode = function(format = "csv",
-                                               short_letter_code =""){
-
+Metadata.SampleType.ShortLetterCode = function(format = "json",
+                             short_letter_code = ""
+                             ){
+                             
   parameters = list(format = format,
                     short_letter_code = short_letter_code)
+  
+  validate.Parameters(params = parameters)
 
-  validet.Parameters(parameters)
   url = build.Query(parameters = parameters,
                     invoker = "Metadata",
                     method = "SampleType/ShortLetterCode",
                     mass = T)
-
-  ret = download.Data(url, format, NULL)
+  ret = download.Data(url, format)
 
   return(ret)
+
 }

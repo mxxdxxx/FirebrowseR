@@ -1,25 +1,22 @@
-#' Retrieve list of Firehose standard data and analyses dates.
+#' Retrieve datestamps of all GDAC Firehose standard data and analyses runs that have been ingested into FireBrowse.
+#' 
+#' 
 #'
-#' Retrieve list of Firehose standard data and analyses dates.
-#'
-#' @inheritParams Archives.StandardData
-#'
-#' @examples
-#' format = "csv"
-#' obj = Metadata.Dates(format = format)
-#'
-#' format = "tsv"
-#' obj = Metadata.Dates(format = format)
-#'
+#' @param format Format of result. Default value is json. While json,tsv,csv are available. 
+#' 
 #' @export
-Metadata.Dates = function(format = "csv"){
-
+Metadata.Dates = function(format = "json"
+                             ){
+                             
   parameters = list(format = format)
+  
+  validate.Parameters(params = parameters)
 
-  validet.Parameters(parameters)
-  url = build.Query(parameters = parameters, invoker = "Metadata", method = "Dates")
-
-  ret = download.Data(url, format, NULL)
+  url = build.Query(parameters = parameters,
+                    invoker = "Metadata",
+                    method = "Dates")
+  ret = download.Data(url, format)
 
   return(ret)
+
 }

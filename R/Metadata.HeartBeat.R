@@ -1,23 +1,22 @@
 #' Simple way to discern whether API server is up and running
+#' 
+#' Returns a message to indicate that API (server) is up and running, or times out if not.
 #'
-#' Returns a message to indicate that API (server) is up and running, or times
-#' out if not.
-#'
-#' @inheritParams Samples.mRNASeq
-#'
-#' @examples
-#' format = "csv"
-#' obj = Metadata.HeartBeat(format = format)
-#'
+#' @param format Format of result. Default value is json. While json,tsv,csv are available. 
+#' 
 #' @export
-Metadata.HeartBeat = function(format = "csv"){
-
+Metadata.HeartBeat = function(format = "json"
+                             ){
+                             
   parameters = list(format = format)
+  
+  validate.Parameters(params = parameters)
 
-  validet.Parameters(parameters)
-  url = build.Query(parameters = parameters, invoker = "Metadata", method = "HeartBeat")
-
-  ret = download.Data(url, format, NULL)
+  url = build.Query(parameters = parameters,
+                    invoker = "Metadata",
+                    method = "HeartBeat")
+  ret = download.Data(url, format)
 
   return(ret)
+
 }

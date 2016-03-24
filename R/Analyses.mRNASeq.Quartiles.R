@@ -1,60 +1,37 @@
 #' Returns RNASeq expression quartiles, e.g. suitable for drawing a boxplot.
+#' 
+#' For a given gene compute quartiles and extrema, suitable e.g. for drawing a boxplot (Tukey 1977).  Results may be filtered by cohort, sample type, patient barcode  or characterization protocol, and are returned sorted by cohort.  Note that samples for which no expression value was recorded (e.g. <a href="http://firebrowse.org/api/v1/Samples/mRNASeq?&gene=egfr&cohort=SKCM&tcga_participant_barcode=TCGA-GN-A262">the melanoma sample TCGA-GN-262</a>) are removed prior to calculation.
 #'
-#' For a given gene compute quartiles and extrema, suitable e.g. for drawing a
-#' boxplot (Tukey 1977). Results may be filtered by cohort, sample type, patient
-#' barcode or characterization protocol, and are returned sorted by cohort. Note
-#' that samples for which no expression value was recorded (e.g. the melanoma
-#' sample TCGA-GN-262) are removed prior to calculation.
-#'
-#' @param Exclude Comma separated list of TCGA participants, identified by
-#' barcodes such as TCGA-GF-A4EO, denoting samples to exclude from computation.
-#' @inheritParams Samples.mRNASeq
-#'
-#' @examples
-#' format = "json"
-#' gene = "PTEN"
-#' cohort = ""
-#' protocol = "RSEM"
-#' sample_type = "tumors"
-#' Exclude = ""
-#'
-#' obj = Analyses.mRNASeq.Quartiles(format = format,
-#'                                  gene = gene,
-#'                                  cohort = cohort,
-#'                                  protocol = protocol,
-#'                                  sample_type = sample_type,
-#'                                  Exclude = Exclude)
-#'
-#' format = "tsv"
-#' obj = Analyses.mRNASeq.Quartiles(format = format,
-#'                                  gene = gene,
-#'                                  cohort = cohort,
-#'                                  protocol = protocol,
-#'                                  sample_type = sample_type,
-#'                                  Exclude = Exclude)
-#' @return A \code{list}, if format is \code{json}, elsewise a \code{data.frame}
-#'
+#' @param format Format of result. Default value is json. While json,tsv,csv are available. 
+#' @param gene Enter a single gene name.
+#' @param cohort Narrow search to one or more TCGA disease cohorts from the scrollable list. Multiple values are allowed ACC,BLCA,BRCA,CESC,CHOL,COAD,COADREAD,DLBC,ESCA,FPPP,GBM,GBMLGG,HNSC,KICH,KIPAN,KIRC,KIRP,LAML,LGG,LIHC,LUAD,LUSC,MESO,OV,PAAD,PCPG,PRAD,READ,SARC,SKCM,STAD,STES,TGCT,THCA,THYM,UCEC,UCS,UVM.
+#' @param protocol Narrow search to one or more sample characterization protocols from the scrollable list. Multiple values are allowed RPKM,RSEM. Default value is RSEM.  
+#' @param sample_type For which type of sample(s) should quartiles be computed? Multiple values are allowed tumors,normals,TP,TB,TAM,TBM,NBC,TRB,TR,TRBM,TAP,TM,THOC,NB,NT,NEBV,NBM. Default value is tumors.  
+#' @param Exclude Comma separated list of TCGA participants, identified by barcodes such as TCGA-GF-A4EO, denoting samples to exclude from computation. Multiple values are allowed .
+#' 
 #' @export
-Analyses.mRNASeq.Quartiles = function(format = "csv",
-                                      gene = "",
-                                      cohort = "",
-                                      protocol = "RSEM",
-                                      sample_type = "tumors",
-                                      Exclude = ""){
-
+Analyses.mRNASeq.Quartiles = function(format = "json",
+                             gene = "",
+                             cohort = "",
+                             protocol = "RSEM",
+                             sample_type = "tumors",
+                             Exclude = ""
+                             ){
+                             
   parameters = list(format = format,
                     gene = gene,
                     cohort = cohort,
                     protocol = protocol,
                     sample_type = sample_type,
                     Exclude = Exclude)
+  
+  validate.Parameters(params = parameters)
 
-
-  to.Validate = c("gene")
-  validet.Parameters(params = parameters, to.Validate = to.Validate)
-  url = build.Query(parameters = parameters, invoker = "Analyses", method = "mRNASeq/Quartiles")
-
-  ret = download.Data(url, format, NULL)
+  url = build.Query(parameters = parameters,
+                    invoker = "Analyses",
+                    method = "mRNASeq/Quartiles")
+  ret = download.Data(url, format)
 
   return(ret)
+
 }

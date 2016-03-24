@@ -2,25 +2,14 @@
 % Please edit documentation in R/Metadata.ClinicalNames_FH.R
 \name{Metadata.ClinicalNames_FH}
 \alias{Metadata.ClinicalNames_FH}
-\title{Retrieve names of CDEs normalized by Firehose and selected for analyses}
+\title{Retrieve names of CDEs normalized by Firehose and selected for analyses.}
 \usage{
-Metadata.ClinicalNames_FH(format = "csv")
+Metadata.ClinicalNames_FH(format = "json")
 }
 \arguments{
-\item{format}{A string identifying the data type returned. Using json
-requires the jsonlite package. \code{json}, \code{csv} or \code{tsv} are
-available. In this package \code{tsv} and \code{csv} are identical.}
+\item{format}{Format of result. Default value is json. While json,tsv,csv are available.}
 }
 \description{
-This service returns the names of patient-level clinical data elements (CDEs)
-that have been normalized by Firehose for use in analyses, unioned across all
-disease cohorts. For more information on how these CDEs are processed, see
-our pipeline documentation.
-\url{https://confluence.broadinstitute.org/display/GDAC/Documentation}
-}
-\examples{
-format = "csv"
-obj = Metadata.ClinicalNames_FH(format = format)
-
+This service returns the names of patient-level clinical data elements (CDEs) that have been normalized by Firehose for use in analyses, unioned across all disease cohorts. For more information on how these CDEs are processed, see our <a href="https://confluence.broadinstitute.org/display/GDAC/Documentation">pipeline documentation</a>.
 }
 

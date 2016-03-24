@@ -4,61 +4,23 @@
 \alias{Analyses.mRNASeq.Quartiles}
 \title{Returns RNASeq expression quartiles, e.g. suitable for drawing a boxplot.}
 \usage{
-Analyses.mRNASeq.Quartiles(format = "csv", gene = "", cohort = "",
+Analyses.mRNASeq.Quartiles(format = "json", gene = "", cohort = "",
   protocol = "RSEM", sample_type = "tumors", Exclude = "")
 }
 \arguments{
-\item{format}{A string identifying the data type returned. Using json
-requires the jsonlite package. \code{json}, \code{csv} or \code{tsv} are
-available. In this package \code{tsv} and \code{csv} are identical.}
+\item{format}{Format of result. Default value is json. While json,tsv,csv are available.}
 
-\item{gene}{A character vector of gene symbols. At least one gene OR Barcode
-is required.}
+\item{gene}{Enter a single gene name.}
 
-\item{cohort}{A character vector indicating the cohort to query,
-empty string queries all cohorts. See \code{\link{Metadata.Cohorts}} for
-available cohorts.}
+\item{cohort}{Narrow search to one or more TCGA disease cohorts from the scrollable list. Multiple values are allowed ACC,BLCA,BRCA,CESC,CHOL,COAD,COADREAD,DLBC,ESCA,FPPP,GBM,GBMLGG,HNSC,KICH,KIPAN,KIRC,KIRP,LAML,LGG,LIHC,LUAD,LUSC,MESO,OV,PAAD,PCPG,PRAD,READ,SARC,SKCM,STAD,STES,TGCT,THCA,THYM,UCEC,UCS,UVM.}
 
-\item{protocol}{Should RSEM (default) or RPKM data be retrieved.}
+\item{protocol}{Narrow search to one or more sample characterization protocols from the scrollable list. Multiple values are allowed RPKM,RSEM. Default value is RSEM.}
 
-\item{sample_type}{A character vector indicating the sample types to query.
-Empty string returns all types. See \code{\link{Metadata.SampleTypes}},
-for available sample types.}
+\item{sample_type}{For which type of sample(s) should quartiles be computed? Multiple values are allowed tumors,normals,TP,TB,TAM,TBM,NBC,TRB,TR,TRBM,TAP,TM,THOC,NB,NT,NEBV,NBM. Default value is tumors.}
 
-\item{Exclude}{Comma separated list of TCGA participants, identified by
-barcodes such as TCGA-GF-A4EO, denoting samples to exclude from computation.}
-}
-\value{
-A \code{list}, if format is \code{json}, elsewise a \code{data.frame}
+\item{Exclude}{Comma separated list of TCGA participants, identified by barcodes such as TCGA-GF-A4EO, denoting samples to exclude from computation. Multiple values are allowed .}
 }
 \description{
-For a given gene compute quartiles and extrema, suitable e.g. for drawing a
-boxplot (Tukey 1977). Results may be filtered by cohort, sample type, patient
-barcode or characterization protocol, and are returned sorted by cohort. Note
-that samples for which no expression value was recorded (e.g. the melanoma
-sample TCGA-GN-262) are removed prior to calculation.
-}
-\examples{
-format = "json"
-gene = "PTEN"
-cohort = ""
-protocol = "RSEM"
-sample_type = "tumors"
-Exclude = ""
-
-obj = Analyses.mRNASeq.Quartiles(format = format,
-                                 gene = gene,
-                                 cohort = cohort,
-                                 protocol = protocol,
-                                 sample_type = sample_type,
-                                 Exclude = Exclude)
-
-format = "tsv"
-obj = Analyses.mRNASeq.Quartiles(format = format,
-                                 gene = gene,
-                                 cohort = cohort,
-                                 protocol = protocol,
-                                 sample_type = sample_type,
-                                 Exclude = Exclude)
+For a given gene compute quartiles and extrema, suitable e.g. for drawing a boxplot (Tukey 1977).  Results may be filtered by cohort, sample type, patient barcode  or characterization protocol, and are returned sorted by cohort.  Note that samples for which no expression value was recorded (e.g. <a href="http://firebrowse.org/api/v1/Samples/mRNASeq?&gene=egfr&cohort=SKCM&tcga_participant_barcode=TCGA-GN-A262">the melanoma sample TCGA-GN-262</a>) are removed prior to calculation.
 }
 

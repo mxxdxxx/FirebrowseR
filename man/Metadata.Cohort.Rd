@@ -2,35 +2,16 @@
 % Please edit documentation in R/Metadata.Cohort.R
 \name{Metadata.Cohort}
 \alias{Metadata.Cohort}
-\title{Retrieve cohort description.}
+\title{Retrieve formal disease name(s) for cohort abbreviation(s).}
 \usage{
-Metadata.Cohort(format = "csv", cohort = "")
+Metadata.Cohort(format = "json", cohort = "")
 }
 \arguments{
-\item{format}{A string identifying the data type returned. Using json
-requires the jsonlite package. \code{json}, \code{csv} or \code{tsv} are
-available. In this package \code{tsv} and \code{csv} are identical.}
+\item{format}{Format of result. Default value is json. While json,tsv,csv are available.}
 
-\item{cohort}{A character vector indicating the cohort to query,
-empty string queries all cohorts. See \code{\link{Metadata.Cohorts}} for
-available cohorts.}
+\item{cohort}{Narrow search to one or more TCGA disease cohorts from the scrollable list. Multiple values are allowed ACC,BLCA,BRCA,CESC,CHOL,COAD,COADREAD,DLBC,ESCA,FPPP,GBM,GBMLGG,HNSC,KICH,KIPAN,KIRC,KIRP,LAML,LGG,LIHC,LUAD,LUSC,MESO,OV,PAAD,PCPG,PRAD,READ,SARC,SKCM,STAD,STES,TGCT,THCA,THYM,UCEC,UCS,UVM.}
 }
 \description{
-In this client, the function does, exactly the same as
-\code{\link{Metadata.Cohorts}}. It just differs within the internal
-implentation. Maybe, depending on the API, this will change.
-}
-\examples{
-format = "csv"
-cohort = c("PRAD", "BRCA")
-
-obj = Metadata.Cohort(format = format,
-                       cohort = cohort)
-
-format = "tsv"
-cohort = c("PRAD", "BRCA")
-
-obj = Metadata.Cohort(format = format,
-                       cohort = cohort)
+Retrieve formal disease name(s) for cohort abbreviation(s).
 }
 

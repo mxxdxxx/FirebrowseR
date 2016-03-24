@@ -2,67 +2,32 @@
 % Please edit documentation in R/Samples.mRNASeq.R
 \name{Samples.mRNASeq}
 \alias{Samples.mRNASeq}
-\title{Retrieve mRNASeq data}
+\title{Retrieve mRNASeq data.}
 \usage{
-Samples.mRNASeq(format = "csv", gene = "", cohort = "",
+Samples.mRNASeq(format = "json", gene = "", cohort = "",
   tcga_participant_barcode = "", sample_type = "", protocol = "RSEM",
-  page = 1, page_size = 250, sort_by = "gene")
+  page = "1", page_size = "250", sort_by = "cohort")
 }
 \arguments{
-\item{format}{A string identifying the data type returned. Using json
-requires the jsonlite package. \code{json}, \code{csv} or \code{tsv} are
-available. In this package \code{tsv} and \code{csv} are identical.}
+\item{format}{Format of result. Default value is json. While json,tsv,csv are available.}
 
-\item{gene}{A character vector of gene symbols. At least one gene OR Barcode
-is required.}
+\item{gene}{Comma separated list of gene name(s). Multiple values are allowed .}
 
-\item{cohort}{A character vector indicating the cohort to query,
-empty string queries all cohorts. See \code{\link{Metadata.Cohorts}} for
-available cohorts.}
+\item{cohort}{Narrow search to one or more TCGA disease cohorts from the scrollable list. Multiple values are allowed ACC,BLCA,BRCA,CESC,CHOL,COAD,COADREAD,DLBC,ESCA,FPPP,GBM,GBMLGG,HNSC,KICH,KIPAN,KIRC,KIRP,LAML,LGG,LIHC,LUAD,LUSC,MESO,OV,PAAD,PCPG,PRAD,READ,SARC,SKCM,STAD,STES,TGCT,THCA,THYM,UCEC,UCS,UVM.}
 
-\item{tcga_participant_barcode}{A character vector containing TCGA Barcodes.
-Empty string returns all patients. Either one gene OR barcode is required.}
+\item{tcga_participant_barcode}{Comma separated list of TCGA participant barcodes (e.g. TCGA-GF-A4EO). Multiple values are allowed .}
 
-\item{sample_type}{A character vector indicating the sample types to query.
-Empty string returns all types. See \code{\link{Metadata.SampleTypes}},
-for available sample types.}
+\item{sample_type}{Narrow search to one or more TCGA sample types from the scrollable list. Multiple values are allowed NB,NBC,NBM,NT,TAM,TAP,TB,TM,TP,TR.}
 
-\item{protocol}{Should RSEM (default) or RPKM data be retrieved.}
+\item{protocol}{Narrow search to one or more sample characterization protocols from the scrollable list. Multiple values are allowed RPKM,RSEM. Default value is RSEM.}
 
-\item{page}{Subset to be returned.}
+\item{page}{Which page (slice) of entire results set should be returned.  Multiple values are allowed . Default value is 1.}
 
-\item{page_size}{Number of records per page, max. is 2000.}
+\item{page_size}{Number of records per page of results.  Max is 2000. Multiple values are allowed . Default value is 250.}
 
-\item{sort_by}{character indicating the to column which is used for sorting.}
-}
-\value{
-A \code{list}, if format is \code{json}, elsewise a \code{data.frame}
+\item{sort_by}{Which column in the results should be used for sorting paginated results? Default value is cohort. While tcga_participant_barcode,cohort,gene,protocol,sample_type are available.}
 }
 \description{
-This service returns sample-level log2 mRNASeq expression values. Results may
-be filtered by gene, cohort, barcode, sample type or characterization
-protocol, but at least one gene OR barcode must be supplied.
-}
-\details{
-For further information please see
-\url{https://confluence.broadinstitute.org/display/GDAC/FAQ}
-}
-\examples{
-format = "json"
-gene = c("AKT3", "RB1", "MAP3K1")
-cohort = "BRCA"
-tcga_participant_barcode = ""
-sample_type = "NT"
-protocol = "RSEM"
-page = 1
-page_size = 250
-sort_by = "gene"
-obj = Samples.mRNASeq(format = format, gene, cohort, tcga_participant_barcode,
-                          sample_type, protocol, page, page_size, sort_by)
-# returns a list from json
-
-obj = Samples.mRNASeq(gene = c("TP53", "RUNX1"))
-# returns a data frame, default
-
+This service returns sample-level log2 mRNASeq expression values. Results may be filtered by gene, cohort, barcode, sample type or characterization protocol, but at least one gene OR barcode must be supplied.
 }
 

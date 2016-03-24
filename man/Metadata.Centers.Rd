@@ -2,27 +2,16 @@
 % Please edit documentation in R/Metadata.Centers.R
 \name{Metadata.Centers}
 \alias{Metadata.Centers}
-\title{Retrieve map of center name(s) to display name(s).}
+\title{Obtain identities of TCGA consortium member centers.}
 \usage{
-Metadata.Centers(format = "csv", center = "")
+Metadata.Centers(format = "json", center = "")
 }
 \arguments{
-\item{format}{A string identifying the data type returned. Using json
-requires the jsonlite package. \code{json}, \code{csv} or \code{tsv} are
-available. In this package \code{tsv} and \code{csv} are identical.}
+\item{format}{Format of result. Default value is json. While json,tsv,csv are available.}
 
-\item{center}{A center name.}
+\item{center}{Narrow search to one or more TCGA centers from the scrollable list. Multiple values are allowed bcgsc.ca,broad.mit.edu,broadinstitute.org,genome.wustl.edu,hgsc.bcm.edu,hms.harvard.edu,hudsonalpha.org,intgen.org,jhu-usc.edu,jhu.edu,lbl.gov,mdanderson.org,mskcc.org,nationwidechildrens.org,pnl.gov,rubicongenomics.com,sanger.ac.uk,systemsbiology.org,ucsc.edu,unc.edu,vanderbilt.edu.}
 }
 \description{
-By default this function returns a table of all consortium members in TCGA,
-aka centers; it provides both the HTTP domain and full organizational name of
-each center. A subset of this table may be obtained by explicitly specifying
-one or more domain names.
-}
-\examples{
-format = "csv"
-center = c("intgen.org", "jhu-usc.edu")
-obj = Metadata.Centers(format = format, center = center)
-
+By default this function returns a table of all consortium members in TCGA, aka centers; it provides both the HTTP domain and full organizational name of each center.  A subset of this table may be obtained by explicitly specifying one or more domain names.
 }
 
