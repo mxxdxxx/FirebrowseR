@@ -1,4 +1,4 @@
-if [ "$TRAVIS_BRANCH" != "test" ]; then
+if [ "$TRAVIS_BRANCH" != "swagger" ]; then
   exit 0;
 fi
     
