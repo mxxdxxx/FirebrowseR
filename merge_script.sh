@@ -1,5 +1,5 @@
 if [ "$TRAVIS_BRANCH" != "swagger" ]; then
-  exit 0;
+  exit 0; 
 fi
     
 export GIT_COMMITTER_EMAIL=i"mariodeng@googlemail.com"
