@@ -18,5 +18,6 @@ Suggests:
     ggplot2,
     curl,
     httr
+    covr
 VignetteBuilder: knitr
 RoxygenNote: 5.0.1
