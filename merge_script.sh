@@ -2,8 +2,8 @@ if [ "$TRAVIS_BRANCH" != "swagger" ]; then
   exit 0; 
 fi
     
-export GIT_COMMITTER_EMAIL=i"mariodeng@googlemail.com"
-export GIT_COMMITTER_NAME="Mario Deng"
+#export GIT_COMMITTER_EMAIL=i"mariodeng@googlemail.com"
+#export GIT_COMMITTER_NAME="Mario Deng"
 
 git init || exit
 git config user.name "Travis CI" || exit
