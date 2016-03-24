@@ -14,7 +14,7 @@ env:
   - WARNINGS_ARE_ERRORS = 1
   - R_BUILD_ARGS = --no-manual
   - R_CHECK_ARGS = --no-manual --as-cran
-  - GH_REF: https://github.com/mariodeng/FirebrowseR.git
+  - GH_REF: github.com/mariodeng/FirebrowseR.git
   - secure: UYINY8Bo3j14aqZNE1/6wVIPCA9LQepOlDe+3gl9emQuFJcC4KWuJudB2Oj0oRzE4uGqjGQpSyeCYtZzYwcn8qVYkZLcaKaKxe5ZgRz24rMs0lIiug6mqZY2h1U4hT6t2AUFVoz1PBVB+AALPhVXka4TQeOt46c1kS4lhU3jrnY=
 notifications:
   email:
