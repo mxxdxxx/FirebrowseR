@@ -1,38 +1,30 @@
-# Sample .travis.yml for R projects from https://github.com/craigcitro/r-travis
-
 language: r
-
 before_install:
-  - curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh
-  - chmod 755 ./travis-tool.sh
-  - ./travis-tool.sh bootstrap
-
+- curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh
+- chmod 755 ./travis-tool.sh
+- "./travis-tool.sh bootstrap"
 install:
-  - ./travis-tool.sh install_deps
-
+- "./travis-tool.sh install_deps"
 script:
-  - ./travis-tool.sh run_tests
-
+- "./travis-tool.sh run_tests"
 after_failure:
-  - ./travis-tool.sh dump_logs
-
+- "./travis-tool.sh dump_logs"
 env:
   global:
-    - WARNINGS_ARE_ERRORS = 1
-    - R_BUILD_ARGS = --no-manual
-    - R_CHECK_ARGS = --no-manual --as-cran
-
+  - WARNINGS_ARE_ERRORS = 1
+  - R_BUILD_ARGS = --no-manual
+  - R_CHECK_ARGS = --no-manual --as-cran
+  - GH_REF: https://github.com/mariodeng/FirebrowseR.git
+  - secure: UYINY8Bo3j14aqZNE1/6wVIPCA9LQepOlDe+3gl9emQuFJcC4KWuJudB2Oj0oRzE4uGqjGQpSyeCYtZzYwcn8qVYkZLcaKaKxe5ZgRz24rMs0lIiug6mqZY2h1U4hT6t2AUFVoz1PBVB+AALPhVXka4TQeOt46c1kS4lhU3jrnY=
 notifications:
   email:
     recipients:
-      - mariodeng@googlemail.com
+    - mariodeng@googlemail.com
     on_success: change
     on_failure: change
-
 r_github_packages:
-  - jimhester/covr
+- jimhester/covr
 after_success:
-  - Rscript -e 'library(covr);codecov()'
-  - ./merge_script.sh
-
+- Rscript -e 'library(covr);codecov()'
+- "./merge_script.sh"
 sudo: required
