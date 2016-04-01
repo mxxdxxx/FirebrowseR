@@ -5,7 +5,7 @@
 \title{Retrieve sample counts.}
 \usage{
 Metadata.Counts(format = "json", date = "2016_01_28", cohort = "",
-  sample_type = "", data_type = "", totals = "TRUE")
+  sample_type = "", data_type = "", totals = "TRUE", sort_by = "cohort")
 }
 \arguments{
 \item{format}{Format of result. Default value is json. While json,tsv,csv are available.}
@@ -19,6 +19,8 @@ Metadata.Counts(format = "json", date = "2016_01_28", cohort = "",
 \item{data_type}{Narrow search to one or more TCGA data types from the scrollable list. Multiple values are allowed bcr,clinical,cn,lowp,methylation,mrna,mrnaseq,mir,mirseq,rppa,maf,rawmaf.}
 
 \item{totals}{Output an entry providing the totals for each data type. Default value is TRUE. While  are available.}
+
+\item{sort_by}{Which column in the results should be used for sorting paginated results? Default value is cohort. While cohort are available.}
 }
 \description{
 Returns the aliquot counts for each disease cohort, per sample type and data type.  The sample type designation of "Tumor" may be used to aggregate the count of all tumor aliquots into a single number per disease and data type. See the SampleTypes function for a complete description of sample types.

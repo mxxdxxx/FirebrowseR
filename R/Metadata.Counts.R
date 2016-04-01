@@ -8,6 +8,7 @@
 #' @param sample_type Narrow search to one or more TCGA sample types from the scrollable list. Multiple values are allowed FFPE,NB,NBC,NBM,NT,TAM,TAP,TB,TM,TP,TR,Tumor.
 #' @param data_type Narrow search to one or more TCGA data types from the scrollable list. Multiple values are allowed bcr,clinical,cn,lowp,methylation,mrna,mrnaseq,mir,mirseq,rppa,maf,rawmaf.
 #' @param totals Output an entry providing the totals for each data type. Default value is TRUE. While  are available. 
+#' @param sort_by Which column in the results should be used for sorting paginated results? Default value is cohort. While cohort are available. 
 #' 
 #' @export
 Metadata.Counts = function(format = "json",
@@ -15,7 +16,8 @@ Metadata.Counts = function(format = "json",
                              cohort = "",
                              sample_type = "",
                              data_type = "",
-                             totals = "TRUE"
+                             totals = "TRUE",
+                             sort_by = "cohort"
                              ){
                              
   parameters = list(format = format,
@@ -23,7 +25,8 @@ Metadata.Counts = function(format = "json",
                     cohort = cohort,
                     sample_type = sample_type,
                     data_type = data_type,
-                    totals = totals)
+                    totals = totals,
+                    sort_by = sort_by)
   
   validate.Parameters(params = parameters)
 
