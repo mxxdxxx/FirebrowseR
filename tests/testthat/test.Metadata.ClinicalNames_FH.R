@@ -5,14 +5,10 @@ test_that("CDEs are retrieved correctly", {
 
   format = "csv"
   obj = Metadata.ClinicalNames_FH(format = format)
-
-  expect_equal(nrow(obj), 65)
-  expect_equal(ncol(obj), 1)
-
-  format = "tsv"
-  obj = Metadata.ClinicalNames_FH(format = format)
-
-  expect_equal(nrow(obj), 65)
-  expect_equal(ncol(obj), 1)
-
+  
+  test.q = "http://firebrowse.org/api/v1/Metadata/ClinicalNames_FH?format=csv"
+  test.obj = read.table(test.q, header = T, sep = ",")
+  expect_equal(nrow(obj), nrow(test.obj))
+  expect_equal(ncol(obj), ncol(test.obj))
+  
 })

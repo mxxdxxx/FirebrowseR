@@ -9,16 +9,9 @@ test_that("Cohort abbreviations are returned correctly", {
   obj = Metadata.Cohorts(format = format,
                          cohort = cohort)
 
-  expect_equal(nrow(obj), 2)
-  expect_equal(ncol(obj), 2)
-
-  format = "tsv"
-  cohort = c("PRAD", "BRCA")
-
-  obj = Metadata.Cohorts(format = format,
-                         cohort = cohort)
-
-  expect_equal(nrow(obj), 2)
-  expect_equal(ncol(obj), 2)
+  test.q = "http://firebrowse.org/api/v1/Metadata/Cohorts?format=csv&cohort=BRCA%2CPRAD"
+  test.obj = read.table(test.q, header = T, sep = ",")
+  expect_equal(nrow(obj), nrow(test.obj))
+  expect_equal(ncol(obj), ncol(test.obj))
 
 })

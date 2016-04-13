@@ -7,7 +7,9 @@ test_that("We get centers back", {
   center = c("intgen.org", "jhu-usc.edu")
   obj = Metadata.Centers(format = format, center = center)
 
-  expect_equal(ncol(obj), 5)
-  expect_equal(nrow(obj), 2)
+  test.q = "http://firebrowse.org/api/v1/Metadata/Centers?format=csv&center=intgen.org%2Cjhu-usc.edu"
+  test.obj = read.table(test.q, header = T, sep = ",")
+  expect_equal(nrow(obj), nrow(test.obj))
+  expect_equal(ncol(obj), ncol(test.obj))
 
 })

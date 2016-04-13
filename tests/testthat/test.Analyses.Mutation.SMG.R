@@ -3,11 +3,6 @@ context("Analyses.Mutation.SMG")
 
 test_that("Getting SMG files", {
 
-  smg <- Analyses.Mutation.SMG(format="csv", cohort="BRCA", page_size=1445)
-  dim(smg)
-  smg <- Analyses.Mutation.SMG(format="tsv", cohort="BRCA", page_size=1446)
-  dim(smg)
-
   format = "json"
   cohort = "PRAD"
   tool = "MutSig2CV"
@@ -38,8 +33,11 @@ test_that("Getting SMG files", {
                                   page = page,
                                   page_size = page_size,
                                   sort_by = sort_by)
+  test.q = "http://firebrowse.org/api/v1/Analyses/Mutation/SMG?format=csv&cohort=PRAD&tool=MutSig2CV&q=0.01&page=1&page_size=250&sort_by=q"
+  test.obj = read.table(test.q, header = T, sep = ",")
   expect_is(obj, "list")
-  expect_that(length(obj[[1]]), equals(9))
+  expect_equal(length(obj[[1]]), nrow(test.obj))
+
 
   format = "csv"
   obj = Analyses.Mutation.SMG(format = format,
@@ -52,8 +50,8 @@ test_that("Getting SMG files", {
                                   page_size = page_size,
                                   sort_by = sort_by)
   expect_is(obj, "data.frame")
-  expect_that(ncol(obj), equals(23))
-  expect_that(nrow(obj), equals(9))
+  expect_equal(ncol(obj), ncol(test.obj))
+  expect_equal(nrow(obj), nrow(test.obj))
 
   gene = c("TP53", "SPOP")
   q = 0.05
@@ -66,7 +64,11 @@ test_that("Getting SMG files", {
                                   page = page,
                                   page_size = page_size,
                                   sort_by = sort_by)
-  expect_equal(nrow(obj), 2)
+  test.q = "http://firebrowse.org/api/v1/Analyses/Mutation/SMG?format=csv&cohort=PRAD&tool=MutSig2CV&gene=TP53%2CSPOP&q=0.05&page=1&page_size=250&sort_by=q"
+  test.obj = read.table(test.q, header = T, sep = ",")
+  expect_equal(nrow(obj), nrow(test.obj))
+  expect_equal(ncol(obj), ncol(test.obj))
+  
 
   gene = ""
   obj = Analyses.Mutation.SMG(format = format,
@@ -78,5 +80,7 @@ test_that("Getting SMG files", {
                                   page = page,
                                   page_size = page_size,
                                   sort_by = sort_by)
-  expect_equal(nrow(obj), 11)
+  test.q = "http://firebrowse.org/api/v1/Analyses/Mutation/SMG?format=csv&cohort=PRAD&tool=MutSig2CV&q=0.05&page=1&page_size=250&sort_by=q"
+  test.obj = read.table(test.q, header = T, sep = ",")
+  expect_equal(nrow(obj), nrow(test.obj))
 })

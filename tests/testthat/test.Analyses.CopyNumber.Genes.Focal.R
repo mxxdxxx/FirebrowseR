@@ -18,8 +18,11 @@ test_that("Getting the GISTIC2 focal ouput", {
                                           page = page,
                                           page_size = page_size,
                                           sort_by = sort_by)
-  expect_equal(nrow(obj), 2)
-  expect_equal(ncol(obj), 7)
+  test.q = "http://firebrowse.org/api/v1/Analyses/CopyNumber/Genes/Focal?format=csv&cohort=PRAD&gene=PTEN&tcga_participant_barcode=TCGA-J4-A67O%2CTCGA-G9-6496&page=1&page_size=250&sort_by=cohort"
+  test.obj = read.table(test.q, header = T, sep = ",")
+  expect_equal(nrow(obj), nrow(test.obj))
+  expect_equal(ncol(obj), ncol(test.obj))
+  
 
   gene = ""
   obj = Analyses.CopyNumber.Genes.Focal(format = format,
@@ -29,8 +32,11 @@ test_that("Getting the GISTIC2 focal ouput", {
                                           page = page,
                                           page_size = page_size,
                                           sort_by = sort_by)
-  expect_equal(nrow(obj), 250)
-  expect_equal(ncol(obj), 7)
+  test.q = "http://firebrowse.org/api/v1/Analyses/CopyNumber/Genes/Focal?format=csv&cohort=PRAD&tcga_participant_barcode=TCGA-J4-A67O%2CTCGA-G9-6496&page=1&page_size=250&sort_by=cohort"
+  test.obj = read.table(test.q, header = T, sep = ",")
+  expect_equal(nrow(obj), nrow(test.obj))
+  expect_equal(ncol(obj), ncol(test.obj))
+  
 
   format = "json"
   obj = Analyses.CopyNumber.Genes.Focal(format = format,
@@ -40,5 +46,5 @@ test_that("Getting the GISTIC2 focal ouput", {
                                           page = page,
                                           page_size = page_size,
                                           sort_by = sort_by)
-  expect_equal(length(obj[[1]]), 250)
+  expect_equal(length(obj[[1]]), nrow(test.obj))
 })

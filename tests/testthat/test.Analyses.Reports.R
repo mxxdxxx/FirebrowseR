@@ -20,7 +20,10 @@ test_that("URLs are retrieved correctly", {
                              page = page,
                              page_size = page_size,
                              sort_by = sort_by)
-  expect_equal(nrow(obj), 26)
+  test.q = "http://firebrowse.org/api/v1/Analyses/Reports?format=csv&date=2014_10_17&name=Aggregate_AnalysisFeatures&page=1&page_size=250&sort_by=date"
+  test.obj = read.table(test.q, header = T, sep = ",")
+  expect_equal(nrow(obj), nrow(test.obj))
+  expect_equal(ncol(obj), ncol(test.obj))
 
   name = ""
   type = "Clustering"
@@ -32,5 +35,8 @@ test_that("URLs are retrieved correctly", {
                              page = page,
                              page_size = page_size,
                              sort_by = sort_by)
-  expect_equal(nrow(obj), 250)
+  test.q = "http://firebrowse.org/api/v1/Analyses/Reports?format=csv&date=2014_10_17&type=Clustering&page=1&page_size=250&sort_by=date"
+  test.obj = read.table(test.q, header = T, sep = ",")
+  expect_equal(nrow(obj), nrow(test.obj))
+  expect_equal(ncol(obj), ncol(test.obj))
 })
