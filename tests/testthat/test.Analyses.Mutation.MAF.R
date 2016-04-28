@@ -12,7 +12,7 @@ test_that("Getting MAF files", {
   page_size = 250
   sort_by = c("gene")
 
-  skip("Skipping MAF test, they take forever")
+  skip("To big to run")
   expect_error(Analyses.Mutation.MAF(format = format,
                                   cohort = cohort,
                                   tool = tool,
@@ -23,8 +23,32 @@ test_that("Getting MAF files", {
                                   page_size = page_size,
                                   sort_by = sort_by))
 
+  gene = c("TP53", "RUNX1")
+  cohort = "COAD"
+  obj = Analyses.Mutation.MAF(format = format,
+                              cohort = cohort,
+                              tool = tool,
+                              gene = gene,
+                              tcga_participant_barcode = tcga_participant_barcode,
+                              column = column,
+                              page = page,
+                              page_size = page_size,
+                              sort_by = sort_by)
+  expect_is(obj, "list")
+  expect_that(length(obj[[1]]), equals(page_size))
+
   tcga_participant_barcode = "TCGA-CH-5761"
   cohort = "PRAD"
+  expect_error(Analyses.Mutation.MAF(format = format,
+                                     cohort = cohort,
+                                     tool = tool,
+                                     gene =gene,
+                                     tcga_participant_barcode = tcga_participant_barcode,
+                                     column = column,
+                                     page = page,
+                                     page_size = page_size,
+                                     sort_by = sort_by))
+
   gene = ""
   obj = Analyses.Mutation.MAF(format = format,
                                   cohort = cohort,
