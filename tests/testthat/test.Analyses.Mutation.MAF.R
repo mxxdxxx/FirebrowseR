@@ -12,6 +12,7 @@ test_that("Getting MAF files", {
   page_size = 250
   sort_by = c("gene")
 
+  skip("To big to run")
   expect_error(Analyses.Mutation.MAF(format = format,
                                   cohort = cohort,
                                   tool = tool,

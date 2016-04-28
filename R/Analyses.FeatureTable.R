@@ -4,7 +4,7 @@
 #'
 #' @param format Format of result. Default value is tsv. While tsv,csv are available. 
 #' @param cohort Narrow search to one or more TCGA disease cohorts from the scrollable list. Multiple values are allowed ACC,BLCA,BRCA,CESC,CHOL,COAD,COADREAD,DLBC,ESCA,FPPP,GBM,GBMLGG,HNSC,KICH,KIPAN,KIRC,KIRP,LAML,LGG,LIHC,LUAD,LUSC,MESO,OV,PAAD,PCPG,PRAD,READ,SARC,SKCM,STAD,STES,TGCT,THCA,THYM,UCEC,UCS,UVM.
-#' @param date Select one or more date stamps. Multiple values are allowed 2015_08_21,2015_04_02,2014_10_17. Default value is 2015_08_21.  
+#' @param date Select one or more date stamps. Multiple values are allowed 2016_01_28,2015_08_21,2015_04_02,2014_10_17. Default value is 2016_01_28.  
 #' @param column Comma separated list of which data columns/fields to return. Multiple values are allowed .
 #' @param page Which page (slice) of entire results set should be returned.  Multiple values are allowed . Default value is 1.  
 #' @param page_size Number of records per page of results.  Max is 2000. Multiple values are allowed . Default value is 250.  
@@ -12,7 +12,7 @@
 #' @export
 Analyses.FeatureTable = function(format = "tsv",
                              cohort = "",
-                             date = "2015_08_21",
+                             date = "2016_01_28",
                              column = "",
                              page = "1",
                              page_size = "250"
