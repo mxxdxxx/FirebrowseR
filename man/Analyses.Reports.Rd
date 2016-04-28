@@ -4,14 +4,14 @@
 \alias{Analyses.Reports}
 \title{Retrieve links to summary reports from Firehose analysis runs.}
 \usage{
-Analyses.Reports(format = "json", date = "2015_08_21", cohort = "",
+Analyses.Reports(format = "json", date = "2016_01_28", cohort = "",
   name = "", type = "", page = "1", page_size = "250",
   sort_by = "date")
 }
 \arguments{
 \item{format}{Format of result. Default value is json. While json,tsv,csv are available.}
 
-\item{date}{Select one or more date stamps. Multiple values are allowed 2015_08_21,2015_04_02,2014_10_17,2014_07_15,2014_04_16,2014_01_15,2013_09_23,2013_05_23,2013_04_21. Default value is 2015_08_21.}
+\item{date}{Select one or more date stamps. Multiple values are allowed 2016_01_28,2015_08_21,2015_04_02,2014_10_17,2014_07_15,2014_04_16,2014_01_15,2013_09_23,2013_05_23,2013_04_21. Default value is 2016_01_28.}
 
 \item{cohort}{Narrow search to one or more TCGA disease cohorts from the scrollable list. Multiple values are allowed ACC,BLCA,BRCA,CESC,CHOL,COAD,COADREAD,DLBC,ESCA,FPPP,GBM,GBMLGG,HNSC,KICH,KIPAN,KIRC,KIRP,LAML,LGG,LIHC,LUAD,LUSC,MESO,OV,PAAD,PCPG,PRAD,READ,SARC,SKCM,STAD,STES,TGCT,THCA,THYM,UCEC,UCS,UVM.}
 
