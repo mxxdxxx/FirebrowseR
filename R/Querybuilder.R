@@ -18,7 +18,7 @@ API.Version = function(){
 
 
 # Forms the version string for the API
-reduce.API.Verion = function(version.String){
+reduce.API.Version = function(version.String){
   version.String = substring(version.String, 1, 2)
   return(version.String)
   }
@@ -34,7 +34,7 @@ build.Query = function(parameters, invoker , method, mass = F){
 
   base.URL = Base.Url()
   api.Version = API.Version()
-  api.Version = reduce.API.Verion(api.Version)
+  api.Version = reduce.API.Version(api.Version)
 
   url = paste(base.URL, api.Version, invoker, method, sep="/")
   if(mass == T){
