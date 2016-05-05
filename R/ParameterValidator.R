@@ -1,5 +1,5 @@
 # validet.Parameters tries to stop the execution, if maleformed arguments are
-# provided, which could later blow the quiery.
+# provided, which could later blow the query.
 validate.Parameters = function(params, to.Validate = ""){
 
   if(params[["format"]] == "json" & !requireNamespace("jsonlite", quietly = TRUE)) {
