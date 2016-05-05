@@ -1,6 +1,6 @@
-#' Return the API version this package was build for
+#' Returns the API version this package was build for
 #'
-#' Returns the API version this package was build for, should match with version
+#' Returns the API version this package was build for. This should match the version
 #' at \url{http://firebrowse.org/api-docs}.
 #'
 #' @examples
@@ -23,13 +23,13 @@ reduce.API.Version = function(version.String){
   return(version.String)
 }
 
-# Return the basic URL
+# Returns the basic URL
 Base.Url = function(){
   return("http://firebrowse.org/api")
 }
 
 
-# Puts together all parameters into string, which is later used to query the API
+# Puts together all parameters into a string which is later used to query the API
 build.Query = function(parameters, invoker , method, mass = F){
 
   base.URL = Base.Url()
