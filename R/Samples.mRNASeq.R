@@ -1,6 +1,6 @@
 #' Retrieve mRNASeq data.
 #' 
-#' This service returns sample-level log2 mRNASeq expression values. Results may be filtered by gene, cohort, barcode, sample type or characterization protocol, but at least one gene OR barcode must be supplied.
+#' This service returns sample-level log2 mRNASeq expression values. Results may be filtered by gene, cohort, barcode, sample type or characterization protocol, but at least one gene must be supplied.
 #'
 #' @param format Format of result. Default value is json. While json,tsv,csv are available. 
 #' @param gene Comma separated list of gene name(s). Multiple values are allowed .
@@ -33,7 +33,7 @@ Samples.mRNASeq = function(format = "json",
                     page = page,
                     page_size = page_size,
                     sort_by = sort_by)
-  to.Validate = c("gene","tcga_participant_barcode")
+  to.Validate = c("gene")
   validate.Parameters(params = parameters, to.Validate = to.Validate)
 
   url = build.Query(parameters = parameters,

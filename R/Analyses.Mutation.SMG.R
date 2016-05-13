@@ -1,6 +1,6 @@
 #' Retrieve Significantly Mutated Genes (SMG).
 #' 
-#' This service provides a list of significantly mutated genes, as scored by MutSig.  It may be filtered by cohort, rank, gene, tool and/or Q-value threshold, but at least one cohort must be supplied.
+#' This service provides a list of significantly mutated genes, as scored by MutSig.  It may be filtered by cohort, rank, gene, tool and/or Q-value threshold, but at least one cohort or gene must be supplied.
 #'
 #' @param format Format of result. Default value is json. While json,tsv,csv are available. 
 #' @param cohort Narrow search to one or more TCGA disease cohorts from the scrollable list. Multiple values are allowed ACC,BLCA,BRCA,CESC,CHOL,COAD,COADREAD,DLBC,ESCA,FPPP,GBM,GBMLGG,HNSC,KICH,KIPAN,KIRC,KIRP,LAML,LGG,LIHC,LUAD,LUSC,MESO,OV,PAAD,PCPG,PRAD,READ,SARC,SKCM,STAD,STES,TGCT,THCA,THYM,UCEC,UCS,UVM.
@@ -33,7 +33,7 @@ Analyses.Mutation.SMG = function(format = "json",
                     page = page,
                     page_size = page_size,
                     sort_by = sort_by)
-  to.Validate = c("cohort")
+  to.Validate = c("cohort","gene")
   validate.Parameters(params = parameters, to.Validate = to.Validate)
 
   url = build.Query(parameters = parameters,

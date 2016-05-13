@@ -28,6 +28,6 @@ Samples.miRSeq(format = "json", mir = "", cohort = "",
 \item{sort_by}{Which column in the results should be used for sorting paginated results? Default value is cohort. While tcga_participant_barcode,cohort,tool,mir,sample_type are available.}
 }
 \description{
-This service returns sample-level log2 miRSeq expression values. Results may be filtered by miR, cohort, barcode, sample type or Firehose preprocessing tool, but at least one miR OR barcode must be supplied.
+This service returns sample-level log2 miRSeq expression values. Results may be filtered by miR, cohort, barcode, sample type or Firehose preprocessing tool, but at least one miR must be supplied.
 }
 

@@ -28,6 +28,6 @@ Analyses.Mutation.SMG(format = "json", cohort = "", tool = "MutSig2CV",
 \item{sort_by}{Which column in the results should be used for sorting paginated results? Default value is rank. While q,cohort,tool,gene,rank are available.}
 }
 \description{
-This service provides a list of significantly mutated genes, as scored by MutSig.  It may be filtered by cohort, rank, gene, tool and/or Q-value threshold, but at least one cohort must be supplied.
+This service provides a list of significantly mutated genes, as scored by MutSig.  It may be filtered by cohort, rank, gene, tool and/or Q-value threshold, but at least one cohort or gene must be supplied.
 }
 

@@ -28,6 +28,6 @@ Samples.mRNASeq(format = "json", gene = "", cohort = "",
 \item{sort_by}{Which column in the results should be used for sorting paginated results? Default value is cohort. While tcga_participant_barcode,cohort,gene,protocol,sample_type are available.}
 }
 \description{
-This service returns sample-level log2 mRNASeq expression values. Results may be filtered by gene, cohort, barcode, sample type or characterization protocol, but at least one gene OR barcode must be supplied.
+This service returns sample-level log2 mRNASeq expression values. Results may be filtered by gene, cohort, barcode, sample type or characterization protocol, but at least one gene must be supplied.
 }
 

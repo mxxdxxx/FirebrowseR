@@ -1,6 +1,6 @@
 #' Retrieve miRSeq data.
 #' 
-#' This service returns sample-level log2 miRSeq expression values. Results may be filtered by miR, cohort, barcode, sample type or Firehose preprocessing tool, but at least one miR OR barcode must be supplied.
+#' This service returns sample-level log2 miRSeq expression values. Results may be filtered by miR, cohort, barcode, sample type or Firehose preprocessing tool, but at least one miR must be supplied.
 #'
 #' @param format Format of result. Default value is json. While json,tsv,csv are available. 
 #' @param mir Comma separated list of miR names (e.g. hsa-let-7b-5p,hsa-let-7a-1). Multiple values are allowed .
@@ -33,7 +33,7 @@ Samples.miRSeq = function(format = "json",
                     page = page,
                     page_size = page_size,
                     sort_by = sort_by)
-  to.Validate = c("mir","tcga_participant_barcode")
+  to.Validate = c("mir")
   validate.Parameters(params = parameters, to.Validate = to.Validate)
 
   url = build.Query(parameters = parameters,
