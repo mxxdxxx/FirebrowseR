@@ -2,7 +2,7 @@ Package: FirebrowseR
 Type: Package
 Title: An 'API' Client for Broads 'Firehose' Pipeline
 Version: 1.1.30
-Date: 2016-05-13 21:27:04
+Date: 2016-05-17 20:02:47
 Author: Mario Deng
 Maintainer: Mario Deng <mariodeng@googlemail.com>
 Description: Get direct and fast information from 'massive genomic' data sets'
