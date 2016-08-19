@@ -35,9 +35,9 @@ test_that("Can data be retrieved in different formats", {
   expect_is(tsv.Data, "data.frame")
   expect_is(json.Data, "list")
 
-  expect_more_than(nrow(csv.Data), 0)
-  expect_more_than(nrow(tsv.Data), 0)
-  expect_more_than(length(json.Data), 0)
+  expect_gt(nrow(csv.Data), 0)
+  expect_gt(nrow(tsv.Data), 0)
+  expect_gt(length(json.Data), 0)
 
 })
 

@@ -53,7 +53,7 @@ print(cancer.Type)
 
 Now that we know that the breast cancer samples are identified be `BRCA`, we can retrieve a list of all patients associated with this identifier.
 ```{r}
-brca.Pats = Samples.Clinical(cohort = cancer.Type)
+brca.Pats = Samples.Clinical(cohort = cancer.Type, format="tsv")
 dim(brca.Pats)
 ```
 
@@ -71,7 +71,7 @@ while(all.Received == F){
                                                page = page.Counter)
   if(page.Counter > 1)
     colnames(brca.Pats[[page.Counter]]) = colnames(brca.Pats[[page.Counter-1]])
-  
+
   if(nrow(brca.Pats[[page.Counter]]) < page.size){
     all.Received = T
   } else{
@@ -116,7 +116,7 @@ We only keep the samples having a primary tumor and corresponding normal tissue 
 # Patients with normal tissue
 normal.Tissue.Pats = which(mRNA.Exp$sample_type == "NT")
 # get the patients barcodes
-patient.Barcodes = mRNA.Exp$tcga_participant_barcode[normal.Tissue.Pats] 
+patient.Barcodes = mRNA.Exp$tcga_participant_barcode[normal.Tissue.Pats]
 # Subset the mRNA.Exp data frame, keeping only the pre-selected barcodes AND
 # having a sample type of NT or TP
 mRNA.Exp = mRNA.Exp[which(mRNA.Exp$tcga_participant_barcode %in% patient.Barcodes &
