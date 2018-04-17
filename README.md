@@ -1,4 +1,4 @@
-#FirebrowseR
+# FirebrowseR
 
 [![Build Status](https://travis-ci.org/mariodeng/FirebrowseR.svg?branch=master)](https://travis-ci.org/mariodeng/FirebrowseR)
 [![Coverage Status](https://codecov.io/github/mariodeng/FirebrowseR/coverage.svg?branch=swagger)](https://codecov.io/github/mariodeng/FirebrowseR?branch=swagger)
